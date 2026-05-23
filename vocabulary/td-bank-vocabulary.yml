@@ -1,0 +1,31 @@
+name: TD Bank Domain Vocabulary
+provider: TD Bank
+providerId: td-bank
+description: Tag-derived vocabulary for the TD Bank API surface; sourced from openapi/ tags and FDX v6.2 data clusters.
+terms:
+- term: Accounts
+- term: Account Aggregation
+- term: AML
+- term: Akoya
+- term: Apps Management
+- term: Bank Secrecy Act
+- term: Bill Payments
+- term: Consents
+- term: Consumer Banking
+- term: Customers
+- term: FDX
+- term: Financial Services
+- term: Merchant Solutions
+- term: Notifications
+- term: OAuth
+- term: Open Banking
+- term: Payees
+- term: Payments
+- term: Pushed Authorization Request
+- term: Recurring Payments
+- term: Rewards
+- term: Service Tokens
+- term: Statements
+- term: Tax Forms
+- term: Token Management
+- term: Transactions

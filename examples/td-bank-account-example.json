@@ -1,0 +1,12 @@
+{
+  "accountId": "td-acct-100000001",
+  "accountType": "CHECKING",
+  "accountCategory": "DEPOSIT_ACCOUNT",
+  "displayName": "TD Complete Checking",
+  "accountNumberDisplay": "****4837",
+  "currency": "USD",
+  "currentBalance": 4287.52,
+  "availableBalance": 4187.52,
+  "openingDayBalance": 4287.52,
+  "status": "OPEN"
+}

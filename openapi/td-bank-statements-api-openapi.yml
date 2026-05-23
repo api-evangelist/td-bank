@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Statements API
+  description: >-
+    FDX v6.2 Statements endpoint. Lists available statement periods for a
+    consented TD account and lets consumers retrieve the statement PDF.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: Statements v1.0.0 API Spec
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/statements-v1-0-0-api-spec-ofs
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+    description: Sandbox
+tags:
+  - name: Statements
+security:
+  - oauth2: []
+paths:
+  /accounts/{accountId}/statements:
+    get:
+      operationId: listStatements
+      summary: List Account Statements
+      tags: [Statements]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: startTime
+          in: query
+          required: false
+          schema: { type: string, format: date-time }
+        - name: endTime
+          in: query
+          required: false
+          schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Statements list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statements:
+                    type: array
+                    items: { $ref: '#/components/schemas/Statement' }
+  /accounts/{accountId}/statements/{statementId}:
+    get:
+      operationId: getStatement
+      summary: Get Statement
+      tags: [Statements]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: statementId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Statement (PDF or metadata)
+          content:
+            application/pdf:
+              schema: { type: string, format: binary }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            statements_read: Read statements
+  schemas:
+    Statement:
+      type: object
+      required: [statementId]
+      properties:
+        statementId: { type: string }
+        description: { type: string }
+        statementDate: { type: string, format: date }
+        statusType: { type: string }

@@ -1,0 +1,38 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TD Account Aggregation Pull (Workflow)
+  description: 'Workflow composition: full account snapshot for a consented TD customer — list accounts, fetch detail for each, pull transactions for last 90 days, list statements + tax forms, and resolve customer holders. Composes Account Basic, Account Detailed, Transactions, Statements, Tax Forms, and Customer capabilities.'
+  tags:
+  - TD Bank
+  - Account Aggregation
+  - FDX
+  - Open Banking
+  - Workflow
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+- namespace: env
+  keys:
+    TD_BANK_API_KEY: TD_BANK_API_KEY
+capability:
+  consumes:
+  - type: capability
+    ref: capabilities/account-basic-accounts.yaml
+  - type: capability
+    ref: capabilities/account-detailed-accounts.yaml
+  - type: capability
+    ref: capabilities/transactions-transactions.yaml
+  - type: capability
+    ref: capabilities/statements-statements.yaml
+  - type: capability
+    ref: capabilities/tax-forms-tax-forms.yaml
+  - type: capability
+    ref: capabilities/customer-customers.yaml
+  exposes:
+  - type: rest
+    namespace: account-aggregation-pull-rest
+    port: 8080
+    description: REST adapter for the composed aggregation pull.
+    resources:
+    - path: /v1/aggregation-pull
+      name: aggregationPull

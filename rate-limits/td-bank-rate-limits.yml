@@ -1,0 +1,66 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: TD Bank
+providerId: td-bank
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: false
+tags:
+  - Rate Limiting
+  - Banking
+  - FDX
+  - Akoya
+description: TD Bank's Open Banking developer portal does not publish numeric per-second / per-minute
+  rate limits. Access is partner-gated via OAuth 2.0 with Pushed Authorization Request (PAR) and is
+  bounded by FDX consent and Akoya onboarding agreements. Throttling and quotas are governed by the
+  partner-app configuration. Customer consent revocation is the ultimate rate-limiting mechanism — a
+  revoked consent immediately blocks Data API access for that resource.
+notes: No public per-app or per-key rate limit numbers documented; partner-negotiated. Maintenance and
+  consent events are surfaced through the Notifications API.
+sources:
+  - https://developer.td.com
+  - https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+  - https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow
+  - https://docs.pat.openbanking.amcb.developer.td.com/guides/api-error-reference
+responseCodes:
+  throttled: 429
+  unauthorized: 401
+  forbidden: 403
+  serviceUnavailable: 503
+limits:
+  - name: FDX Data APIs (Account Basic/Detailed, Customer, Transactions, Statements, Tax Forms, Bill Payment, Rewards)
+    scope: oauth_client
+    metric: varies
+    limit: see Akoya partner agreement
+  - name: Consent API
+    scope: oauth_client
+    metric: varies
+    limit: see Akoya partner agreement
+  - name: Token / Service Token APIs
+    scope: oauth_client
+    metric: varies
+    limit: see Akoya partner agreement
+  - name: Apps Management API v2
+    scope: service_token
+    metric: varies
+    limit: see Akoya partner agreement
+  - name: Notifications API
+    scope: service_token
+    metric: varies
+    limit: see Akoya partner agreement
+policies:
+  - name: OAuth 2.0 with PAR
+    description: Every Data API call requires an OAuth 2.0 access token obtained via the Pushed Authorization
+      Request flow; utility APIs use client_credentials Service Tokens.
+  - name: FDX Consent Gating
+    description: Every Data API resource is gated by an active FDX consent. Revoked or expired consents
+      immediately produce 401/403.
+  - name: Backoff Strategy
+    description: Use exponential backoff with jitter on 429/503; honor Retry-After when present.
+  - name: Notifications-Driven Backoff
+    description: Subscribe to the Notifications API for maintenance and consent_revoked events; reduce
+      polling during announced maintenance windows.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,65 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TD Bank Account Detailed API — Accounts
+  description: 'TD Bank Account Detailed — FDX v6.2 comprehensive account record (structure, terms, balances, identifiers). 2 operations. Lead operation: Get account detail. Self-contained Naftiko capability.'
+  tags:
+  - TD Bank
+  - Accounts
+  - FDX
+  - Open Banking
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+- namespace: env
+  keys:
+    TD_BANK_API_KEY: TD_BANK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: account-detailed-accounts
+    baseUri: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: TD Account Detailed business capability. Self-contained, no shared references.
+    resources:
+    - name: accounts-accountId
+      path: /accounts/{accountId}
+      operations:
+      - name: getaccount
+        method: GET
+        description: Get Account Detail
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+    - name: accounts-accountId-contact
+      path: /accounts/{accountId}/contact
+      operations:
+      - name: getaccountcontact
+        method: GET
+        description: Get Account Contact
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.TD_BANK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: account-detailed-accounts-rest
+    port: 8080
+    description: REST adapter for TD Account Detailed.
+    resources:
+    - path: /v1/accounts/{accountId}
+      name: account

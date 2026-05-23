@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Tax Forms API
+  description: >-
+    FDX v6.2 Tax Forms endpoint. Lists tax forms (1099-INT, 1099-DIV, etc.)
+    issued for a consented TD account in a given year and lets consumers
+    retrieve the form PDF.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: TD Open Banking — About Our APIs
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+    description: Sandbox
+tags:
+  - name: Tax Forms
+security:
+  - oauth2: []
+paths:
+  /accounts/{accountId}/tax-forms:
+    get:
+      operationId: listTaxForms
+      summary: List Tax Forms
+      tags: [Tax Forms]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: taxYear
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Tax forms list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  taxForms:
+                    type: array
+                    items: { $ref: '#/components/schemas/TaxForm' }
+  /accounts/{accountId}/tax-forms/{taxFormId}:
+    get:
+      operationId: getTaxForm
+      summary: Get Tax Form
+      tags: [Tax Forms]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: taxFormId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Tax form PDF
+          content:
+            application/pdf:
+              schema: { type: string, format: binary }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            tax_forms_read: Read tax forms
+  schemas:
+    TaxForm:
+      type: object
+      required: [taxFormId, taxYear, taxFormType]
+      properties:
+        taxFormId: { type: string }
+        taxYear: { type: integer }
+        taxFormType: { type: string }
+        taxFormDate: { type: string, format: date }

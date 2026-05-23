@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Notifications API
+  description: >-
+    Notifications API. Retrieves alerts about significant changes on the
+    TD/Akoya network — planned and unplanned maintenance outages, plus
+    consent events covering revoked or modified consumer consents. Lets
+    data recipients react to consent revocations and platform incidents
+    in near real time.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: TD Open Banking — About Our APIs
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/notifications/v1
+    description: Production
+tags:
+  - name: Notifications
+security:
+  - serviceToken: []
+paths:
+  /notifications:
+    get:
+      operationId: listNotifications
+      summary: List Notifications
+      tags: [Notifications]
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [maintenance, consent_revoked, consent_changed]
+        - name: since
+          in: query
+          required: false
+          schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Notifications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notifications:
+                    type: array
+                    items: { $ref: '#/components/schemas/Notification' }
+  /notifications/{notificationId}:
+    get:
+      operationId: getNotification
+      summary: Get Notification
+      tags: [Notifications]
+      parameters:
+        - name: notificationId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Notification detail
+components:
+  securitySchemes:
+    serviceToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Notification:
+      type: object
+      required: [notificationId, category]
+      properties:
+        notificationId: { type: string }
+        category: { type: string }
+        severity: { type: string }
+        title: { type: string }
+        description: { type: string }
+        affectedResources:
+          type: array
+          items: { type: string }
+        consentId: { type: string }
+        createdAt: { type: string, format: date-time }

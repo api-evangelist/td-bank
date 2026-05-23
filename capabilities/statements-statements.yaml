@@ -1,0 +1,59 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TD Bank Statements API — Statements
+  description: 'TD Bank Statements — FDX v6.2 statement-period listing and PDF retrieval per consented account. 2 operations.'
+  tags:
+  - TD Bank
+  - Statements
+  - FDX
+  - Open Banking
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+- namespace: env
+  keys:
+    TD_BANK_API_KEY: TD_BANK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: statements-statements
+    baseUri: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: TD Statements API.
+    resources:
+    - name: accounts-accountId-statements
+      path: /accounts/{accountId}/statements
+      operations:
+      - name: liststatements
+        method: GET
+        description: List Account Statements
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+    - name: accounts-accountId-statements-statementId
+      path: /accounts/{accountId}/statements/{statementId}
+      operations:
+      - name: getstatement
+        method: GET
+        description: Get Statement
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+        - name: statementId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.TD_BANK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: statements-rest
+    port: 8080
+    description: REST adapter for TD Statements API.
+    resources:
+    - path: /v1/statements
+      name: statements

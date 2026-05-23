@@ -1,0 +1,44 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TD Bank Account Basic API — Accounts
+  description: 'TD Bank Account Basic — FDX v6.2 lightweight accounts list. 1 operation. Lead operation: List consented accounts. Self-contained Naftiko capability covering one TD Open Banking business surface.'
+  tags:
+  - TD Bank
+  - Accounts
+  - FDX
+  - Open Banking
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+- namespace: env
+  keys:
+    TD_BANK_API_KEY: TD_BANK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: account-basic-accounts
+    baseUri: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: TD Account Basic business capability. Self-contained, no shared references.
+    resources:
+    - name: accounts
+      path: /accounts
+      operations:
+      - name: listaccounts
+        method: GET
+        description: List Consented Accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.TD_BANK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: account-basic-accounts-rest
+    port: 8080
+    description: REST adapter for TD Account Basic. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/accounts
+      name: accounts

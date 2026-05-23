@@ -1,0 +1,67 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: TD Bank
+providerId: td-bank
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - Banking
+  - Open Banking
+  - FDX
+description: 'FOCUS-aligned FinOps framing for TD Bank developer APIs. The Open Banking API surface
+  is partner-contracted via the Akoya Data Access Network — revenue and cost recovery flow through Akoya
+  partner agreements and FDX consent economics rather than a per-API price list. TD Merchant Solutions
+  (TD Online Mart) revenue flows through interchange and acquirer fees. The single largest non-recurring
+  cost on TD''s books in this period is the October 2024 $3B+ Bank Secrecy Act / AML settlement, captured
+  in review.yml.'
+notes: APIs are not separately priced; meters reflect partner integration billing surface.
+sources:
+  - https://developer.td.com
+  - https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+  - https://akoya.com/
+  - https://www.td.com/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: TD Bank, N.A. (Toronto-Dominion Bank)
+serviceCategory: Financial Services / Banking / Open Banking
+billingModel:
+  pricingCategory: Partner Contract + Interchange
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Adjustment
+    - Refund
+focusColumns:
+  ServiceName: TD Bank Open Banking APIs
+  ServiceCategory: Financial Services
+  ProviderName: TD Bank
+  PublisherName: TD Bank, N.A.
+  InvoiceIssuerName: TD Bank, N.A.
+  BillingCurrency: USD
+meters:
+  - name: fdx_consents
+    unit: consent
+    aggregation: sum
+  - name: aggregation_requests
+    unit: request
+    aggregation: sum
+  - name: data_clusters_purchased
+    unit: cluster
+    aggregation: sum
+  - name: recurring_payments_processed
+    unit: payment
+    aggregation: sum
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

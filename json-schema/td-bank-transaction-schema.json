@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.td.com/schemas/transaction.json",
+  "title": "TD Bank FDX Transaction",
+  "type": "object",
+  "required": ["transactionId", "amount"],
+  "properties": {
+    "transactionId": { "type": "string" },
+    "amount": { "type": "number" },
+    "debitCreditMemo": { "type": "string", "enum": ["DEBIT", "CREDIT", "MEMO"] },
+    "description": { "type": "string" },
+    "memo": { "type": "string" },
+    "status": { "type": "string", "enum": ["PENDING", "POSTED", "AUTHORIZED"] },
+    "transactionTimestamp": { "type": "string", "format": "date-time" },
+    "postedTimestamp": { "type": "string", "format": "date-time" },
+    "merchant": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "categoryCode": { "type": "string" },
+        "address": { "type": "object" }
+      }
+    },
+    "category": { "type": "string" }
+  }
+}

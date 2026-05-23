@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.td.com/schemas/consent.json",
+  "title": "TD Bank FDX Consent",
+  "type": "object",
+  "required": ["consentId", "status"],
+  "properties": {
+    "consentId": { "type": "string" },
+    "status": { "type": "string", "enum": ["ACTIVE", "REVOKED", "EXPIRED"] },
+    "durationType": { "type": "string", "enum": ["ONE_TIME", "PERSISTENT"] },
+    "durationPeriod": { "type": "integer" },
+    "grantedAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resourceType": { "type": "string" },
+          "accountId": { "type": "string" },
+          "dataClusters": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

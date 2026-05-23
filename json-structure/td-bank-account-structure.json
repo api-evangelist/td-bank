@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "title": "TD Bank FDX Account Structure",
+  "description": "Logical structure of a TD Bank FDX v6.2 account record as returned by the Account Detailed API.",
+  "groups": [
+    {
+      "name": "identifiers",
+      "fields": ["accountId", "accountNumberDisplay", "currency"]
+    },
+    {
+      "name": "classification",
+      "fields": ["accountType", "accountCategory", "displayName", "status"]
+    },
+    {
+      "name": "balances",
+      "fields": ["currentBalance", "availableBalance", "openingDayBalance"]
+    },
+    {
+      "name": "deposit",
+      "fields": ["interestRate", "interestType", "interestYtd"]
+    },
+    {
+      "name": "loan",
+      "fields": ["originalLoanAmount", "principalBalance", "loanInterestRate"]
+    },
+    {
+      "name": "investment",
+      "fields": ["holdings"]
+    }
+  ]
+}

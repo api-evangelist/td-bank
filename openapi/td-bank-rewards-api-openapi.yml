@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Rewards API
+  description: >-
+    TD Open Banking Rewards API v1.0.0. Returns reward program and
+    membership information for the currently authenticated user — used to
+    track participation across travel, retail, and merchant programs tied
+    to TD credit card and loyalty accounts.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: Rewards 1.0.0 API Spec
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/rewards-api-spec-hdi
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+    description: Sandbox
+tags:
+  - name: Rewards
+security:
+  - oauth2: []
+paths:
+  /rewards-programs:
+    get:
+      operationId: listRewardsPrograms
+      summary: List Rewards Programs
+      tags: [Rewards]
+      responses:
+        '200':
+          description: Reward programs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  programs:
+                    type: array
+                    items: { $ref: '#/components/schemas/RewardProgram' }
+  /rewards-programs/{programId}:
+    get:
+      operationId: getRewardsProgram
+      summary: Get Rewards Program
+      tags: [Rewards]
+      parameters:
+        - name: programId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Reward program detail
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            rewards_read: Read rewards info
+  schemas:
+    RewardProgram:
+      type: object
+      required: [programId, name]
+      properties:
+        programId: { type: string }
+        name: { type: string }
+        sponsor: { type: string }
+        currency: { type: string }
+        currentBalance: { type: number }
+        category: { type: string }
+        memberSince: { type: string, format: date }

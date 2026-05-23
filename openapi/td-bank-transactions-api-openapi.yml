@@ -1,0 +1,130 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Transactions API
+  description: >-
+    FDX v6.2 Transactions endpoint. Returns posted and pending transactions
+    for a consented TD account, including amounts, dates, descriptions,
+    merchant fields, and status. Supports date-range filtering, pagination,
+    and transaction image retrieval.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: TD Open Banking — About Our APIs
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+    description: Sandbox
+tags:
+  - name: Transactions
+security:
+  - oauth2: []
+paths:
+  /accounts/{accountId}/transactions:
+    get:
+      operationId: listTransactions
+      summary: List Transactions
+      tags: [Transactions]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: startTime
+          in: query
+          required: false
+          schema: { type: string, format: date-time }
+        - name: endTime
+          in: query
+          required: false
+          schema: { type: string, format: date-time }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Transactions list
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransactionList' }
+  /accounts/{accountId}/transactions/{transactionId}:
+    get:
+      operationId: getTransaction
+      summary: Get Transaction
+      tags: [Transactions]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: transactionId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Transaction detail
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Transaction' }
+  /accounts/{accountId}/transactions/{transactionId}/image:
+    get:
+      operationId: getTransactionImage
+      summary: Get Transaction Image
+      tags: [Transactions]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: transactionId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Transaction image
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            transactions_read: Read transactions
+  schemas:
+    TransactionList:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items: { $ref: '#/components/schemas/Transaction' }
+        page:
+          type: object
+          properties:
+            nextOffset: { type: string }
+    Transaction:
+      type: object
+      required: [transactionId, amount]
+      properties:
+        transactionId: { type: string }
+        amount: { type: number }
+        debitCreditMemo: { type: string, enum: [DEBIT, CREDIT, MEMO] }
+        description: { type: string }
+        memo: { type: string }
+        status: { type: string }
+        transactionTimestamp: { type: string, format: date-time }
+        postedTimestamp: { type: string, format: date-time }
+        merchant:
+          type: object
+          properties:
+            name: { type: string }
+            categoryCode: { type: string }
+            address: { type: object }
+        category: { type: string }

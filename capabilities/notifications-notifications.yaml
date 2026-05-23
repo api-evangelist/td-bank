@@ -1,0 +1,50 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TD Bank Notifications API — Notifications
+  description: 'TD Bank Notifications — maintenance and consent events on the TD/Akoya network. 2 operations.'
+  tags:
+  - TD Bank
+  - Notifications
+  - Akoya
+  - Open Banking
+  created: '2026-05-23'
+  modified: '2026-05-23'
+binds:
+- namespace: env
+  keys:
+    TD_BANK_SERVICE_TOKEN: TD_BANK_SERVICE_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: notifications-notifications
+    baseUri: https://api.openbanking.amcb.developer.td.com/notifications/v1
+    description: TD Notifications API.
+    resources:
+    - name: notifications
+      path: /notifications
+      operations:
+      - name: listnotifications
+        method: GET
+        description: List Notifications
+    - name: notifications-notificationId
+      path: /notifications/{notificationId}
+      operations:
+      - name: getnotification
+        method: GET
+        description: Get Notification
+        inputParameters:
+        - name: notificationId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.TD_BANK_SERVICE_TOKEN}}'
+  exposes:
+  - type: rest
+    namespace: notifications-rest
+    port: 8080
+    description: REST adapter for TD Notifications API.
+    resources:
+    - path: /v1/notifications
+      name: notifications

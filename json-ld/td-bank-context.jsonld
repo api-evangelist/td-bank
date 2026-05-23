@@ -1,0 +1,135 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "tdbank": "https://developer.td.com/schemas/",
+    "fdx": "https://api.fdx.org/schemas/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Account": {
+      "@id": "fdx:Account",
+      "@context": {
+        "accountId": "fdx:accountId",
+        "accountType": "fdx:accountType",
+        "accountCategory": "fdx:accountCategory",
+        "displayName": "schema:name",
+        "accountNumberDisplay": "fdx:accountNumberDisplay",
+        "currency": "schema:currency",
+        "currentBalance": {
+          "@id": "fdx:currentBalance",
+          "@type": "xsd:decimal"
+        },
+        "availableBalance": {
+          "@id": "fdx:availableBalance",
+          "@type": "xsd:decimal"
+        },
+        "openingDayBalance": {
+          "@id": "fdx:openingDayBalance",
+          "@type": "xsd:decimal"
+        },
+        "status": "fdx:status"
+      }
+    },
+
+    "Transaction": {
+      "@id": "fdx:Transaction",
+      "@context": {
+        "transactionId": "fdx:transactionId",
+        "amount": {
+          "@id": "fdx:amount",
+          "@type": "xsd:decimal"
+        },
+        "debitCreditMemo": "fdx:debitCreditMemo",
+        "description": "schema:description",
+        "memo": "fdx:memo",
+        "status": "fdx:status",
+        "postedTimestamp": {
+          "@id": "fdx:postedTimestamp",
+          "@type": "xsd:dateTime"
+        },
+        "transactionTimestamp": {
+          "@id": "fdx:transactionTimestamp",
+          "@type": "xsd:dateTime"
+        },
+        "merchant": "fdx:merchant",
+        "category": "schema:category"
+      }
+    },
+
+    "Customer": {
+      "@id": "fdx:Customer",
+      "@context": {
+        "customerId": "fdx:customerId",
+        "name": "schema:name",
+        "addresses": "schema:address",
+        "telephones": "schema:telephone",
+        "email": "schema:email"
+      }
+    },
+
+    "Consent": {
+      "@id": "fdx:Consent",
+      "@context": {
+        "consentId": "fdx:consentId",
+        "status": "fdx:status",
+        "durationType": "fdx:durationType",
+        "durationPeriod": "fdx:durationPeriod",
+        "grantedAt": {
+          "@id": "fdx:grantedAt",
+          "@type": "xsd:dateTime"
+        },
+        "expiresAt": {
+          "@id": "fdx:expiresAt",
+          "@type": "xsd:dateTime"
+        },
+        "resources": "fdx:resources"
+      }
+    },
+
+    "Statement": {
+      "@id": "fdx:Statement",
+      "@context": {
+        "statementId": "fdx:statementId",
+        "description": "schema:description",
+        "statementDate": {
+          "@id": "fdx:statementDate",
+          "@type": "xsd:date"
+        },
+        "statusType": "fdx:statusType"
+      }
+    },
+
+    "TaxForm": {
+      "@id": "fdx:TaxForm",
+      "@context": {
+        "taxFormId": "fdx:taxFormId",
+        "taxYear": "fdx:taxYear",
+        "taxFormType": "fdx:taxFormType",
+        "taxFormDate": {
+          "@id": "fdx:taxFormDate",
+          "@type": "xsd:date"
+        }
+      }
+    },
+
+    "RewardProgram": {
+      "@id": "tdbank:RewardProgram",
+      "@context": {
+        "programId": "tdbank:programId",
+        "name": "schema:name",
+        "sponsor": "schema:provider",
+        "currency": "schema:currency",
+        "currentBalance": {
+          "@id": "tdbank:currentBalance",
+          "@type": "xsd:decimal"
+        },
+        "category": "schema:category",
+        "memberSince": {
+          "@id": "tdbank:memberSince",
+          "@type": "xsd:date"
+        }
+      }
+    }
+  }
+}

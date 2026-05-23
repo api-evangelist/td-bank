@@ -1,0 +1,24 @@
+{
+  "customerId": "td-cust-77231",
+  "name": {
+    "first": "Jordan",
+    "middle": "A",
+    "last": "Rivera"
+  },
+  "addresses": [
+    {
+      "line1": "1812 Beacon St",
+      "city": "Brookline",
+      "region": "MA",
+      "postalCode": "02445",
+      "country": "US",
+      "type": "HOME"
+    }
+  ],
+  "telephones": [
+    { "number": "+1-617-555-0144", "type": "MOBILE" }
+  ],
+  "email": [
+    { "email": "jordan.rivera@example.com", "type": "PRIMARY" }
+  ]
+}

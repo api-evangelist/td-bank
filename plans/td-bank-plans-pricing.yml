@@ -1,0 +1,98 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: TD Bank
+providerId: td-bank
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: false
+tags:
+  - Banking
+  - Open Banking
+  - FDX
+  - Akoya
+  - Merchant Solutions
+description: TD Bank's Open Banking developer portal (developer.td.com / openbanking.amcb.developer.td.com)
+  publishes documentation, sandbox, and credential management for vetted fintech data recipients and
+  partner aggregators. Commercial access is partner-gated and brokered through the Akoya Data Access
+  Network — TD does not publish a per-call API price list. TD Merchant Solutions (TD Online Mart, Worldline-backed)
+  prices on standard merchant-acquiring economics (interchange + acquirer fees) rather than per API call.
+notes: No public per-call API price list. Aggregation access is partner-contracted via Akoya; merchant
+  payment APIs are bundled into merchant-services agreements.
+sources:
+  - https://developer.td.com
+  - https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+  - https://akoya.com/
+  - https://www.td.com/us/en/small-business/merchant-solutions
+plans:
+  - id: td-bank-fdx-aggregation-partner
+    name: FDX Aggregation Partner (Akoya)
+    type: enterprise
+    description: FDX v6.2 access to TD customer account data for vetted data recipients via the Akoya Data
+      Access Network. Covers Account Basic, Account Detailed, Customer, Transactions, Statements, Tax
+      Forms, Bill Payment, and Rewards. OAuth 2.0 with PAR + FDX consent.
+    entries:
+      - label: FDX partner access
+        name: fdx_partner
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: contract
+        userMultiplied: false
+    elements:
+      - name: Account Basic / Detailed / Customer / Transactions
+      - name: Statements / Tax Forms / Bill Payment / Rewards
+      - name: FDX v6.2 consent flows
+      - name: OAuth 2.0 with Pushed Authorization Request (PAR)
+      - name: Akoya network onboarding
+
+  - id: td-bank-apps-management
+    name: Apps Management & Notifications (Utility)
+    type: enterprise
+    description: Apps Management API v2 + Notifications API for partner-side app lifecycle, FDX cluster
+      purchases, subscriptions, and consent / maintenance alerts. Authenticated via Service Token
+      (client-credentials).
+    entries:
+      - label: Utility API access
+        name: utility_apis
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: contract
+        userMultiplied: false
+    elements:
+      - name: Apps Management API v2
+      - name: Notifications API
+      - name: Service Token API (client_credentials)
+
+  - id: td-bank-merchant-solutions
+    name: TD Merchant Solutions (TD Online Mart)
+    type: enterprise
+    description: TD Online Mart (Worldline-backed) for ecommerce card-present and recurring payments.
+      Pricing follows TD Merchant Solutions agreements — interchange plus acquirer fees, not per-API
+      call.
+    entries:
+      - label: Merchant acquiring
+        name: merchant_acquiring
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: US/CA
+        unit: 1
+        price: contract
+        userMultiplied: false
+    elements:
+      - name: Recurring Payment API
+      - name: API Passcode / Username-Password / Hash Key auth
+      - name: Card brand support (Visa, Mastercard, Amex, Discover, UnionPay, Interac)
+      - name: Mobile wallets (Apple Pay, Google Pay, Alipay, WeChat Pay)
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

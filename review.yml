@@ -1,0 +1,114 @@
+provider: TD Bank
+providerId: td-bank
+reviewedBy: Kin Lane
+reviewedAt: '2026-05-23'
+url: https://developer.td.com
+parent: Toronto-Dominion Bank (TD Bank Group)
+country: US (subsidiary of Canadian parent)
+tagline: America's Most Convenient Bank
+type: company
+
+surface:
+  portal: https://developer.td.com
+  docs: https://docs.pat.openbanking.amcb.developer.td.com/
+  sandbox: https://api.openbanking.amcb.developer.td.com/sandbox
+  production: https://api.openbanking.amcb.developer.td.com
+  standards:
+    - FDX v6.2
+    - OAuth 2.0 with Pushed Authorization Request (PAR)
+    - Akoya Data Access Network
+  aggregatorPartners:
+    - Akoya
+    - Plaid
+  github: https://github.com/TD-Bank
+  githubPublicRepos: 0
+
+scale:
+  customers: 10000000+
+  footprintQuote: "As one of the 10 largest banks in the U.S., TD serves over 10 million retail, small
+    business and commercial customers from Maine to Florida."
+  footprintSource: https://www.td.com/us/en/about-us
+  branches: ~1100
+
+events:
+
+  - id: first-horizon-termination
+    date: 2023-05-04
+    category: M&A
+    headline: TD Bank and First Horizon mutually terminate proposed $13B merger
+    summary: TD informed First Horizon that it could not see a clear path to regulatory approval. The
+      original merger was announced February 28, 2022 at ~$13B. TD paid First Horizon $225M in cash
+      plus a $25M reimbursement on termination.
+    quote: "This decision provides our colleagues and shareholders with clarity. Though disappointed
+      with the outcome, we move forward with a strong, growing franchise in the United States,
+      servicing more than 10 million customers across our footprint."
+    quoteAttribution: Bharat Masrani, Group President and CEO of TD Bank Group
+    sources:
+      - https://td.mediaroom.com/2023-05-04-TD-Bank-and-First-Horizon-Mutually-Agree-to-Terminate-Merger-Agreement
+      - https://www.sec.gov/Archives/edgar/data/0000036966/000003696623000042/a5042023xexh99xpressrelease.htm
+      - https://www.bloomberg.com/news/articles/2023-05-04/td-bank-and-first-horizon-agree-to-terminate-13-billion-merger
+
+  - id: aml-bsa-guilty-plea-2024
+    date: 2024-10-10
+    category: Regulatory / Enforcement
+    headline: TD Bank pleads guilty to BSA / money-laundering conspiracy violations; pays $3B+ in penalties
+    summary: TD Bank, N.A. became the first U.S. bank in history to plead guilty to felony conspiracy
+      to commit money laundering. Total penalties exceeded $3 billion across DOJ ($1.8B in criminal
+      fine + forfeiture), FinCEN ($1.3B), OCC, and the Federal Reserve. According to the agencies,
+      TD failed to monitor 92% of its transaction volume over a six-year period — approximately $18.3
+      trillion in unmonitored transactions. In one identified scheme, five TD employees conspired with
+      a criminal network to issue dozens of ATM cards used to launder approximately $39 million in
+      drug-cartel proceeds. The settlement included an asset-cap-style growth restriction at TD Bank,
+      N.A. and installation of an independent compliance monitor for three years.
+    penalty:
+      total: 3000000000+
+      currency: USD
+      breakdown:
+        DOJ: 1800000000
+        FinCEN: 1300000000
+      monitorshipYears: 3
+      firstBankToPleadGuiltyToMLConspiracy: true
+    sources:
+      - https://www.cnbc.com/2024/10/10/td-bank-3-billion-fine-doj-settle-money-laundering-drug-cartel.html
+      - https://www.asisonline.org/security-management-magazine/latest-news/today-in-security/2024/october/TD-Bank-Pled-Guilty/
+      - https://www.financialservicesperspectives.com/2024/10/td-banks-historic-3-1b-money-laundering-settlement-a-warning-to-all-financial-institutions/
+      - https://worldecomag.com/td-bank-aml-penalty-2024/
+      - https://finintegrity.org/a-3-billion-mistake/
+      - https://www.sec.gov/Archives/edgar/data/0000947263/000127956924000489/ex991.htm
+    impactOnDeveloperSurface:
+      - Heightened compliance monitoring across TD U.S. systems likely tightens FDX consent logging,
+        anomaly detection, and partner-app vetting on developer.td.com.
+      - Three-year independent monitor + asset-growth restriction at TD Bank, N.A. constrains aggressive
+        new-product rollouts; expect API surface to stay focused on FDX/Akoya rather than expanding
+        into payment initiation in the near term.
+
+  - id: akoya-network-join
+    date: 2021-09-13
+    category: Partnership
+    headline: TD Bank, U.S. joins Akoya Data Access Network
+    summary: TD adopted API-based data access via Akoya, eliminating screen-scraping / credential-sharing
+      for participating aggregators. Data sharing began October 2021. This is the foundation for the
+      current developer.td.com / openbanking.amcb.developer.td.com FDX surface.
+    quote: "APIs provide a safer, secure way for customers to share data and will play a key role in
+      helping to facilitate innovation through the creation of data-driven apps and financial
+      services."
+    quoteAttribution: Stuart Rubinstein, CEO of Akoya
+    sources:
+      - https://stories.td.com/us/en/article/td-bank-joins-the-akoya-data-access-network-to-accelerate-open-finance
+
+  - id: plaid-data-access-agreement
+    date: 2023-12-14
+    category: Partnership
+    headline: TD Bank Group and Plaid sign North American data-access agreement
+    summary: Bilateral agreement enables TD customers in Canada and the U.S. to connect TD accounts
+      to Plaid's network of 8,000+ apps and services through API-based access rather than credential
+      sharing.
+    sources:
+      - https://stories.td.com/ca/en/news/2023-12-14-td-bank-group-and-plaid-enter-into-north-american-data-acces
+
+absences:
+  - No public per-call rate limit numbers
+  - No public OpenAPI download bundle (specs reconstructed from docs.pat.openbanking.amcb.developer.td.com)
+  - TD-Bank GitHub org is private — zero public repos / SDKs
+  - No public sandbox self-signup — Akoya / partner vetting required
+  - No public AsyncAPI / webhook spec (event flow is Notifications-API pull, not push)

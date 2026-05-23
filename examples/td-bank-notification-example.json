@@ -1,0 +1,10 @@
+{
+  "notificationId": "td-ntf-2026-05-23-a91c",
+  "category": "consent_revoked",
+  "severity": "INFO",
+  "title": "Consumer revoked consent",
+  "description": "The consumer revoked consent td-cnst-2026-05-22-9d3b7e8a covering account td-acct-100000001.",
+  "affectedResources": ["td-acct-100000001"],
+  "consentId": "td-cnst-2026-05-22-9d3b7e8a",
+  "createdAt": "2026-05-23T10:14:08Z"
+}

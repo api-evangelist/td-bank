@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.td.com/schemas/customer.json",
+  "title": "TD Bank FDX Customer",
+  "type": "object",
+  "required": ["customerId", "name"],
+  "properties": {
+    "customerId": { "type": "string" },
+    "name": {
+      "type": "object",
+      "properties": {
+        "first": { "type": "string" },
+        "middle": { "type": "string" },
+        "last": { "type": "string" }
+      }
+    },
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "line1": { "type": "string" },
+          "line2": { "type": "string" },
+          "city": { "type": "string" },
+          "region": { "type": "string" },
+          "postalCode": { "type": "string" },
+          "country": { "type": "string" },
+          "type": { "type": "string" }
+        }
+      }
+    },
+    "telephones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": { "type": "string" },
+          "type": { "type": "string" }
+        }
+      }
+    },
+    "email": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string", "format": "email" },
+          "type": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "consentId": "td-cnst-2026-05-22-9d3b7e8a",
+  "status": "ACTIVE",
+  "durationType": "PERSISTENT",
+  "durationPeriod": 365,
+  "grantedAt": "2026-05-22T14:08:22Z",
+  "expiresAt": "2027-05-22T14:08:22Z",
+  "resources": [
+    {
+      "resourceType": "ACCOUNT",
+      "accountId": "td-acct-100000001",
+      "dataClusters": [
+        "ACCOUNT_BASIC",
+        "ACCOUNT_DETAILED",
+        "TRANSACTIONS",
+        "CUSTOMER_CONTACT",
+        "STATEMENTS"
+      ]
+    }
+  ]
+}

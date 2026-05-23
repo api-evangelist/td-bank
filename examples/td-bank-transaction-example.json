@@ -1,0 +1,20 @@
+{
+  "transactionId": "td-txn-9f8a1c33-2b91-4c80-9d3b-7e8a1c14b001",
+  "amount": -54.18,
+  "debitCreditMemo": "DEBIT",
+  "description": "WHOLE FOODS MKT #12450",
+  "memo": "Groceries",
+  "status": "POSTED",
+  "transactionTimestamp": "2026-05-20T17:42:11Z",
+  "postedTimestamp": "2026-05-21T03:00:00Z",
+  "merchant": {
+    "name": "Whole Foods Market",
+    "categoryCode": "5411",
+    "address": {
+      "city": "Cambridge",
+      "region": "MA",
+      "country": "US"
+    }
+  },
+  "category": "Groceries"
+}

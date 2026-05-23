@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Customer API
+  description: >-
+    FDX v6.2 Customer endpoint. Returns the customer contact record (name,
+    address, email, telephone, account holders) tied to a permissioned TD
+    accountId. Used by aggregators to confirm account ownership and to
+    support KYC / identity flows.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: TD Open Banking — About Our APIs
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+    description: Sandbox
+tags:
+  - name: Customers
+security:
+  - oauth2: []
+paths:
+  /accounts/{accountId}/customers:
+    get:
+      operationId: listAccountCustomers
+      summary: List Account Holders
+      tags: [Customers]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Account holders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  holders:
+                    type: array
+                    items: { $ref: '#/components/schemas/Customer' }
+  /customers/current:
+    get:
+      operationId: getCurrentCustomer
+      summary: Get Current Customer
+      tags: [Customers]
+      responses:
+        '200':
+          description: Current customer
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Customer' }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            customer_contact_read: Read customer contact
+  schemas:
+    Customer:
+      type: object
+      required: [customerId, name]
+      properties:
+        customerId: { type: string }
+        name:
+          type: object
+          properties:
+            first: { type: string }
+            last: { type: string }
+        addresses:
+          type: array
+          items:
+            type: object
+            properties:
+              line1: { type: string }
+              city: { type: string }
+              region: { type: string }
+              postalCode: { type: string }
+              country: { type: string }
+        telephones:
+          type: array
+          items:
+            type: object
+            properties:
+              number: { type: string }
+              type: { type: string }
+        email:
+          type: array
+          items:
+            type: object
+            properties:
+              email: { type: string }
+              type: { type: string }

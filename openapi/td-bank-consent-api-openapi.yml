@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Consent API
+  description: >-
+    TD Open Banking Consent API. Implements the FDX consent model — fetch
+    consent details for a consumer, revoke consent, and retrieve consent
+    revocation records. Every Data API call is gated by an active consent.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: Consent Flow Guide
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/consent/v1
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/consent/v1
+    description: Sandbox
+tags:
+  - name: Consents
+security:
+  - oauth2: []
+paths:
+  /consents/{consentId}:
+    get:
+      operationId: getConsent
+      summary: Get Consent Details
+      tags: [Consents]
+      parameters:
+        - name: consentId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Consent detail
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Consent' }
+    delete:
+      operationId: revokeConsent
+      summary: Revoke Consent
+      tags: [Consents]
+      parameters:
+        - name: consentId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Revoked
+  /consent-revocations:
+    get:
+      operationId: listConsentRevocations
+      summary: List Consent Revocations
+      tags: [Consents]
+      responses:
+        '200':
+          description: Revocations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  revocations:
+                    type: array
+                    items: { $ref: '#/components/schemas/ConsentRevocation' }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            consents_manage: Manage consents
+  schemas:
+    Consent:
+      type: object
+      required: [consentId, status]
+      properties:
+        consentId: { type: string }
+        status: { type: string, enum: [ACTIVE, REVOKED, EXPIRED] }
+        durationType: { type: string }
+        durationPeriod: { type: integer }
+        grantedAt: { type: string, format: date-time }
+        expiresAt: { type: string, format: date-time }
+        resources:
+          type: array
+          items:
+            type: object
+            properties:
+              resourceType: { type: string }
+              accountId: { type: string }
+              dataClusters:
+                type: array
+                items: { type: string }
+    ConsentRevocation:
+      type: object
+      properties:
+        consentId: { type: string }
+        revokedAt: { type: string, format: date-time }
+        initiator: { type: string, enum: [CONSUMER, DATA_PROVIDER, DATA_RECIPIENT] }
+        reason: { type: string }

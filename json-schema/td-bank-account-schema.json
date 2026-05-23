@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.td.com/schemas/account.json",
+  "title": "TD Bank FDX Account",
+  "type": "object",
+  "required": ["accountId", "accountType"],
+  "properties": {
+    "accountId": { "type": "string" },
+    "accountType": { "type": "string" },
+    "accountCategory": { "type": "string" },
+    "displayName": { "type": "string" },
+    "accountNumberDisplay": { "type": "string" },
+    "currency": { "type": "string" },
+    "currentBalance": { "type": "number" },
+    "availableBalance": { "type": "number" },
+    "openingDayBalance": { "type": "number" },
+    "interestRate": { "type": "number" },
+    "status": { "type": "string", "enum": ["OPEN", "CLOSED", "RESTRICTED", "PENDING_OPEN", "PENDING_CLOSE"] }
+  }
+}

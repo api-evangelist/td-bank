@@ -1,0 +1,7 @@
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InRkLW9wZW4tYmFua2luZy0xIn0...REDACTED",
+  "refresh_token": "rt_4f7c81b3-2c00-4a4f-8d8c-b0b1...REDACTED",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "accounts_basic_read accounts_detailed_read transactions_read customer_contact_read"
+}

@@ -1,0 +1,70 @@
+extends:
+  - spectral:oas
+rules:
+  td-bank-https-only:
+    description: TD Bank APIs must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+
+  td-bank-info-contact:
+    description: API definitions must declare contact information.
+    severity: error
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  td-bank-oauth2-required:
+    description: FDX Data APIs must declare OAuth 2.0 security.
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      field: oauth2
+      function: truthy
+
+  td-bank-fdx-tagging:
+    description: FDX-aligned operations should declare an Accounts / Transactions / Statements / Tax Forms / Customers / Consents / Notifications tag.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  td-bank-title-case-summary:
+    description: Operation summaries should be Title Case.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][a-zA-Z0-9]*( [A-Z][a-zA-Z0-9]*)*$'
+
+  td-bank-no-pan:
+    description: Card data must not be exposed as a raw PAN — use tokenized references.
+    severity: error
+    given: $..properties
+    then:
+      field: cardNumber
+      function: falsy
+
+  td-bank-account-id-string:
+    description: accountId parameters MUST be strings (FDX convention).
+    severity: warn
+    given: "$.paths[*][*].parameters[?(@.name=='accountId')].schema.type"
+    then:
+      function: enumeration
+      functionOptions:
+        values: ["string"]
+
+  td-bank-consent-id-string:
+    description: consentId parameters MUST be strings.
+    severity: warn
+    given: "$.paths[*][*].parameters[?(@.name=='consentId')].schema.type"
+    then:
+      function: enumeration
+      functionOptions:
+        values: ["string"]
