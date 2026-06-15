@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": "34a1a3d6-06b5-4bca-8deb-c005f192f0d8",
+      "name": "Accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6cb033e6-2f67-466a-befd-d4d88c60d80e",
+          "name": "List Consented Accounts",
+          "request": {
+            "name": "List Consented Accounts",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4764f26a-3efa-4f70-8c59-7305714c62ac",
+              "name": "Accounts list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"accountId\": \"string\",\n      \"accountType\": \"string\",\n      \"accountCategory\": \"string\",\n      \"displayName\": \"string\",\n      \"accountNumberDisplay\": \"string\",\n      \"currency\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"accountId\": \"string\",\n      \"accountType\": \"string\",\n      \"accountCategory\": \"string\",\n      \"displayName\": \"string\",\n      \"accountNumberDisplay\": \"string\",\n      \"currency\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"page\": {\n    \"nextOffset\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "accounts_basic_read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b7ed5883-7842-4672-a9c1-07bf0d84fd49",
+    "name": "TD Bank Account Basic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

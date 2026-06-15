@@ -1,0 +1,304 @@
+{
+  "item": [
+    {
+      "id": "00c43198-3296-4a0f-821b-448b274c19ee",
+      "name": "Consents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b465e62d-4878-446c-a76d-1ac45e273087",
+          "name": "Get Consent Details",
+          "request": {
+            "name": "Get Consent Details",
+            "description": {},
+            "url": {
+              "path": [
+                "consents",
+                ":consentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "617ff7c2-d243-4c0e-a644-5ea7ed10404b",
+              "name": "Consent detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consents",
+                    ":consentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consentId\": \"string\",\n  \"status\": \"ACTIVE\",\n  \"durationType\": \"string\",\n  \"durationPeriod\": 3124,\n  \"grantedAt\": \"2021-09-25T10:03:15.465Z\",\n  \"expiresAt\": \"2010-01-13T22:58:17.417Z\",\n  \"resources\": [\n    {\n      \"resourceType\": \"string\",\n      \"accountId\": \"string\",\n      \"dataClusters\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"resourceType\": \"string\",\n      \"accountId\": \"string\",\n      \"dataClusters\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c609eeed-d770-400b-a05d-de2581e2e722",
+          "name": "Revoke Consent",
+          "request": {
+            "name": "Revoke Consent",
+            "description": {},
+            "url": {
+              "path": [
+                "consents",
+                ":consentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6590f495-6b4c-4d0a-ad25-9d153ce7f1f8",
+              "name": "Revoked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consents",
+                    ":consentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef2dde76-d967-4c97-99b4-e371c77c4082",
+          "name": "List Consent Revocations",
+          "request": {
+            "name": "List Consent Revocations",
+            "description": {},
+            "url": {
+              "path": [
+                "consent-revocations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59416c46-027d-462b-8da4-695fed38f668",
+              "name": "Revocations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "consent-revocations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"revocations\": [\n    {\n      \"consentId\": \"string\",\n      \"revokedAt\": \"1952-03-04T11:40:44.668Z\",\n      \"initiator\": \"CONSUMER\",\n      \"reason\": \"string\"\n    },\n    {\n      \"consentId\": \"string\",\n      \"revokedAt\": \"2000-06-20T03:07:22.544Z\",\n      \"initiator\": \"DATA_RECIPIENT\",\n      \"reason\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openbanking.amcb.developer.td.com/consent/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "consents_manage"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6e253843-29a8-45b7-9412-0d23bb2c9790",
+    "name": "TD Bank Consent API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TD Open Banking Consent API. Implements the FDX consent model — fetch consent details for a consumer, revoke consent, and retrieve consent revocation records. Every Data API call is gated by an active consent.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

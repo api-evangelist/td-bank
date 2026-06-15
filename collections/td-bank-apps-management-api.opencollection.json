@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TD Bank Apps Management API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Apps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/apps/v2/apps"
+          },
+          "docs": "List Apps"
+        },
+        {
+          "info": {
+            "name": "Create App",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.openbanking.amcb.developer.td.com/apps/v2/apps",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create App"
+        },
+        {
+          "info": {
+            "name": "Get App",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/apps/v2/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get App"
+        },
+        {
+          "info": {
+            "name": "Update App",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.openbanking.amcb.developer.td.com/apps/v2/apps/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update App"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List App Subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/apps/v2/apps/:appId/subscriptions",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List App Subscriptions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Clusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Purchased FDX Clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/apps/v2/apps/:appId/clusters",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Purchased FDX Clusters"
+        },
+        {
+          "info": {
+            "name": "List Entities Supporting Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/apps/v2/clusters/:clusterId/entities",
+            "params": [
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Entities Supporting Cluster"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

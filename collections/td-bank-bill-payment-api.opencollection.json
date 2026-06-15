@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TD Bank Bill Payment API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+      "accessTokenUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bill Pay Payees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/payees",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Bill Pay Payees"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bill Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bill Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/bill-payments",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Bill Payments"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

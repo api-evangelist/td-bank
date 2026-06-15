@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TD Bank Token API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pushed Authorization Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.openbanking.amcb.developer.td.com/oauth/v1/par",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "response_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "scope",
+                  "value": ""
+                },
+                {
+                  "name": "state",
+                  "value": ""
+                },
+                {
+                  "name": "code_challenge",
+                  "value": ""
+                },
+                {
+                  "name": "code_challenge_method",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Pushed Authorization Request"
+        },
+        {
+          "info": {
+            "name": "Create Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "code_verifier",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Access Token"
+        },
+        {
+          "info": {
+            "name": "Revoke Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.openbanking.amcb.developer.td.com/oauth/v1/revoke",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "token",
+                  "value": ""
+                },
+                {
+                  "name": "token_type_hint",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Revoke Token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

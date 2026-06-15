@@ -1,0 +1,219 @@
+{
+  "item": [
+    {
+      "id": "80ecd69f-fd6f-4e23-b49c-60ba9b4915dc",
+      "name": "Notifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe8133a2-c8aa-4efd-ae96-dafd24d217fa",
+          "name": "List Notifications",
+          "request": {
+            "name": "List Notifications",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8de6dbe0-d20a-4cf5-aadf-94fea22393c0",
+              "name": "Notifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notifications\": [\n    {\n      \"notificationId\": \"string\",\n      \"category\": \"string\",\n      \"severity\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"affectedResources\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consentId\": \"string\",\n      \"createdAt\": \"1947-07-05T08:32:37.204Z\"\n    },\n    {\n      \"notificationId\": \"string\",\n      \"category\": \"string\",\n      \"severity\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"affectedResources\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consentId\": \"string\",\n      \"createdAt\": \"1971-03-23T16:28:53.029Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a8d40c5-4cd2-4d51-b234-411f71768079",
+          "name": "Get Notification",
+          "request": {
+            "name": "Get Notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":notificationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notificationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da86430c-0c33-4fb3-9295-75e8b55c2a31",
+              "name": "Notification detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    ":notificationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notificationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.openbanking.amcb.developer.td.com/notifications/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "544fed5c-3666-4a2d-a1cb-e93ae6b1b4d3",
+    "name": "TD Bank Notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Notifications API. Retrieves alerts about significant changes on the TD/Akoya network — planned and unplanned maintenance outages, plus consent events covering revoked or modified consumer consents. Lets data recipients react to consent revocations and platform incidents in near real time.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

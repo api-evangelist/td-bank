@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TD Bank Statements API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+      "accessTokenUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Account Statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/statements",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Account Statements"
+        },
+        {
+          "info": {
+            "name": "Get Statement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/statements/:statementId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "statementId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Statement"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

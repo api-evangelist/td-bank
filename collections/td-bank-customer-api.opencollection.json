@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TD Bank Customer API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+      "accessTokenUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Account Holders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/customers",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Account Holders"
+        },
+        {
+          "info": {
+            "name": "Get Current Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/customers/current"
+          },
+          "docs": "Get Current Customer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

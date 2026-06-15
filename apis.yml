@@ -1,12 +1,13 @@
 aid: td-bank
 name: TD Bank
-description: TD Bank, N.A. (America's Most Convenient Bank) is the U.S. retail and commercial subsidiary
-  of Toronto-Dominion Bank, serving more than 10 million customers from Maine to Florida through roughly
-  1,100 branches. TD's Open Banking developer portal (hosted at developer.td.com / openbanking.amcb.developer.td.com)
-  exposes an FDX-aligned API suite — Account Basic, Account Detailed, Customer, Transactions, Statements,
-  Tax Forms, Bill Payment, Rewards — plus Consent, Token, Service Token, Apps Management, and Notifications
-  utility APIs that are operated for vetted fintechs and data aggregators via the Akoya Data Access Network.
-  TD also exposes TD Online Mart Recurring Payment APIs through its US/Canadian Merchant Solutions (Worldline-backed).
+description: >-
+  TD Bank, N.A. (America's Most Convenient Bank) is the U.S. retail and commercial subsidiary of Toronto-Dominion Bank,
+  serving more than 10 million customers from Maine to Florida through roughly 1,100 branches. TD's Open Banking
+  developer portal (hosted at developer.td.com / openbanking.amcb.developer.td.com) exposes an FDX-aligned API suite —
+  Account Basic, Account Detailed, Customer, Transactions, Statements, Tax Forms, Bill Payment, Rewards — plus Consent,
+  Token, Service Token, Apps Management, and Notifications utility APIs that are operated for vetted fintechs and data
+  aggregators via the Akoya Data Access Network. TD also exposes TD Online Mart Recurring Payment APIs through its
+  US/Canadian Merchant Solutions (Worldline-backed).
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/td-bank/refs/heads/main/apis.yml
 type: Index
@@ -37,9 +38,10 @@ specificationVersion: '0.20'
 apis:
   - aid: td-bank:account-basic-api
     name: TD Bank Account Basic API
-    description: FDX v6.2 lightweight accounts endpoint that returns minimal descriptive information and
-      the accountId for each of a consumer's consented TD accounts. The accountId is then used by the
-      Account Detailed API to retrieve full structure, terms, balances, and identifiers.
+    description: >-
+      FDX v6.2 lightweight accounts endpoint that returns minimal descriptive information and the accountId for each of
+      a consumer's consented TD accounts. The accountId is then used by the Account Detailed API to retrieve full
+      structure, terms, balances, and identifiers.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -54,15 +56,12 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-account-basic-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/account-basic-accounts.yaml
-
   - aid: td-bank:account-detailed-api
     name: TD Bank Account Detailed API
-    description: FDX v6.2 OpenAPI 3.1.0 specification that returns comprehensive information for a specific
-      account — structure, terms, current/available balances, identifiers, and account-type-specific
-      fields (deposit, loan, investment) — for any account previously surfaced through the Account Basic
-      API.
+    description: >-
+      FDX v6.2 OpenAPI 3.1.0 specification that returns comprehensive information for a specific account — structure,
+      terms, current/available balances, identifiers, and account-type-specific fields (deposit, loan, investment) — for
+      any account previously surfaced through the Account Basic API.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/account-detailed-v1-0-0-api-spec-ofs
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -77,14 +76,12 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-account-detailed-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/account-detailed-accounts.yaml
-
   - aid: td-bank:customer-api
     name: TD Bank Customer API
-    description: FDX v6.2 Customer endpoint that returns the customer contact record (name, address,
-      email, telephone, account holders) tied to a permissioned accountId. Used by aggregators to confirm
-      account ownership and to power KYC / identity verification flows.
+    description: >-
+      FDX v6.2 Customer endpoint that returns the customer contact record (name, address, email, telephone, account
+      holders) tied to a permissioned accountId. Used by aggregators to confirm account ownership and to power KYC /
+      identity verification flows.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -99,14 +96,12 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-customer-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/customer-customers.yaml
-
   - aid: td-bank:transactions-api
     name: TD Bank Transactions API
-    description: FDX v6.2 Transactions endpoint that returns posted and pending transaction data for
-      a consented account — amounts, dates, descriptions, merchant fields, status — with support for
-      pagination, date-range filtering, and transaction image retrieval.
+    description: >-
+      FDX v6.2 Transactions endpoint that returns posted and pending transaction data for a consented account — amounts,
+      dates, descriptions, merchant fields, status — with support for pagination, date-range filtering, and transaction
+      image retrieval.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -121,14 +116,11 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-transactions-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/transactions-transactions.yaml
-
   - aid: td-bank:statements-api
     name: TD Bank Statements API
-    description: FDX v6.2 Statements endpoint that lists available statement periods for a consented
-      account and lets consumers retrieve the statement PDF. Supports the standard FDX statement metadata
-      model.
+    description: >-
+      FDX v6.2 Statements endpoint that lists available statement periods for a consented account and lets consumers
+      retrieve the statement PDF. Supports the standard FDX statement metadata model.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/statements-v1-0-0-api-spec-ofs
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -143,13 +135,11 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-statements-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/statements-statements.yaml
-
   - aid: td-bank:tax-forms-api
     name: TD Bank Tax Forms API
-    description: FDX v6.2 Tax Forms endpoint that lists tax forms (e.g. 1099-INT, 1099-DIV) issued for
-      a consented TD account in a given year and lets consumers retrieve the form PDF.
+    description: >-
+      FDX v6.2 Tax Forms endpoint that lists tax forms (e.g. 1099-INT, 1099-DIV) issued for a consented TD account in a
+      given year and lets consumers retrieve the form PDF.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -164,14 +154,11 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-tax-forms-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/tax-forms-tax-forms.yaml
-
   - aid: td-bank:bill-payment-api
     name: TD Bank Bill Payment API
-    description: FDX v6.2 Bill Payment endpoint that retrieves information about a consented customer's
-      bill payment activity and payees, enabling fintechs to review payment history, payee metadata,
-      and recurring billing rules.
+    description: >-
+      FDX v6.2 Bill Payment endpoint that retrieves information about a consented customer's bill payment activity and
+      payees, enabling fintechs to review payment history, payee metadata, and recurring billing rules.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -186,14 +173,12 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-bill-payment-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/bill-payment-bill-payments.yaml
-
   - aid: td-bank:rewards-api
     name: TD Bank Rewards API
-    description: TD Open Banking Rewards API v1.0.0 returns reward program and membership information
-      for the currently authenticated user — designed to track rewards participation across travel, retail,
-      and merchant programs tied to TD credit card and loyalty accounts.
+    description: >-
+      TD Open Banking Rewards API v1.0.0 returns reward program and membership information for the currently
+      authenticated user — designed to track rewards participation across travel, retail, and merchant programs tied to
+      TD credit card and loyalty accounts.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/rewards-api-spec-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
@@ -207,14 +192,12 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
       - type: OpenAPI
         url: openapi/td-bank-rewards-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/rewards-rewards.yaml
-
   - aid: td-bank:consent-api
     name: TD Bank Consent API
-    description: TD Open Banking Consent API implements the FDX consent model — fetching consent details
-      for a consumer, revoking consents, and retrieving consent revocation records. Explicit consumer
-      consent is the gating mechanism for every Data API call.
+    description: >-
+      TD Open Banking Consent API implements the FDX consent model — fetching consent details for a consumer, revoking
+      consents, and retrieving consent revocation records. Explicit consumer consent is the gating mechanism for every
+      Data API call.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow
     baseURL: https://api.openbanking.amcb.developer.td.com/consent/v1
@@ -229,15 +212,12 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/consent/v1
       - type: OpenAPI
         url: openapi/td-bank-consent-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/consent-consents.yaml
-
   - aid: td-bank:token-api
     name: TD Bank Token API
-    description: OAuth 2.0 Token API with Pushed Authorization Request (PAR) — issues access tokens for
-      the FDX Data APIs and the Consent API. Flow begins with POST PAR, returns a request URI used to
-      build the consent URL, and exchanges the resulting authorization code for an access token via
-      POST /token.
+    description: >-
+      OAuth 2.0 Token API with Pushed Authorization Request (PAR) — issues access tokens for the FDX Data APIs and the
+      Consent API. Flow begins with POST PAR, returns a request URI used to build the consent URL, and exchanges the
+      resulting authorization code for an access token via POST /token.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/advanced-token-scenarios
     baseURL: https://api.openbanking.amcb.developer.td.com/oauth/v1
@@ -252,14 +232,12 @@ apis:
         url: https://api.openbanking.amcb.developer.td.com/sandbox/oauth/v1
       - type: OpenAPI
         url: openapi/td-bank-token-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/token-tokens.yaml
-
   - aid: td-bank:service-token-api
     name: TD Bank Service Token API
-    description: OAuth 2.0 Service Token API (Akoya v1.0.1) — generates client-credentials tokens for
-      the utility APIs (Apps Management, Notifications). Separate from the user-context Token API so
-      partner backend systems can authenticate without a user session.
+    description: >-
+      OAuth 2.0 Service Token API (Akoya v1.0.1) — generates client-credentials tokens for the utility APIs (Apps
+      Management, Notifications). Separate from the user-context Token API so partner backend systems can authenticate
+      without a user session.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/reference/service-token-akoya-v1-0-1
     baseURL: https://api.openbanking.amcb.developer.td.com/oauth/v1
@@ -272,14 +250,11 @@ apis:
         url: https://docs.pat.openbanking.amcb.developer.td.com/reference/service-token-akoya-v1-0-1
       - type: OpenAPI
         url: openapi/td-bank-service-token-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/service-token-tokens.yaml
-
   - aid: td-bank:apps-management-api
     name: TD Bank Apps Management API
-    description: Apps Management API v2.0 — lets data recipients create and update fintech apps on the
-      TD/Akoya network, list purchased FDX data clusters, manage subscriptions, and look up which entities
-      support specific FDX clusters.
+    description: >-
+      Apps Management API v2.0 — lets data recipients create and update fintech apps on the TD/Akoya network, list
+      purchased FDX data clusters, manage subscriptions, and look up which entities support specific FDX clusters.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide
     baseURL: https://api.openbanking.amcb.developer.td.com/apps/v2
@@ -292,15 +267,12 @@ apis:
         url: https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide
       - type: OpenAPI
         url: openapi/td-bank-apps-management-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/apps-management-apps.yaml
-
   - aid: td-bank:notifications-api
     name: TD Bank Notifications API
-    description: Notifications API — retrieves alerts about significant changes on the TD/Akoya network,
-      including planned/unplanned maintenance outages and consent events (revoked or modified consumer
-      consents). Lets data recipients react to consent revocations and platform incidents in near real
-      time.
+    description: >-
+      Notifications API — retrieves alerts about significant changes on the TD/Akoya network, including
+      planned/unplanned maintenance outages and consent events (revoked or modified consumer consents). Lets data
+      recipients react to consent revocations and platform incidents in near real time.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/notifications/v1
@@ -313,14 +285,12 @@ apis:
         url: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
       - type: OpenAPI
         url: openapi/td-bank-notifications-api-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/notifications-notifications.yaml
-
   - aid: td-bank:td-online-mart-recurring-payment-api
     name: TD Online Mart Recurring Payment API
-    description: TD Merchant Solutions Recurring Payment API (Worldline-backed gateway) — lets merchants
-      schedule and process recurring membership / subscription card payments. Supports API Passcode,
-      Username/Password, and Hash Key authentication models for shopping-cart integrations.
+    description: >-
+      TD Merchant Solutions Recurring Payment API (Worldline-backed gateway) — lets merchants schedule and process
+      recurring membership / subscription card payments. Supports API Passcode, Username/Password, and Hash Key
+      authentication models for shopping-cart integrations.
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://www.td.com/ca/en/business-banking/merchant-solutions/online-mart-ecommerce
     baseURL: https://gateway.tdmerchantservices.com
@@ -331,9 +301,6 @@ apis:
     properties:
       - type: Documentation
         url: https://www.td.com/ca/en/business-banking/merchant-solutions/ecommerce-platforms
-      - type: NaftikoCapability
-        url: capabilities/td-online-mart-recurring-payments.yaml
-
 common:
   - type: Portal
     url: https://developer.td.com
@@ -385,7 +352,6 @@ common:
     url: finops/td-bank-finops.yml
   - type: SpectralRuleset
     url: rules/td-bank-rules.yml
-
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

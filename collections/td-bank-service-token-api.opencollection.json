@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TD Bank Service Token API",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Service Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.openbanking.amcb.developer.td.com/oauth/v1/service-token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "scope",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create Service Token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

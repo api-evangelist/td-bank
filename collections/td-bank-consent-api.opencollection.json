@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TD Bank Consent API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+      "accessTokenUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Consent Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/consent/v1/consents/:consentId",
+            "params": [
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Consent Details"
+        },
+        {
+          "info": {
+            "name": "Revoke Consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.openbanking.amcb.developer.td.com/consent/v1/consents/:consentId",
+            "params": [
+              {
+                "name": "consentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Revoke Consent"
+        },
+        {
+          "info": {
+            "name": "List Consent Revocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/consent/v1/consent-revocations"
+          },
+          "docs": "List Consent Revocations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
