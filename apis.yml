@@ -8,7 +8,7 @@ description: >-
   Token, Service Token, Apps Management, and Notifications utility APIs that are operated for vetted fintechs and data
   aggregators via the Akoya Data Access Network. TD also exposes TD Online Mart Recurring Payment APIs through its
   US/Canadian Merchant Solutions (Worldline-backed).
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/td-bank/refs/heads/main/apis.yml
 type: Index
 access: 3rd-Party
@@ -42,7 +42,7 @@ apis:
       FDX v6.2 lightweight accounts endpoint that returns minimal descriptive information and the accountId for each of
       a consumer's consented TD accounts. The accountId is then used by the Account Detailed API to retrieve full
       structure, terms, balances, and identifiers.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -62,7 +62,7 @@ apis:
       FDX v6.2 OpenAPI 3.1.0 specification that returns comprehensive information for a specific account — structure,
       terms, current/available balances, identifiers, and account-type-specific fields (deposit, loan, investment) — for
       any account previously surfaced through the Account Basic API.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/account-detailed-v1-0-0-api-spec-ofs
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -82,7 +82,7 @@ apis:
       FDX v6.2 Customer endpoint that returns the customer contact record (name, address, email, telephone, account
       holders) tied to a permissioned accountId. Used by aggregators to confirm account ownership and to power KYC /
       identity verification flows.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -102,7 +102,7 @@ apis:
       FDX v6.2 Transactions endpoint that returns posted and pending transaction data for a consented account — amounts,
       dates, descriptions, merchant fields, status — with support for pagination, date-range filtering, and transaction
       image retrieval.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -121,7 +121,7 @@ apis:
     description: >-
       FDX v6.2 Statements endpoint that lists available statement periods for a consented account and lets consumers
       retrieve the statement PDF. Supports the standard FDX statement metadata model.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/statements-v1-0-0-api-spec-ofs
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -140,7 +140,7 @@ apis:
     description: >-
       FDX v6.2 Tax Forms endpoint that lists tax forms (e.g. 1099-INT, 1099-DIV) issued for a consented TD account in a
       given year and lets consumers retrieve the form PDF.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -159,7 +159,7 @@ apis:
     description: >-
       FDX v6.2 Bill Payment endpoint that retrieves information about a consented customer's bill payment activity and
       payees, enabling fintechs to review payment history, payee metadata, and recurring billing rules.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -179,7 +179,7 @@ apis:
       TD Open Banking Rewards API v1.0.0 returns reward program and membership information for the currently
       authenticated user — designed to track rewards participation across travel, retail, and merchant programs tied to
       TD credit card and loyalty accounts.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/rewards-api-spec-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
     tags:
@@ -198,7 +198,7 @@ apis:
       TD Open Banking Consent API implements the FDX consent model — fetching consent details for a consumer, revoking
       consents, and retrieving consent revocation records. Explicit consumer consent is the gating mechanism for every
       Data API call.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow
     baseURL: https://api.openbanking.amcb.developer.td.com/consent/v1
     tags:
@@ -218,7 +218,7 @@ apis:
       OAuth 2.0 Token API with Pushed Authorization Request (PAR) — issues access tokens for the FDX Data APIs and the
       Consent API. Flow begins with POST PAR, returns a request URI used to build the consent URL, and exchanges the
       resulting authorization code for an access token via POST /token.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/advanced-token-scenarios
     baseURL: https://api.openbanking.amcb.developer.td.com/oauth/v1
     tags:
@@ -238,7 +238,7 @@ apis:
       OAuth 2.0 Service Token API (Akoya v1.0.1) — generates client-credentials tokens for the utility APIs (Apps
       Management, Notifications). Separate from the user-context Token API so partner backend systems can authenticate
       without a user session.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/reference/service-token-akoya-v1-0-1
     baseURL: https://api.openbanking.amcb.developer.td.com/oauth/v1
     tags:
@@ -255,7 +255,7 @@ apis:
     description: >-
       Apps Management API v2.0 — lets data recipients create and update fintech apps on the TD/Akoya network, list
       purchased FDX data clusters, manage subscriptions, and look up which entities support specific FDX clusters.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide
     baseURL: https://api.openbanking.amcb.developer.td.com/apps/v2
     tags:
@@ -273,7 +273,7 @@ apis:
       Notifications API — retrieves alerts about significant changes on the TD/Akoya network, including
       planned/unplanned maintenance outages and consent events (revoked or modified consumer consents). Lets data
       recipients react to consent revocations and platform incidents in near real time.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
     baseURL: https://api.openbanking.amcb.developer.td.com/notifications/v1
     tags:
@@ -291,7 +291,7 @@ apis:
       TD Merchant Solutions Recurring Payment API (Worldline-backed gateway) — lets merchants schedule and process
       recurring membership / subscription card payments. Supports API Passcode, Username/Password, and Hash Key
       authentication models for shopping-cart integrations.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.td.com/ca/en/business-banking/merchant-solutions/online-mart-ecommerce
     baseURL: https://gateway.tdmerchantservices.com
     tags:
