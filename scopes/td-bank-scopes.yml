@@ -1,0 +1,116 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/td-bank-account-basic-api-openapi.yml, openapi/td-bank-account-detailed-api-openapi.yml,
+  openapi/td-bank-bill-payment-api-openapi.yml, openapi/td-bank-consent-api-openapi.yml, openapi/td-bank-customer-api-openapi.yml,
+  openapi/td-bank-rewards-api-openapi.yml, openapi/td-bank-statements-api-openapi.yml, openapi/td-bank-tax-forms-api-openapi.yml,
+  openapi/td-bank-transactions-api-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/td-bank-account-basic-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-account-detailed-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-bill-payment-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-consent-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-customer-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-rewards-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-statements-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-tax-forms-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+- name: oauth2
+  source: openapi/td-bank-transactions-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+scopes:
+- scope: accounts_basic_read
+  description: Read basic account info
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-account-basic-api-openapi.yml
+- scope: accounts_detailed_read
+  description: Read detailed account info
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-account-detailed-api-openapi.yml
+- scope: bill_payments_read
+  description: Read bill payment activity
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-bill-payment-api-openapi.yml
+- scope: consents_manage
+  description: Manage consents
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-consent-api-openapi.yml
+- scope: customer_contact_read
+  description: Read customer contact
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-customer-api-openapi.yml
+- scope: rewards_read
+  description: Read rewards info
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-rewards-api-openapi.yml
+- scope: statements_read
+  description: Read statements
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-statements-api-openapi.yml
+- scope: tax_forms_read
+  description: Read tax forms
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-tax-forms-api-openapi.yml
+- scope: transactions_read
+  description: Read transactions
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/td-bank-transactions-api-openapi.yml
