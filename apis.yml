@@ -302,6 +302,8 @@ apis:
       - type: Documentation
         url: https://www.td.com/ca/en/business-banking/merchant-solutions/ecommerce-platforms
 common:
+  - type: DomainSecurity
+    url: security/td-bank-domain-security.yml
   - type: Authentication
     url: authentication/td-bank-authentication.yml
   - type: OAuthScopes

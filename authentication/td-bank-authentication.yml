@@ -1,0 +1,38 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/td-bank-account-basic-api-openapi.yml, openapi/td-bank-account-detailed-api-openapi.yml,
+  openapi/td-bank-apps-management-api-openapi.yml, openapi/td-bank-bill-payment-api-openapi.yml,
+  openapi/td-bank-consent-api-openapi.yml, openapi/td-bank-customer-api-openapi.yml, openapi/td-bank-notifications-api-openapi.yml,
+  openapi/td-bank-rewards-api-openapi.yml, openapi/td-bank-statements-api-openapi.yml, openapi/td-bank-tax-forms-api-openapi.yml,
+  openapi/td-bank-transactions-api-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+    tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+    scopes: 1
+  sources:
+  - openapi/td-bank-account-basic-api-openapi.yml
+  - openapi/td-bank-account-detailed-api-openapi.yml
+  - openapi/td-bank-bill-payment-api-openapi.yml
+  - openapi/td-bank-consent-api-openapi.yml
+  - openapi/td-bank-customer-api-openapi.yml
+  - openapi/td-bank-rewards-api-openapi.yml
+  - openapi/td-bank-statements-api-openapi.yml
+  - openapi/td-bank-tax-forms-api-openapi.yml
+  - openapi/td-bank-transactions-api-openapi.yml
+- name: serviceToken
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/td-bank-apps-management-api-openapi.yml
+  - openapi/td-bank-notifications-api-openapi.yml
