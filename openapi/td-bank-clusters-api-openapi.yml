@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: TD Bank Account Basic Accounts Rewards API
+  title: TD Bank Account Basic Accounts Clusters API
   description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
   version: 1.0.0
   contact:
@@ -14,64 +14,39 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: Rewards
+- name: Clusters
 paths:
-  /rewards-programs:
+  /apps/{appId}/clusters:
     get:
-      operationId: listRewardsPrograms
-      summary: List Rewards Programs
+      operationId: listAppClusters
+      summary: List Purchased FDX Clusters
       tags:
-      - Rewards
-      responses:
-        '200':
-          description: Reward programs
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  programs:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/RewardProgram'
-  /rewards-programs/{programId}:
-    get:
-      operationId: getRewardsProgram
-      summary: Get Rewards Program
-      tags:
-      - Rewards
+      - Clusters
       parameters:
-      - name: programId
+      - name: appId
         in: path
         required: true
         schema:
           type: string
       responses:
         '200':
-          description: Reward program detail
+          description: FDX clusters list
+  /clusters/{clusterId}/entities:
+    get:
+      operationId: listClusterEntities
+      summary: List Entities Supporting Cluster
+      tags:
+      - Clusters
+      parameters:
+      - name: clusterId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Entities
 components:
-  schemas:
-    RewardProgram:
-      type: object
-      required:
-      - programId
-      - name
-      properties:
-        programId:
-          type: string
-        name:
-          type: string
-        sponsor:
-          type: string
-        currency:
-          type: string
-        currentBalance:
-          type: number
-        category:
-          type: string
-        memberSince:
-          type: string
-          format: date
   securitySchemes:
     oauth2:
       type: oauth2

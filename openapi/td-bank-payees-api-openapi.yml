@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: TD Bank Account Basic Accounts Statements API
+  title: TD Bank Account Basic Accounts Payees API
   description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
   version: 1.0.0
   contact:
@@ -14,85 +14,50 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: Statements
+- name: Payees
 paths:
-  /accounts/{accountId}/statements:
+  /accounts/{accountId}/payees:
     get:
-      operationId: listStatements
-      summary: List Account Statements
+      operationId: listPayees
+      summary: List Bill Pay Payees
       tags:
-      - Statements
+      - Payees
       parameters:
       - name: accountId
         in: path
         required: true
         schema:
           type: string
-      - name: startTime
-        in: query
-        required: false
-        schema:
-          type: string
-          format: date-time
-      - name: endTime
-        in: query
-        required: false
-        schema:
-          type: string
-          format: date-time
       responses:
         '200':
-          description: Statements list
+          description: Payees list
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  statements:
+                  payees:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Statement'
-  /accounts/{accountId}/statements/{statementId}:
-    get:
-      operationId: getStatement
-      summary: Get Statement
-      tags:
-      - Statements
-      parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: statementId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Statement (PDF or metadata)
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
+                      $ref: '#/components/schemas/Payee'
 components:
   schemas:
-    Statement:
+    Payee:
       type: object
       required:
-      - statementId
+      - payeeId
+      - name
       properties:
-        statementId:
+        payeeId:
           type: string
-        description:
+        name:
           type: string
-        statementDate:
+        nickname:
           type: string
-          format: date
-        statusType:
+        accountNumber:
           type: string
+        address:
+          type: object
   securitySchemes:
     oauth2:
       type: oauth2

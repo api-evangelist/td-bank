@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: TD Bank Account Basic Accounts Rewards API
+  title: TD Bank Account Basic Accounts Service Tokens API
   description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
   version: 1.0.0
   contact:
@@ -14,64 +14,52 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: Rewards
+- name: Service Tokens
 paths:
-  /rewards-programs:
-    get:
-      operationId: listRewardsPrograms
-      summary: List Rewards Programs
+  /service-token:
+    post:
+      operationId: createServiceToken
+      summary: Create Service Token
       tags:
-      - Rewards
+      - Service Tokens
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                scope:
+                  type: string
       responses:
         '200':
-          description: Reward programs
+          description: Token issued
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  programs:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/RewardProgram'
-  /rewards-programs/{programId}:
-    get:
-      operationId: getRewardsProgram
-      summary: Get Rewards Program
-      tags:
-      - Rewards
-      parameters:
-      - name: programId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Reward program detail
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_in:
+                    type: integer
+                  scope:
+                    type: string
 components:
-  schemas:
-    RewardProgram:
-      type: object
-      required:
-      - programId
-      - name
-      properties:
-        programId:
-          type: string
-        name:
-          type: string
-        sponsor:
-          type: string
-        currency:
-          type: string
-        currentBalance:
-          type: number
-        category:
-          type: string
-        memberSince:
-          type: string
-          format: date
   securitySchemes:
     oauth2:
       type: oauth2

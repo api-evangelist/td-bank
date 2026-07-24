@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: TD Bank Account Basic Accounts Statements API
+  title: TD Bank Account Basic Accounts Bill Payments API
   description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
   version: 1.0.0
   contact:
@@ -14,14 +14,14 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: Statements
+- name: Bill Payments
 paths:
-  /accounts/{accountId}/statements:
+  /accounts/{accountId}/bill-payments:
     get:
-      operationId: listStatements
-      summary: List Account Statements
+      operationId: listBillPayments
+      summary: List Bill Payments
       tags:
-      - Statements
+      - Bill Payments
       parameters:
       - name: accountId
         in: path
@@ -42,57 +42,42 @@ paths:
           format: date-time
       responses:
         '200':
-          description: Statements list
+          description: Bill payments list
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  statements:
+                  billPayments:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Statement'
-  /accounts/{accountId}/statements/{statementId}:
-    get:
-      operationId: getStatement
-      summary: Get Statement
-      tags:
-      - Statements
-      parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: statementId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Statement (PDF or metadata)
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
+                      $ref: '#/components/schemas/BillPayment'
 components:
   schemas:
-    Statement:
+    BillPayment:
       type: object
       required:
-      - statementId
+      - paymentId
+      - amount
       properties:
-        statementId:
+        paymentId:
           type: string
-        description:
+        amount:
+          type: number
+        currency:
           type: string
-        statementDate:
+        payeeId:
+          type: string
+        status:
+          type: string
+        scheduledDate:
           type: string
           format: date
-        statusType:
+        postedDate:
           type: string
+          format: date
+        recurring:
+          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2

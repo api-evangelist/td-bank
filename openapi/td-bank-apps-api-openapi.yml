@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: TD Bank Account Basic Accounts Statements API
+  title: TD Bank Account Basic Accounts Apps API
   description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
   version: 1.0.0
   contact:
@@ -14,84 +14,93 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: Statements
+- name: Apps
 paths:
-  /accounts/{accountId}/statements:
+  /apps:
     get:
-      operationId: listStatements
-      summary: List Account Statements
+      operationId: listApps
+      summary: List Apps
       tags:
-      - Statements
-      parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: startTime
-        in: query
-        required: false
-        schema:
-          type: string
-          format: date-time
-      - name: endTime
-        in: query
-        required: false
-        schema:
-          type: string
-          format: date-time
+      - Apps
       responses:
         '200':
-          description: Statements list
+          description: Apps
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  statements:
+                  apps:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Statement'
-  /accounts/{accountId}/statements/{statementId}:
-    get:
-      operationId: getStatement
-      summary: Get Statement
+                      $ref: '#/components/schemas/App'
+    post:
+      operationId: createApp
+      summary: Create App
       tags:
-      - Statements
-      parameters:
-      - name: accountId
-        in: path
+      - Apps
+      requestBody:
         required: true
-        schema:
-          type: string
-      - name: statementId
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+      responses:
+        '201':
+          description: App created
+  /apps/{appId}:
+    get:
+      operationId: getApp
+      summary: Get App
+      tags:
+      - Apps
+      parameters:
+      - name: appId
         in: path
         required: true
         schema:
           type: string
       responses:
         '200':
-          description: Statement (PDF or metadata)
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
+          description: App detail
+    put:
+      operationId: updateApp
+      summary: Update App
+      tags:
+      - Apps
+      parameters:
+      - name: appId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+      responses:
+        '200':
+          description: Updated
 components:
   schemas:
-    Statement:
+    App:
       type: object
       required:
-      - statementId
+      - name
       properties:
-        statementId:
+        appId:
+          type: string
+        name:
           type: string
         description:
           type: string
-        statementDate:
-          type: string
-          format: date
-        statusType:
+        redirectUris:
+          type: array
+          items:
+            type: string
+        status:
           type: string
   securitySchemes:
     oauth2:

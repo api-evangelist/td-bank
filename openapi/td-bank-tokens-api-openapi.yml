@@ -1,0 +1,149 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Account Basic Accounts Tokens API
+  description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
+  version: 1.0.0
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+servers:
+- url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+  description: Production
+- url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+  description: Sandbox
+security:
+- oauth2: []
+tags:
+- name: Tokens
+paths:
+  /par:
+    post:
+      operationId: pushedAuthorizationRequest
+      summary: Pushed Authorization Request
+      tags:
+      - Tokens
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - response_type
+              - client_id
+              - redirect_uri
+              - scope
+              properties:
+                response_type:
+                  type: string
+                client_id:
+                  type: string
+                redirect_uri:
+                  type: string
+                scope:
+                  type: string
+                state:
+                  type: string
+                code_challenge:
+                  type: string
+                code_challenge_method:
+                  type: string
+      responses:
+        '201':
+          description: PAR success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_uri:
+                    type: string
+                  expires_in:
+                    type: integer
+  /token:
+    post:
+      operationId: createToken
+      summary: Create Access Token
+      tags:
+      - Tokens
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - authorization_code
+                  - refresh_token
+                  - client_credentials
+                code:
+                  type: string
+                redirect_uri:
+                  type: string
+                refresh_token:
+                  type: string
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                code_verifier:
+                  type: string
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_in:
+                    type: integer
+                  scope:
+                    type: string
+  /revoke:
+    post:
+      operationId: revokeToken
+      summary: Revoke Token
+      tags:
+      - Tokens
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - token
+              properties:
+                token:
+                  type: string
+                token_type_hint:
+                  type: string
+      responses:
+        '200':
+          description: Revoked
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            accounts_basic_read: Read basic account info
+externalDocs:
+  description: TD Open Banking — About Our APIs
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi

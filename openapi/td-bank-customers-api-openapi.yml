@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: TD Bank Account Basic Accounts Statements API
+  title: TD Bank Account Basic Accounts Customers API
   description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
   version: 1.0.0
   contact:
@@ -14,85 +14,95 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: Statements
+- name: Customers
 paths:
-  /accounts/{accountId}/statements:
+  /accounts/{accountId}/customers:
     get:
-      operationId: listStatements
-      summary: List Account Statements
+      operationId: listAccountCustomers
+      summary: List Account Holders
       tags:
-      - Statements
+      - Customers
       parameters:
       - name: accountId
         in: path
         required: true
         schema:
           type: string
-      - name: startTime
-        in: query
-        required: false
-        schema:
-          type: string
-          format: date-time
-      - name: endTime
-        in: query
-        required: false
-        schema:
-          type: string
-          format: date-time
       responses:
         '200':
-          description: Statements list
+          description: Account holders
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  statements:
+                  holders:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Statement'
-  /accounts/{accountId}/statements/{statementId}:
+                      $ref: '#/components/schemas/Customer'
+  /customers/current:
     get:
-      operationId: getStatement
-      summary: Get Statement
+      operationId: getCurrentCustomer
+      summary: Get Current Customer
       tags:
-      - Statements
-      parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: statementId
-        in: path
-        required: true
-        schema:
-          type: string
+      - Customers
       responses:
         '200':
-          description: Statement (PDF or metadata)
+          description: Current customer
           content:
-            application/pdf:
+            application/json:
               schema:
-                type: string
-                format: binary
+                $ref: '#/components/schemas/Customer'
 components:
   schemas:
-    Statement:
+    Customer:
       type: object
       required:
-      - statementId
+      - customerId
+      - name
       properties:
-        statementId:
+        customerId:
           type: string
-        description:
-          type: string
-        statementDate:
-          type: string
-          format: date
-        statusType:
-          type: string
+        name:
+          type: object
+          properties:
+            first:
+              type: string
+            last:
+              type: string
+        addresses:
+          type: array
+          items:
+            type: object
+            properties:
+              line1:
+                type: string
+              city:
+                type: string
+              region:
+                type: string
+              postalCode:
+                type: string
+              country:
+                type: string
+        telephones:
+          type: array
+          items:
+            type: object
+            properties:
+              number:
+                type: string
+              type:
+                type: string
+        email:
+          type: array
+          items:
+            type: object
+            properties:
+              email:
+                type: string
+              type:
+                type: string
   securitySchemes:
     oauth2:
       type: oauth2

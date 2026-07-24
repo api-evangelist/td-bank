@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: TD Bank Account Basic Accounts Transactions API
+  title: TD Bank Account Basic Accounts API
   description: FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.
   version: 1.0.0
   contact:
@@ -14,32 +14,20 @@ servers:
 security:
 - oauth2: []
 tags:
-- name: Transactions
+- name: Accounts
 paths:
-  /accounts/{accountId}/transactions:
+  /accounts:
     get:
-      operationId: listTransactions
-      summary: List Transactions
+      operationId: listAccounts
+      summary: List Consented Accounts
       tags:
-      - Transactions
+      - Accounts
       parameters:
-      - name: accountId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: startTime
+      - name: page
         in: query
         required: false
         schema:
-          type: string
-          format: date-time
-      - name: endTime
-        in: query
-        required: false
-        schema:
-          type: string
-          format: date-time
+          type: integer
       - name: limit
         in: query
         required: false
@@ -47,108 +35,130 @@ paths:
           type: integer
       responses:
         '200':
-          description: Transactions list
+          description: Accounts list
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TransactionList'
-  /accounts/{accountId}/transactions/{transactionId}:
+                $ref: '#/components/schemas/AccountList'
+  /accounts/{accountId}:
     get:
-      operationId: getTransaction
-      summary: Get Transaction
+      operationId: getAccount
+      summary: Get Account Detail
       tags:
-      - Transactions
+      - Accounts
       parameters:
       - name: accountId
         in: path
         required: true
         schema:
           type: string
-      - name: transactionId
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '200':
-          description: Transaction detail
+          description: Account detail
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transaction'
-  /accounts/{accountId}/transactions/{transactionId}/image:
+                $ref: '#/components/schemas/AccountDetailed'
+  /accounts/{accountId}/contact:
     get:
-      operationId: getTransactionImage
-      summary: Get Transaction Image
+      operationId: getAccountContact
+      summary: Get Account Contact
       tags:
-      - Transactions
+      - Accounts
       parameters:
       - name: accountId
         in: path
         required: true
         schema:
           type: string
-      - name: transactionId
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '200':
-          description: Transaction image
+          description: Account contact
 components:
   schemas:
-    Transaction:
+    AccountDetailed:
       type: object
       required:
-      - transactionId
-      - amount
+      - accountId
+      - accountType
       properties:
-        transactionId:
+        accountId:
           type: string
-        amount:
+        accountType:
+          type: string
+        accountCategory:
+          type: string
+        displayName:
+          type: string
+        accountNumberDisplay:
+          type: string
+        currency:
+          type: string
+        currentBalance:
           type: number
-        debitCreditMemo:
-          type: string
-          enum:
-          - DEBIT
-          - CREDIT
-          - MEMO
-        description:
-          type: string
-        memo:
-          type: string
+        availableBalance:
+          type: number
+        openingDayBalance:
+          type: number
+        interestRate:
+          type: number
         status:
           type: string
-        transactionTimestamp:
-          type: string
-          format: date-time
-        postedTimestamp:
-          type: string
-          format: date-time
-        merchant:
+        depositAccount:
           type: object
           properties:
-            name:
+            interestType:
               type: string
-            categoryCode:
-              type: string
-            address:
-              type: object
-        category:
-          type: string
-    TransactionList:
+            interestYtd:
+              type: number
+        loanAccount:
+          type: object
+          properties:
+            originalLoanAmount:
+              type: number
+            principalBalance:
+              type: number
+            interestRate:
+              type: number
+        investmentAccount:
+          type: object
+          properties:
+            holdings:
+              type: array
+              items:
+                type: object
+    AccountList:
       type: object
       properties:
-        transactions:
+        accounts:
           type: array
           items:
-            $ref: '#/components/schemas/Transaction'
+            $ref: '#/components/schemas/AccountBasic'
         page:
           type: object
           properties:
             nextOffset:
               type: string
+    AccountBasic:
+      type: object
+      required:
+      - accountId
+      - accountType
+      properties:
+        accountId:
+          type: string
+        accountType:
+          type: string
+        accountCategory:
+          type: string
+        displayName:
+          type: string
+        accountNumberDisplay:
+          type: string
+        currency:
+          type: string
+        status:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
