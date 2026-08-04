@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Token API
+  description: >-
+    OAuth 2.0 Token API with Pushed Authorization Request (PAR). Issues
+    access tokens for the FDX Data APIs and the Consent API. The flow:
+    POST /par returns a request_uri; build the consent URL with it and
+    send the user to authorize; exchange the resulting authorization code
+    for an access token via POST /token.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: Advanced Token Scenarios
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/advanced-token-scenarios
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/oauth/v1
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/oauth/v1
+    description: Sandbox
+tags:
+  - name: Tokens
+security: []
+paths:
+  /par:
+    post:
+      operationId: pushedAuthorizationRequest
+      summary: Pushed Authorization Request
+      tags: [Tokens]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [response_type, client_id, redirect_uri, scope]
+              properties:
+                response_type: { type: string }
+                client_id: { type: string }
+                redirect_uri: { type: string }
+                scope: { type: string }
+                state: { type: string }
+                code_challenge: { type: string }
+                code_challenge_method: { type: string }
+      responses:
+        '201':
+          description: PAR success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  request_uri: { type: string }
+                  expires_in: { type: integer }
+  /token:
+    post:
+      operationId: createToken
+      summary: Create Access Token
+      tags: [Tokens]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type, client_id]
+              properties:
+                grant_type: { type: string, enum: [authorization_code, refresh_token, client_credentials] }
+                code: { type: string }
+                redirect_uri: { type: string }
+                refresh_token: { type: string }
+                client_id: { type: string }
+                client_secret: { type: string }
+                code_verifier: { type: string }
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  refresh_token: { type: string }
+                  token_type: { type: string }
+                  expires_in: { type: integer }
+                  scope: { type: string }
+  /revoke:
+    post:
+      operationId: revokeToken
+      summary: Revoke Token
+      tags: [Tokens]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [token]
+              properties:
+                token: { type: string }
+                token_type_hint: { type: string }
+      responses:
+        '200':
+          description: Revoked

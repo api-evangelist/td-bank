@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Account Detailed API
+  description: >-
+    FDX v6.2 Account Detailed endpoint. Returns comprehensive information for
+    a specific consented TD account — structure, terms, balances, identifiers,
+    and account-type-specific fields (deposit, loan, investment).
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: Account Detailed v1.0.0 API Spec
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/account-detailed-v1-0-0-api-spec-ofs
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+    description: Sandbox
+tags:
+  - name: Accounts
+security:
+  - oauth2: []
+paths:
+  /accounts/{accountId}:
+    get:
+      operationId: getAccount
+      summary: Get Account Detail
+      tags: [Accounts]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Account detail
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AccountDetailed' }
+  /accounts/{accountId}/contact:
+    get:
+      operationId: getAccountContact
+      summary: Get Account Contact
+      tags: [Accounts]
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Account contact
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            accounts_detailed_read: Read detailed account info
+  schemas:
+    AccountDetailed:
+      type: object
+      required: [accountId, accountType]
+      properties:
+        accountId: { type: string }
+        accountType: { type: string }
+        accountCategory: { type: string }
+        displayName: { type: string }
+        accountNumberDisplay: { type: string }
+        currency: { type: string }
+        currentBalance: { type: number }
+        availableBalance: { type: number }
+        openingDayBalance: { type: number }
+        interestRate: { type: number }
+        status: { type: string }
+        depositAccount:
+          type: object
+          properties:
+            interestType: { type: string }
+            interestYtd: { type: number }
+        loanAccount:
+          type: object
+          properties:
+            originalLoanAmount: { type: number }
+            principalBalance: { type: number }
+            interestRate: { type: number }
+        investmentAccount:
+          type: object
+          properties:
+            holdings:
+              type: array
+              items: { type: object }

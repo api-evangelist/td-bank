@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Account Basic API
+  description: >-
+    FDX v6.2 Account Basic endpoint. Returns lightweight account information
+    (accountId, type, displayName, masked number) for every consented TD
+    account so aggregators can enumerate accounts without retrieving full
+    detail.
+  version: '1.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: TD Open Banking — About Our APIs
+  url: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/fdx/v6
+    description: Production
+  - url: https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6
+    description: Sandbox
+tags:
+  - name: Accounts
+security:
+  - oauth2: []
+paths:
+  /accounts:
+    get:
+      operationId: listAccounts
+      summary: List Consented Accounts
+      tags: [Accounts]
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema: { type: integer }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Accounts list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountList'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize
+          tokenUrl: https://api.openbanking.amcb.developer.td.com/oauth/v1/token
+          scopes:
+            accounts_basic_read: Read basic account info
+  schemas:
+    AccountList:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items: { $ref: '#/components/schemas/AccountBasic' }
+        page:
+          type: object
+          properties:
+            nextOffset: { type: string }
+    AccountBasic:
+      type: object
+      required: [accountId, accountType]
+      properties:
+        accountId: { type: string }
+        accountType: { type: string }
+        accountCategory: { type: string }
+        displayName: { type: string }
+        accountNumberDisplay: { type: string }
+        currency: { type: string }
+        status: { type: string }

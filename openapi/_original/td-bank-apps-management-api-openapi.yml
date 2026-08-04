@@ -1,0 +1,140 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Apps Management API
+  description: >-
+    Apps Management API v2.0. Lets data recipients create and update
+    fintech apps on the TD/Akoya network, list purchased FDX data
+    clusters, manage subscriptions, and look up which entities support
+    specific FDX clusters.
+  version: '2.0.0'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: Apps Management API v2 Guide
+  url: https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/apps/v2
+    description: Production
+tags:
+  - name: Apps
+  - name: Subscriptions
+  - name: Clusters
+security:
+  - serviceToken: []
+paths:
+  /apps:
+    get:
+      operationId: listApps
+      summary: List Apps
+      tags: [Apps]
+      responses:
+        '200':
+          description: Apps
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apps:
+                    type: array
+                    items: { $ref: '#/components/schemas/App' }
+    post:
+      operationId: createApp
+      summary: Create App
+      tags: [Apps]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/App' }
+      responses:
+        '201':
+          description: App created
+  /apps/{appId}:
+    get:
+      operationId: getApp
+      summary: Get App
+      tags: [Apps]
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: App detail
+    put:
+      operationId: updateApp
+      summary: Update App
+      tags: [Apps]
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/App' }
+      responses:
+        '200':
+          description: Updated
+  /apps/{appId}/subscriptions:
+    get:
+      operationId: listAppSubscriptions
+      summary: List App Subscriptions
+      tags: [Subscriptions]
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Subscriptions
+  /apps/{appId}/clusters:
+    get:
+      operationId: listAppClusters
+      summary: List Purchased FDX Clusters
+      tags: [Clusters]
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: FDX clusters list
+  /clusters/{clusterId}/entities:
+    get:
+      operationId: listClusterEntities
+      summary: List Entities Supporting Cluster
+      tags: [Clusters]
+      parameters:
+        - name: clusterId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Entities
+components:
+  securitySchemes:
+    serviceToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    App:
+      type: object
+      required: [name]
+      properties:
+        appId: { type: string }
+        name: { type: string }
+        description: { type: string }
+        redirectUris:
+          type: array
+          items: { type: string }
+        status: { type: string }

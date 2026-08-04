@@ -1,0 +1,51 @@
+openapi: 3.1.0
+info:
+  title: TD Bank Service Token API
+  description: >-
+    OAuth 2.0 Service Token API (Akoya v1.0.1). Generates client-credentials
+    tokens for the utility APIs (Apps Management, Notifications). Separate
+    from the user-context Token API so partner backend systems can
+    authenticate without a user session.
+  version: '1.0.1'
+  contact:
+    name: TD Open Banking Developer Support
+    url: https://developer.td.com
+externalDocs:
+  description: Service Token Akoya v1.0.1
+  url: https://docs.pat.openbanking.amcb.developer.td.com/reference/service-token-akoya-v1-0-1
+servers:
+  - url: https://api.openbanking.amcb.developer.td.com/oauth/v1
+    description: Production
+tags:
+  - name: Service Tokens
+security: []
+paths:
+  /service-token:
+    post:
+      operationId: createServiceToken
+      summary: Create Service Token
+      tags: [Service Tokens]
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type, client_id, client_secret]
+              properties:
+                grant_type: { type: string, enum: [client_credentials] }
+                client_id: { type: string }
+                client_secret: { type: string }
+                scope: { type: string }
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  token_type: { type: string }
+                  expires_in: { type: integer }
+                  scope: { type: string }

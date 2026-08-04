@@ -1,0 +1,42 @@
+{
+  "provider": "td-bank",
+  "sources": [
+    "td-bank-accounts-api-openapi.yml",
+    "td-bank-apps-api-openapi.yml",
+    "td-bank-bill-payments-api-openapi.yml",
+    "td-bank-clusters-api-openapi.yml",
+    "td-bank-consents-api-openapi.yml",
+    "td-bank-customers-api-openapi.yml",
+    "td-bank-notifications-api-openapi.yml",
+    "td-bank-payees-api-openapi.yml",
+    "td-bank-rewards-api-openapi.yml",
+    "td-bank-service-tokens-api-openapi.yml",
+    "td-bank-statements-api-openapi.yml",
+    "td-bank-subscriptions-api-openapi.yml",
+    "td-bank-tax-forms-api-openapi.yml",
+    "td-bank-tokens-api-openapi.yml",
+    "td-bank-transactions-api-openapi.yml"
+  ],
+  "outputs": [
+    "td-bank-accounts-api-openapi.yml",
+    "td-bank-apps-api-openapi.yml",
+    "td-bank-bill-payments-api-openapi.yml",
+    "td-bank-clusters-api-openapi.yml",
+    "td-bank-consents-api-openapi.yml",
+    "td-bank-customers-api-openapi.yml",
+    "td-bank-notifications-api-openapi.yml",
+    "td-bank-payees-api-openapi.yml",
+    "td-bank-rewards-api-openapi.yml",
+    "td-bank-service-tokens-api-openapi.yml",
+    "td-bank-statements-api-openapi.yml",
+    "td-bank-subscriptions-api-openapi.yml",
+    "td-bank-tax-forms-api-openapi.yml",
+    "td-bank-tokens-api-openapi.yml",
+    "td-bank-transactions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
