@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "TD Bank Account Basic Accounts Transactions API",
+    "name": "TD Bank Account Basic Accounts API",
     "version": "1.0.0"
   },
   "request": {
@@ -19,31 +19,21 @@
   "items": [
     {
       "info": {
-        "name": "Transactions",
+        "name": "Accounts",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Transactions",
+            "name": "List Consented Accounts",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/transactions",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts",
             "params": [
               {
-                "name": "accountId",
-                "value": "",
-                "type": "path"
-              },
-              {
-                "name": "startTime",
-                "value": "",
-                "type": "query"
-              },
-              {
-                "name": "endTime",
+                "name": "page",
                 "value": "",
                 "type": "query"
               },
@@ -54,53 +44,43 @@
               }
             ]
           },
-          "docs": "List Transactions"
+          "docs": "List Consented Accounts"
         },
         {
           "info": {
-            "name": "Get Transaction",
+            "name": "Get Account Detail",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/transactions/:transactionId",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId",
             "params": [
               {
                 "name": "accountId",
                 "value": "",
                 "type": "path"
-              },
-              {
-                "name": "transactionId",
-                "value": "",
-                "type": "path"
               }
             ]
           },
-          "docs": "Get Transaction"
+          "docs": "Get Account Detail"
         },
         {
           "info": {
-            "name": "Get Transaction Image",
+            "name": "Get Account Contact",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/transactions/:transactionId/image",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/contact",
             "params": [
               {
                 "name": "accountId",
                 "value": "",
                 "type": "path"
-              },
-              {
-                "name": "transactionId",
-                "value": "",
-                "type": "path"
               }
             ]
           },
-          "docs": "Get Transaction Image"
+          "docs": "Get Account Contact"
         }
       ]
     }

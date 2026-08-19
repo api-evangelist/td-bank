@@ -1,54 +1,28 @@
 {
   "item": [
     {
-      "id": "bc169268-87b3-4221-aa34-69638226eb0f",
-      "name": "Transactions",
+      "id": "681c4b88-8f58-4e88-8cdf-ab76537e8b9f",
+      "name": "Apps",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "a73f74f0-a68b-4a9c-be8f-ad66f3b9ef8b",
-          "name": "List Transactions",
+          "id": "84b1cc2c-4977-49c1-8a07-f9866b2ab7f4",
+          "name": "List Apps",
           "request": {
-            "name": "List Transactions",
+            "name": "List Apps",
             "description": {},
             "url": {
               "path": [
-                "accounts",
-                ":accountId",
-                "transactions"
+                "apps"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "startTime",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "endTime",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
+              "query": [],
+              "variable": []
             },
             "header": [
               {
@@ -61,41 +35,18 @@
           },
           "response": [
             {
-              "id": "b3340e8f-8132-401f-84b2-2b0867ecb297",
-              "name": "Transactions list",
+              "id": "43aadff2-c9a0-4860-b3ee-94a97f27eb77",
+              "name": "Apps",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "accounts",
-                    ":accountId",
-                    "transactions"
+                    "apps"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "startTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "endTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
+                  "query": [],
+                  "variable": []
                 },
                 "header": [
                   {
@@ -122,7 +73,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"transactions\": [\n    {\n      \"transactionId\": \"string\",\n      \"amount\": 8899.002244298767,\n      \"debitCreditMemo\": \"MEMO\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"status\": \"string\",\n      \"transactionTimestamp\": \"2000-05-15T06:49:47.286Z\",\n      \"postedTimestamp\": \"2022-07-19T11:48:10.565Z\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"categoryCode\": \"string\",\n        \"address\": {}\n      },\n      \"category\": \"string\"\n    },\n    {\n      \"transactionId\": \"string\",\n      \"amount\": 9215.793240871197,\n      \"debitCreditMemo\": \"CREDIT\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"status\": \"string\",\n      \"transactionTimestamp\": \"1995-01-03T21:12:02.633Z\",\n      \"postedTimestamp\": \"1954-05-06T18:42:49.380Z\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"categoryCode\": \"string\",\n        \"address\": {}\n      },\n      \"category\": \"string\"\n    }\n  ],\n  \"page\": {\n    \"nextOffset\": \"string\"\n  }\n}",
+              "body": "{\n  \"apps\": [\n    {\n      \"name\": \"string\",\n      \"appId\": \"string\",\n      \"description\": \"string\",\n      \"redirectUris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"appId\": \"string\",\n      \"description\": \"string\",\n      \"redirectUris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -133,17 +84,103 @@
           }
         },
         {
-          "id": "24c0e32b-16cf-434c-a557-86fd1e48d2ba",
-          "name": "Get Transaction",
+          "id": "365904a5-0f58-49c0-a287-401fb8bc50e9",
+          "name": "Create App",
           "request": {
-            "name": "Get Transaction",
+            "name": "Create App",
             "description": {},
             "url": {
               "path": [
-                "accounts",
-                ":accountId",
-                "transactions",
-                ":transactionId"
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c96bf68-0983-433e-80aa-1ed5096e0483",
+              "name": "App created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbf7ae7b-b350-4b98-b8fd-fe9fb3ecc2c0",
+          "name": "Get App",
+          "request": {
+            "name": "Get App",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":appId"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -154,38 +191,23 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "transactionId",
+                  "key": "appId",
                   "description": "(Required) "
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "55dc850c-7654-4c5a-a6ad-aefe5c3e1650",
-              "name": "Transaction detail",
+              "id": "c780fd8a-072b-4f66-975d-cdcef08f463f",
+              "name": "App detail",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "accounts",
-                    ":accountId",
-                    "transactions",
-                    ":transactionId"
+                    "apps",
+                    ":appId"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -196,14 +218,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "transactionId",
+                      "key": "appId",
                       "description": "(Required) "
                     }
                   ]
@@ -216,10 +231,6 @@
                     },
                     "key": "Authorization",
                     "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
                 "method": "GET",
@@ -230,12 +241,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"transactionId\": \"string\",\n  \"amount\": 3095.894425237965,\n  \"debitCreditMemo\": \"MEMO\",\n  \"description\": \"string\",\n  \"memo\": \"string\",\n  \"status\": \"string\",\n  \"transactionTimestamp\": \"1965-09-29T19:44:10.322Z\",\n  \"postedTimestamp\": \"1952-10-27T11:29:35.445Z\",\n  \"merchant\": {\n    \"name\": \"string\",\n    \"categoryCode\": \"string\",\n    \"address\": {}\n  },\n  \"category\": \"string\"\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -244,18 +255,15 @@
           }
         },
         {
-          "id": "e67843ee-05e1-4ae7-a91d-1e032a00c3fd",
-          "name": "Get Transaction Image",
+          "id": "d8304391-cb95-411e-b86a-3df722bb4169",
+          "name": "Update App",
           "request": {
-            "name": "Get Transaction Image",
+            "name": "Update App",
             "description": {},
             "url": {
               "path": [
-                "accounts",
-                ":accountId",
-                "transactions",
-                ":transactionId",
-                "image"
+                "apps",
+                ":appId"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -266,33 +274,38 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "transactionId",
+                  "key": "appId",
                   "description": "(Required) "
                 }
               ]
             },
-            "method": "GET",
-            "auth": null
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "84d8b570-cec9-4508-b955-f1400415e121",
-              "name": "Transaction image",
+              "id": "6e60625a-fa40-466d-b125-3ca4ccf59e5d",
+              "name": "Updated",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "accounts",
-                    ":accountId",
-                    "transactions",
-                    ":transactionId",
-                    "image"
+                    "apps",
+                    ":appId"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -303,14 +316,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "transactionId",
+                      "key": "appId",
                       "description": "(Required) "
                     }
                   ]
@@ -325,8 +331,16 @@
                     "value": "<token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
               "status": "OK",
               "code": 200,
@@ -380,8 +394,8 @@
     ]
   },
   "info": {
-    "_postman_id": "ed927ffd-7d65-44fe-b7ff-8fe5d84dd56a",
-    "name": "TD Bank Account Basic Accounts Transactions API",
+    "_postman_id": "dc20583d-6ac8-479d-9cee-b0ec8bc8bdaa",
+    "name": "TD Bank Account Basic Accounts Apps API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",

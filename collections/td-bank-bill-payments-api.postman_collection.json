@@ -1,24 +1,24 @@
 {
   "item": [
     {
-      "id": "6cea1a3b-f8dd-4068-b853-98b3cff341af",
-      "name": "Statements",
+      "id": "e3f6976e-63cb-4bb9-aae1-1786980e3900",
+      "name": "Bill Payments",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6474579d-2d0b-47bb-a05e-bb6a08e6fd94",
-          "name": "List Account Statements",
+          "id": "f6c4424e-86fc-4b32-8549-7af75679cc61",
+          "name": "List Bill Payments",
           "request": {
-            "name": "List Account Statements",
+            "name": "List Bill Payments",
             "description": {},
             "url": {
               "path": [
                 "accounts",
                 ":accountId",
-                "statements"
+                "bill-payments"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -56,14 +56,14 @@
           },
           "response": [
             {
-              "id": "46fb4813-7ed1-45e6-a85b-c20fba16840e",
-              "name": "Statements list",
+              "id": "8cb5fa4f-c589-46bd-96d0-fee0491ad5e5",
+              "name": "Bill payments list",
               "originalRequest": {
                 "url": {
                   "path": [
                     "accounts",
                     ":accountId",
-                    "statements"
+                    "bill-payments"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -113,120 +113,9 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"statements\": [\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1972-06-23\",\n      \"statusType\": \"string\"\n    },\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1960-12-18\",\n      \"statusType\": \"string\"\n    }\n  ]\n}",
+              "body": "{\n  \"billPayments\": [\n    {\n      \"paymentId\": \"string\",\n      \"amount\": 7451.023894107776,\n      \"currency\": \"string\",\n      \"payeeId\": \"string\",\n      \"status\": \"string\",\n      \"scheduledDate\": \"2000-03-25\",\n      \"postedDate\": \"1957-08-12\",\n      \"recurring\": true\n    },\n    {\n      \"paymentId\": \"string\",\n      \"amount\": 8677.47181518445,\n      \"currency\": \"string\",\n      \"payeeId\": \"string\",\n      \"status\": \"string\",\n      \"scheduledDate\": \"1958-06-18\",\n      \"postedDate\": \"1949-06-10\",\n      \"recurring\": true\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e42f5c03-38a8-4748-9b07-2206855239fd",
-          "name": "Get Statement",
-          "request": {
-            "name": "Get Statement",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "statements",
-                ":statementId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "statementId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/pdf"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "13176a68-045f-46e9-9846-6acc0cb87bb6",
-              "name": "Statement (PDF or metadata)",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "statements",
-                    ":statementId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "statementId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/pdf"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -268,8 +157,8 @@
     ]
   },
   "info": {
-    "_postman_id": "f97a9892-c68b-442b-a62c-f6de8b01b230",
-    "name": "TD Bank Account Basic Accounts Statements API",
+    "_postman_id": "5c6061a7-e909-4741-9fdb-79771b08abc0",
+    "name": "TD Bank Account Basic Accounts Bill Payments API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",

@@ -1,40 +1,29 @@
 {
   "item": [
     {
-      "id": "6cea1a3b-f8dd-4068-b853-98b3cff341af",
-      "name": "Statements",
+      "id": "0784a003-29af-45d7-b2e5-87764b74ad7a",
+      "name": "Customers",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6474579d-2d0b-47bb-a05e-bb6a08e6fd94",
-          "name": "List Account Statements",
+          "id": "8f8ae420-2eb7-4f53-a277-cc03dff5e997",
+          "name": "List Account Holders",
           "request": {
-            "name": "List Account Statements",
+            "name": "List Account Holders",
             "description": {},
             "url": {
               "path": [
                 "accounts",
                 ":accountId",
-                "statements"
+                "customers"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "startTime",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "endTime",
-                  "value": "<dateTime>"
-                }
-              ],
+              "query": [],
               "variable": [
                 {
                   "disabled": false,
@@ -56,28 +45,19 @@
           },
           "response": [
             {
-              "id": "46fb4813-7ed1-45e6-a85b-c20fba16840e",
-              "name": "Statements list",
+              "id": "31ebea38-7a21-4379-929a-2963a7b6723d",
+              "name": "Account holders",
               "originalRequest": {
                 "url": {
                   "path": [
                     "accounts",
                     ":accountId",
-                    "statements"
+                    "customers"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "startTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "endTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
+                  "query": [],
                   "variable": [
                     {
                       "disabled": false,
@@ -113,7 +93,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"statements\": [\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1972-06-23\",\n      \"statusType\": \"string\"\n    },\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1960-12-18\",\n      \"statusType\": \"string\"\n    }\n  ]\n}",
+              "body": "{\n  \"holders\": [\n    {\n      \"customerId\": \"string\",\n      \"name\": {\n        \"first\": \"string\",\n        \"last\": \"string\"\n      },\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"telephones\": [\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"email\": [\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        }\n      ]\n    },\n    {\n      \"customerId\": \"string\",\n      \"name\": {\n        \"first\": \"string\",\n        \"last\": \"string\"\n      },\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"telephones\": [\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"email\": [\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -124,43 +104,26 @@
           }
         },
         {
-          "id": "e42f5c03-38a8-4748-9b07-2206855239fd",
-          "name": "Get Statement",
+          "id": "7d70f9e0-2e57-43e9-b9ea-7d12a8d2c902",
+          "name": "Get Current Customer",
           "request": {
-            "name": "Get Statement",
+            "name": "Get Current Customer",
             "description": {},
             "url": {
               "path": [
-                "accounts",
-                ":accountId",
-                "statements",
-                ":statementId"
+                "customers",
+                "current"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "statementId",
-                  "description": "(Required) "
-                }
-              ]
+              "variable": []
             },
             "header": [
               {
                 "key": "Accept",
-                "value": "application/pdf"
+                "value": "application/json"
               }
             ],
             "method": "GET",
@@ -168,36 +131,19 @@
           },
           "response": [
             {
-              "id": "13176a68-045f-46e9-9846-6acc0cb87bb6",
-              "name": "Statement (PDF or metadata)",
+              "id": "ca9f9223-00a6-455e-b8ad-16cccb7f7ae7",
+              "name": "Current customer",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "accounts",
-                    ":accountId",
-                    "statements",
-                    ":statementId"
+                    "customers",
+                    "current"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "statementId",
-                      "description": "(Required) "
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -210,7 +156,7 @@
                   },
                   {
                     "key": "Accept",
-                    "value": "application/pdf"
+                    "value": "application/json"
                   }
                 ],
                 "method": "GET",
@@ -221,12 +167,12 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/pdf"
+                  "value": "application/json"
                 }
               ],
-              "body": "string",
+              "body": "{\n  \"customerId\": \"string\",\n  \"name\": {\n    \"first\": \"string\",\n    \"last\": \"string\"\n  },\n  \"addresses\": [\n    {\n      \"line1\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"line1\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\"\n    }\n  ],\n  \"telephones\": [\n    {\n      \"number\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"number\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"email\": [\n    {\n      \"email\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"email\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "_postman_previewlanguage": "json"
             }
           ],
           "event": [],
@@ -268,8 +214,8 @@
     ]
   },
   "info": {
-    "_postman_id": "f97a9892-c68b-442b-a62c-f6de8b01b230",
-    "name": "TD Bank Account Basic Accounts Statements API",
+    "_postman_id": "f9d7e551-0d2b-48f3-975c-67330ad38bee",
+    "name": "TD Bank Account Basic Accounts Customers API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",

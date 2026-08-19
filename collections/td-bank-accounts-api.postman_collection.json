@@ -1,24 +1,22 @@
 {
   "item": [
     {
-      "id": "6cea1a3b-f8dd-4068-b853-98b3cff341af",
-      "name": "Statements",
+      "id": "1a0af014-0b5b-4c23-a5b6-5bd2ade6fbb5",
+      "name": "Accounts",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6474579d-2d0b-47bb-a05e-bb6a08e6fd94",
-          "name": "List Account Statements",
+          "id": "e37900b4-01c7-4c85-b9c8-b38988d6414e",
+          "name": "List Consented Accounts",
           "request": {
-            "name": "List Account Statements",
+            "name": "List Consented Accounts",
             "description": {},
             "url": {
               "path": [
-                "accounts",
-                ":accountId",
-                "statements"
+                "accounts"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -26,15 +24,100 @@
               "query": [
                 {
                   "disabled": false,
-                  "key": "startTime",
-                  "value": "<dateTime>"
+                  "key": "page",
+                  "value": "<integer>"
                 },
                 {
                   "disabled": false,
-                  "key": "endTime",
-                  "value": "<dateTime>"
+                  "key": "limit",
+                  "value": "<integer>"
                 }
               ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e62da5ab-c1ec-4e47-b5d3-3575a73101cb",
+              "name": "Accounts list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"accountId\": \"string\",\n      \"accountType\": \"string\",\n      \"accountCategory\": \"string\",\n      \"displayName\": \"string\",\n      \"accountNumberDisplay\": \"string\",\n      \"currency\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"accountId\": \"string\",\n      \"accountType\": \"string\",\n      \"accountCategory\": \"string\",\n      \"displayName\": \"string\",\n      \"accountNumberDisplay\": \"string\",\n      \"currency\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"page\": {\n    \"nextOffset\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05713a4a-cb93-4d2d-9d92-6fe9d0a09f87",
+          "name": "Get Account Detail",
+          "request": {
+            "name": "Get Account Detail",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":accountId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
               "variable": [
                 {
                   "disabled": false,
@@ -56,28 +139,18 @@
           },
           "response": [
             {
-              "id": "46fb4813-7ed1-45e6-a85b-c20fba16840e",
-              "name": "Statements list",
+              "id": "306f76fb-f64c-4abd-80e2-e7e3aaf2f51f",
+              "name": "Account detail",
               "originalRequest": {
                 "url": {
                   "path": [
                     "accounts",
-                    ":accountId",
-                    "statements"
+                    ":accountId"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [
-                    {
-                      "key": "startTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "endTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
+                  "query": [],
                   "variable": [
                     {
                       "disabled": false,
@@ -113,7 +186,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"statements\": [\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1972-06-23\",\n      \"statusType\": \"string\"\n    },\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1960-12-18\",\n      \"statusType\": \"string\"\n    }\n  ]\n}",
+              "body": "{\n  \"accountId\": \"string\",\n  \"accountType\": \"string\",\n  \"accountCategory\": \"string\",\n  \"displayName\": \"string\",\n  \"accountNumberDisplay\": \"string\",\n  \"currency\": \"string\",\n  \"currentBalance\": 8337.864589240866,\n  \"availableBalance\": 43.2186440377913,\n  \"openingDayBalance\": 5805.661787436189,\n  \"interestRate\": 8835.865081077205,\n  \"status\": \"string\",\n  \"depositAccount\": {\n    \"interestType\": \"string\",\n    \"interestYtd\": 534.400902322335\n  },\n  \"loanAccount\": {\n    \"originalLoanAmount\": 4931.856064720463,\n    \"principalBalance\": 489.21481868213215,\n    \"interestRate\": 5886.513469154284\n  },\n  \"investmentAccount\": {}\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -124,17 +197,16 @@
           }
         },
         {
-          "id": "e42f5c03-38a8-4748-9b07-2206855239fd",
-          "name": "Get Statement",
+          "id": "06c2d4f5-5c9a-49ca-bf1d-34bbcf4abe55",
+          "name": "Get Account Contact",
           "request": {
-            "name": "Get Statement",
+            "name": "Get Account Contact",
             "description": {},
             "url": {
               "path": [
                 "accounts",
                 ":accountId",
-                "statements",
-                ":statementId"
+                "contact"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -147,36 +219,22 @@
                   "value": "<string>",
                   "key": "accountId",
                   "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "statementId",
-                  "description": "(Required) "
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/pdf"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "13176a68-045f-46e9-9846-6acc0cb87bb6",
-              "name": "Statement (PDF or metadata)",
+              "id": "5d275b78-6900-4ccd-8b04-bf7f8c1a49b8",
+              "name": "Account contact",
               "originalRequest": {
                 "url": {
                   "path": [
                     "accounts",
                     ":accountId",
-                    "statements",
-                    ":statementId"
+                    "contact"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -189,13 +247,6 @@
                       "value": "<string>",
                       "key": "accountId",
                       "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "statementId",
-                      "description": "(Required) "
                     }
                   ]
                 },
@@ -207,10 +258,6 @@
                     },
                     "key": "Authorization",
                     "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
                   }
                 ],
                 "method": "GET",
@@ -221,10 +268,10 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/pdf"
+                  "value": "text/plain"
                 }
               ],
-              "body": "string",
+              "body": "",
               "cookie": [],
               "_postman_previewlanguage": "text"
             }
@@ -268,8 +315,8 @@
     ]
   },
   "info": {
-    "_postman_id": "f97a9892-c68b-442b-a62c-f6de8b01b230",
-    "name": "TD Bank Account Basic Accounts Statements API",
+    "_postman_id": "1ff276fd-f76a-4052-acab-d01e313608d7",
+    "name": "TD Bank Account Basic Accounts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",

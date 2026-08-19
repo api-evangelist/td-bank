@@ -1,13 +1,19 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "TD Bank Notifications API",
+    "name": "TD Bank Account Basic Accounts Notifications API",
     "version": "1.0.0"
   },
   "request": {
     "auth": {
-      "type": "bearer",
-      "token": "{{bearerToken}}"
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+      "accessTokenUrl": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
     }
   },
   "items": [
@@ -24,7 +30,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/notifications/v1/notifications",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/notifications",
             "params": [
               {
                 "name": "category",
@@ -47,7 +53,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/notifications/v1/notifications/:notificationId",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/notifications/:notificationId",
             "params": [
               {
                 "name": "notificationId",

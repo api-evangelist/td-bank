@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "TD Bank Account Basic Accounts Rewards API",
+    "name": "TD Bank Account Basic Accounts Clusters API",
     "version": "1.0.0"
   },
   "request": {
@@ -19,38 +19,45 @@
   "items": [
     {
       "info": {
-        "name": "Rewards",
+        "name": "Clusters",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Rewards Programs",
+            "name": "List Purchased FDX Clusters",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/rewards-programs"
-          },
-          "docs": "List Rewards Programs"
-        },
-        {
-          "info": {
-            "name": "Get Rewards Program",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/rewards-programs/:programId",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/apps/:appId/clusters",
             "params": [
               {
-                "name": "programId",
+                "name": "appId",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Get Rewards Program"
+          "docs": "List Purchased FDX Clusters"
+        },
+        {
+          "info": {
+            "name": "List Entities Supporting Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/clusters/:clusterId/entities",
+            "params": [
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Entities Supporting Cluster"
         }
       ]
     }

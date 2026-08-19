@@ -1,140 +1,24 @@
 {
   "item": [
     {
-      "id": "6cea1a3b-f8dd-4068-b853-98b3cff341af",
-      "name": "Statements",
+      "id": "e9f89e62-2edf-45e5-9789-d46dadef13f9",
+      "name": "Clusters",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "6474579d-2d0b-47bb-a05e-bb6a08e6fd94",
-          "name": "List Account Statements",
+          "id": "90fbfc09-3dad-48f4-b5b8-5045527f553e",
+          "name": "List Purchased FDX Clusters",
           "request": {
-            "name": "List Account Statements",
+            "name": "List Purchased FDX Clusters",
             "description": {},
             "url": {
               "path": [
-                "accounts",
-                ":accountId",
-                "statements"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "startTime",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "endTime",
-                  "value": "<dateTime>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "46fb4813-7ed1-45e6-a85b-c20fba16840e",
-              "name": "Statements list",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "statements"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "startTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "endTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"statements\": [\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1972-06-23\",\n      \"statusType\": \"string\"\n    },\n    {\n      \"statementId\": \"string\",\n      \"description\": \"string\",\n      \"statementDate\": \"1960-12-18\",\n      \"statusType\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e42f5c03-38a8-4748-9b07-2206855239fd",
-          "name": "Get Statement",
-          "request": {
-            "name": "Get Statement",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "statements",
-                ":statementId"
+                "apps",
+                ":appId",
+                "clusters"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -145,38 +29,24 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "statementId",
+                  "key": "appId",
                   "description": "(Required) "
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/pdf"
-              }
-            ],
             "method": "GET",
             "auth": null
           },
           "response": [
             {
-              "id": "13176a68-045f-46e9-9846-6acc0cb87bb6",
-              "name": "Statement (PDF or metadata)",
+              "id": "391b8d95-d2a6-44f8-9599-f166090abb29",
+              "name": "FDX clusters list",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "accounts",
-                    ":accountId",
-                    "statements",
-                    ":statementId"
+                    "apps",
+                    ":appId",
+                    "clusters"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -187,14 +57,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "statementId",
+                      "key": "appId",
                       "description": "(Required) "
                     }
                   ]
@@ -207,10 +70,6 @@
                     },
                     "key": "Authorization",
                     "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
                   }
                 ],
                 "method": "GET",
@@ -221,10 +80,95 @@
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/pdf"
+                  "value": "text/plain"
                 }
               ],
-              "body": "string",
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "edd6bd25-ebf3-4c95-8435-b535a2569b1d",
+          "name": "List Entities Supporting Cluster",
+          "request": {
+            "name": "List Entities Supporting Cluster",
+            "description": {},
+            "url": {
+              "path": [
+                "clusters",
+                ":clusterId",
+                "entities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36a74b1f-5f53-48db-a34f-b034a1ce203d",
+              "name": "Entities",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clusters",
+                    ":clusterId",
+                    "entities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
               "cookie": [],
               "_postman_previewlanguage": "text"
             }
@@ -268,8 +212,8 @@
     ]
   },
   "info": {
-    "_postman_id": "f97a9892-c68b-442b-a62c-f6de8b01b230",
-    "name": "TD Bank Account Basic Accounts Statements API",
+    "_postman_id": "840c4a73-17b0-49ad-9bc2-90d028b003e3",
+    "name": "TD Bank Account Basic Accounts Clusters API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",

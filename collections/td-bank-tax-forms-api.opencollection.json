@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "TD Bank Tax Forms API",
+    "name": "TD Bank Account Basic Accounts Tax Forms API",
     "version": "1.0.0"
   },
   "request": {

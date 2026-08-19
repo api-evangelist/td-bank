@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "cea1f974-6a90-4dd9-8edd-5819e840eaa5",
+      "id": "f94a04d3-3975-4bd8-b127-538ada31cbf8",
       "name": "Tax Forms",
       "description": {
         "content": "",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "08a42980-6b3d-4ecd-8935-6df7d3449d04",
+          "id": "46dc2d0a-d6c4-4e53-b03d-773109b79160",
           "name": "List Tax Forms",
           "request": {
             "name": "List Tax Forms",
@@ -51,7 +51,7 @@
           },
           "response": [
             {
-              "id": "ea84714b-f234-467d-8350-1e6b4b15ee18",
+              "id": "df37889c-26b7-4900-808c-c089e5df34b5",
               "name": "Tax forms list",
               "originalRequest": {
                 "url": {
@@ -104,7 +104,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"taxForms\": [\n    {\n      \"taxFormId\": \"string\",\n      \"taxYear\": 4923,\n      \"taxFormType\": \"string\",\n      \"taxFormDate\": \"1993-03-09\"\n    },\n    {\n      \"taxFormId\": \"string\",\n      \"taxYear\": 5819,\n      \"taxFormType\": \"string\",\n      \"taxFormDate\": \"2016-08-12\"\n    }\n  ]\n}",
+              "body": "{\n  \"taxForms\": [\n    {\n      \"taxFormId\": \"string\",\n      \"taxYear\": 1820,\n      \"taxFormType\": \"string\",\n      \"taxFormDate\": \"1958-03-22\"\n    },\n    {\n      \"taxFormId\": \"string\",\n      \"taxYear\": 6155,\n      \"taxFormType\": \"string\",\n      \"taxFormDate\": \"1965-06-03\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -115,7 +115,7 @@
           }
         },
         {
-          "id": "a33b26f8-5b2f-439d-8f90-a859340ea4ac",
+          "id": "bf1f1671-6981-4d46-a453-3f1cdc796bc9",
           "name": "Get Tax Form",
           "request": {
             "name": "Get Tax Form",
@@ -159,7 +159,7 @@
           },
           "response": [
             {
-              "id": "d3681a82-9a5b-48f9-80ce-fafce62a5344",
+              "id": "6f519233-1ed6-4494-841e-7bb7ac03684a",
               "name": "Tax form PDF",
               "originalRequest": {
                 "url": {
@@ -242,7 +242,7 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "tax_forms_read"
+        "value": "accounts_basic_read"
       },
       {
         "key": "accessTokenUrl",
@@ -259,11 +259,11 @@
     ]
   },
   "info": {
-    "_postman_id": "8a21378d-8334-4d78-a282-4269812a5f3b",
-    "name": "TD Bank Tax Forms API",
+    "_postman_id": "d3635d5e-64c0-460a-ba7e-6666e8037316",
+    "name": "TD Bank Account Basic Accounts Tax Forms API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "FDX v6.2 Tax Forms endpoint. Lists tax forms (1099-INT, 1099-DIV, etc.) issued for a consented TD account in a given year and lets consumers retrieve the form PDF.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
       "type": "text/plain"
     }
   }

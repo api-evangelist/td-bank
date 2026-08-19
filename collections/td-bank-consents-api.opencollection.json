@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "TD Bank Account Basic Accounts Statements API",
+    "name": "TD Bank Account Basic Accounts Consents API",
     "version": "1.0.0"
   },
   "request": {
@@ -19,60 +19,56 @@
   "items": [
     {
       "info": {
-        "name": "Statements",
+        "name": "Consents",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Account Statements",
+            "name": "Get Consent Details",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/statements",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/consents/:consentId",
             "params": [
               {
-                "name": "accountId",
+                "name": "consentId",
                 "value": "",
                 "type": "path"
-              },
-              {
-                "name": "startTime",
-                "value": "",
-                "type": "query"
-              },
-              {
-                "name": "endTime",
-                "value": "",
-                "type": "query"
               }
             ]
           },
-          "docs": "List Account Statements"
+          "docs": "Get Consent Details"
         },
         {
           "info": {
-            "name": "Get Statement",
+            "name": "Revoke Consent",
             "type": "http"
           },
           "http": {
-            "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/statements/:statementId",
+            "method": "DELETE",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/consents/:consentId",
             "params": [
               {
-                "name": "accountId",
-                "value": "",
-                "type": "path"
-              },
-              {
-                "name": "statementId",
+                "name": "consentId",
                 "value": "",
                 "type": "path"
               }
             ]
           },
-          "docs": "Get Statement"
+          "docs": "Revoke Consent"
+        },
+        {
+          "info": {
+            "name": "List Consent Revocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/consent-revocations"
+          },
+          "docs": "List Consent Revocations"
         }
       ]
     }

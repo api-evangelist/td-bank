@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "TD Bank Account Basic Accounts Rewards API",
+    "name": "TD Bank Account Basic Accounts Bill Payments API",
     "version": "1.0.0"
   },
   "request": {
@@ -19,38 +19,37 @@
   "items": [
     {
       "info": {
-        "name": "Rewards",
+        "name": "Bill Payments",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "List Rewards Programs",
+            "name": "List Bill Payments",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/rewards-programs"
-          },
-          "docs": "List Rewards Programs"
-        },
-        {
-          "info": {
-            "name": "Get Rewards Program",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/rewards-programs/:programId",
+            "url": "https://api.openbanking.amcb.developer.td.com/fdx/v6/accounts/:accountId/bill-payments",
             "params": [
               {
-                "name": "programId",
+                "name": "accountId",
                 "value": "",
                 "type": "path"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query"
               }
             ]
           },
-          "docs": "Get Rewards Program"
+          "docs": "List Bill Payments"
         }
       ]
     }

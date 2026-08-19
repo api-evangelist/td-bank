@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "05ad54a8-12ef-459c-b21d-a424d7fbb139",
+      "id": "1e95c988-9a4c-4a38-986a-07bc45bcaced",
       "name": "Rewards",
       "description": {
         "content": "",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "8ca4bda4-6d3c-4fb7-8df4-b88aa0fef2b1",
+          "id": "01b04ff6-002f-4c0f-a990-ff5d6cc1b827",
           "name": "List Rewards Programs",
           "request": {
             "name": "List Rewards Programs",
@@ -35,7 +35,7 @@
           },
           "response": [
             {
-              "id": "1ccf5f1e-72ae-4fa2-bfb4-3108ac0df5a6",
+              "id": "3b754e34-0eea-4e36-b296-3ee8996c00c0",
               "name": "Reward programs",
               "originalRequest": {
                 "url": {
@@ -73,7 +73,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"programs\": [\n    {\n      \"programId\": \"string\",\n      \"name\": \"string\",\n      \"sponsor\": \"string\",\n      \"currency\": \"string\",\n      \"currentBalance\": 7918.416088062749,\n      \"category\": \"string\",\n      \"memberSince\": \"2001-05-25\"\n    },\n    {\n      \"programId\": \"string\",\n      \"name\": \"string\",\n      \"sponsor\": \"string\",\n      \"currency\": \"string\",\n      \"currentBalance\": 9335.114890117507,\n      \"category\": \"string\",\n      \"memberSince\": \"2022-01-31\"\n    }\n  ]\n}",
+              "body": "{\n  \"programs\": [\n    {\n      \"programId\": \"string\",\n      \"name\": \"string\",\n      \"sponsor\": \"string\",\n      \"currency\": \"string\",\n      \"currentBalance\": 9057.82288221151,\n      \"category\": \"string\",\n      \"memberSince\": \"1988-06-15\"\n    },\n    {\n      \"programId\": \"string\",\n      \"name\": \"string\",\n      \"sponsor\": \"string\",\n      \"currency\": \"string\",\n      \"currentBalance\": 1864.5922087633137,\n      \"category\": \"string\",\n      \"memberSince\": \"2026-01-29\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -84,7 +84,7 @@
           }
         },
         {
-          "id": "237eb671-8912-4313-bd7b-d61ced36444b",
+          "id": "6e27716c-229b-4778-89de-1907a4cc9cdc",
           "name": "Get Rewards Program",
           "request": {
             "name": "Get Rewards Program",
@@ -113,7 +113,7 @@
           },
           "response": [
             {
-              "id": "14b89956-2fa6-4d56-8979-77793d91b84d",
+              "id": "a6a5ebb5-4756-43a6-a4e0-5368d248ecec",
               "name": "Reward program detail",
               "originalRequest": {
                 "url": {
@@ -183,7 +183,7 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "rewards_read"
+        "value": "accounts_basic_read"
       },
       {
         "key": "accessTokenUrl",
@@ -200,11 +200,11 @@
     ]
   },
   "info": {
-    "_postman_id": "4299fae7-e0d5-44e7-824f-cc1bccda9966",
-    "name": "TD Bank Rewards API",
+    "_postman_id": "fba7deba-1b3f-4733-b952-8b1776fd809f",
+    "name": "TD Bank Account Basic Accounts Rewards API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "TD Open Banking Rewards API v1.0.0. Returns reward program and membership information for the currently authenticated user — used to track participation across travel, retail, and merchant programs tied to TD credit card and loyalty accounts.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
       "type": "text/plain"
     }
   }
