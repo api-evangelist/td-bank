@@ -59,7 +59,7 @@ tags:
   - Transactions
 created: '2025-05-03'
 modified: '2026-05-23'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
 - aid: td-bank:transactions-api
   name: TD Bank Transactions API
