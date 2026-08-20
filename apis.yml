@@ -44,6 +44,25 @@ tags:
   - Akoya
   - Banking
   - Bank Secrecy Act
+  - Bill Payments
+  - Consent
+  - Consumer Banking
+  - FDX
+  - Financial-Services
+  - Merchant Solutions
+  - Notification
+  - Open Banking
+  - Payments
+  - Rewards
+  - Tax Forms
+  - Token Management
+  - Transaction
+tags_raw:
+  - Account Aggregation
+  - AML
+  - Akoya
+  - Banking
+  - Bank Secrecy Act
   - Bill Payment
   - Consent
   - Consumer Banking
@@ -71,6 +90,10 @@ apis:
   humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
   baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
   tags:
+  - Transaction
+  - FDX
+  - Open Banking
+  tags_raw:
   - Transactions
   - FDX
   - Open Banking
@@ -148,6 +171,10 @@ apis:
   humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
   baseURL: https://api.openbanking.amcb.developer.td.com/notifications/v1
   tags:
+  - Notification
+  - Akoya
+  - Open Banking
+  tags_raw:
   - Notifications
   - Akoya
   - Open Banking
@@ -178,6 +205,8 @@ apis:
   humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
   baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -207,6 +236,8 @@ apis:
   humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
   baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
   tags:
+  - Application
+  tags_raw:
   - Apps
   properties:
   - type: OpenAPI
@@ -265,6 +296,8 @@ apis:
   humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
   baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -410,6 +443,8 @@ apis:
   humanURL: https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi
   baseURL: https://api.openbanking.amcb.developer.td.com/fdx/v6
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
