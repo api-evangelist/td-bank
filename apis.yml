@@ -498,6 +498,9 @@ apis:
   - type: Documentation
     url: https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide
 common:
+  - type: CapabilityMap
+    url: capabilities/td-bank-capability-edges.yml
+    name: TD Bank Business Capability Map
   - type: AgenticAccess
     url: agentic-access/td-bank-agentic-access.yml
   - type: DomainSecurity
