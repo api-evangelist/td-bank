@@ -48,7 +48,7 @@ tags:
   - Consent
   - Consumer Banking
   - FDX
-  - Financial-Services
+  - Financial Services
   - Merchant Solutions
   - Notification
   - Open Banking
@@ -76,6 +76,7 @@ tags_raw:
   - Tax Forms
   - Token Management
   - Transactions
+  - Financial-Services
 created: '2025-05-03'
 modified: '2026-05-23'
 specificationVersion: '0.23'
