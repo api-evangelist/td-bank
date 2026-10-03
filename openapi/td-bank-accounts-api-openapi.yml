@@ -91,6 +91,18 @@ paths:
       description: Sandbox
 components:
   schemas:
+    AccountList:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountBasic'
+        page:
+          type: object
+          properties:
+            nextOffset:
+              type: string
     AccountBasic:
       type: object
       required:
@@ -111,18 +123,6 @@ components:
           type: string
         status:
           type: string
-    AccountList:
-      type: object
-      properties:
-        accounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccountBasic'
-        page:
-          type: object
-          properties:
-            nextOffset:
-              type: string
     AccountDetailed:
       type: object
       required:

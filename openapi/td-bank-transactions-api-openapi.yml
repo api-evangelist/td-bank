@@ -98,18 +98,6 @@ paths:
           description: Transaction image
 components:
   schemas:
-    TransactionList:
-      type: object
-      properties:
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transaction'
-        page:
-          type: object
-          properties:
-            nextOffset:
-              type: string
     Transaction:
       type: object
       required:
@@ -149,6 +137,18 @@ components:
               type: object
         category:
           type: string
+    TransactionList:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+        page:
+          type: object
+          properties:
+            nextOffset:
+              type: string
   securitySchemes:
     oauth2:
       type: oauth2
