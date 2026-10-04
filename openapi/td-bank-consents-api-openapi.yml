@@ -69,6 +69,22 @@ paths:
                       $ref: '#/components/schemas/ConsentRevocation'
 components:
   schemas:
+    ConsentRevocation:
+      type: object
+      properties:
+        consentId:
+          type: string
+        revokedAt:
+          type: string
+          format: date-time
+        initiator:
+          type: string
+          enum:
+          - CONSUMER
+          - DATA_PROVIDER
+          - DATA_RECIPIENT
+        reason:
+          type: string
     Consent:
       type: object
       required:
@@ -106,22 +122,6 @@ components:
                 type: array
                 items:
                   type: string
-    ConsentRevocation:
-      type: object
-      properties:
-        consentId:
-          type: string
-        revokedAt:
-          type: string
-          format: date-time
-        initiator:
-          type: string
-          enum:
-          - CONSUMER
-          - DATA_PROVIDER
-          - DATA_RECIPIENT
-        reason:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
