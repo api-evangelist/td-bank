@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/td-bank/integrations
 - https://n8n.io/integrations/td-bank/
@@ -9,8 +9,33 @@ checked:
 - https://composio.dev/toolkits/td-bank
 - https://monid.ai/tools/td-bank
 - https://n8n.io/integrations/td-bank/
+- https://registry.financialdataexchange.org/
 - https://zapier.com/apps/td-bank/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: FDX (Financial Data Exchange)
+  partner: fdx
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.financialdataexchange.org/
+  contract_reference:
+    register: FDX Registry
+    standard: FDX API
+    spec_file: null
+    register_api: https://registry.financialdataexchange.org/fdxregistryapi/organizations/search/listingTags
+    role: data-provider
+    member_type: MEMBER
+    registered_name: TD Bank
+    register_id: 94
+    registered_website: https://www.td.com
+    country: Canada
+    fdx_version: null
+    matched_by: domain:td.com
+    detected_by: sweep-fdx.py
+    detected: '2026-10-14'
+  detected_by: sweep-fdx.py
+  first_seen: '2026-10-14'
 templates: []
