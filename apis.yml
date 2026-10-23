@@ -499,6 +499,8 @@ apis:
   - type: Documentation
     url: https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/td-bank/overview
   - type: Website
     url: https://www.td.com/
   - type: CapabilityMap
