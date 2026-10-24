@@ -1,138 +1,132 @@
 {
+  "info": {
+    "_postman_id": "24876d3d-91ba-4a2c-8c69-7a9797bb883f",
+    "name": "TD Bank Apps Management Subscriptions API",
+    "description": "Apps Management API v2.0. Lets data recipients create and update fintech apps on the TD/Akoya network, list purchased FDX data clusters, manage subscriptions, and look up which entities support specific FDX clusters.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:39:25.000Z",
+    "updatedAt": "2026-10-22T01:39:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-24876d3d-91ba-4a2c-8c69-7a9797bb883f"
+  },
   "item": [
     {
-      "id": "b6475f1f-f76c-4f73-9f8c-5d7087cf7543",
-      "name": "Subscriptions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "apps",
       "item": [
         {
-          "id": "6375852f-dd36-41e1-94fd-1ca322ebc380",
-          "name": "List App Subscriptions",
-          "request": {
-            "name": "List App Subscriptions",
-            "description": {},
-            "url": {
-              "path": [
-                "apps",
-                ":appId",
-                "subscriptions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "appId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{appId}",
+          "item": [
             {
-              "id": "ded17f03-a8f4-4ce6-ab94-2514c94bcc75",
-              "name": "Subscriptions",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "apps",
-                    ":appId",
-                    "subscriptions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "appId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "subscriptions",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "List App Subscriptions",
+                  "id": "a5d6bfc1-3339-4df0-91c2-4ec41fb1a32b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:appId/subscriptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":appId",
+                        "subscriptions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e1d35633-f183-46ed-bf55-7b4f4baa1eb8",
+                          "key": "appId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6c75d10d-dc69-4e8d-b783-38f37b42cb67",
+                      "name": "Subscriptions",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:appId/subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":appId",
+                            "subscriptions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "appId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:26.000Z",
+                      "updatedAt": "2026-10-22T01:39:26.000Z",
+                      "uid": "35240-6c75d10d-dc69-4e8d-b783-38f37b42cb67"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:39:26.000Z",
+                  "updatedAt": "2026-10-22T01:39:26.000Z",
+                  "uid": "35240-a5d6bfc1-3339-4df0-91c2-4ec41fb1a32b"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "114a55ce-2ab0-49bd-ae7e-e96e6ed4e327",
+              "createdAt": "2026-10-22T01:39:26.000Z",
+              "updatedAt": "2026-10-22T01:39:26.000Z",
+              "uid": "35240-114a55ce-2ab0-49bd-ae7e-e96e6ed4e327"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c9ef61e4-23a9-402f-bca5-c9919be8fd93",
+          "createdAt": "2026-10-22T01:39:26.000Z",
+          "updatedAt": "2026-10-22T01:39:26.000Z",
+          "uid": "35240-c9ef61e4-23a9-402f-bca5-c9919be8fd93"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "336f6688-7656-4749-bc7a-d75dea730117",
+      "createdAt": "2026-10-22T01:39:26.000Z",
+      "updatedAt": "2026-10-22T01:39:26.000Z",
+      "uid": "35240-336f6688-7656-4749-bc7a-d75dea730117"
     }
   ],
   "auth": {
-    "type": "oauth2",
-    "oauth2": [
+    "type": "bearer",
+    "bearer": [
       {
-        "key": "scope",
-        "value": "accounts_basic_read"
-      },
-      {
-        "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
-      },
-      {
-        "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
-      },
-      {
-        "key": "grant_type",
-        "value": "authorization_code"
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "601b47d0-e5d4-40ef-a21d-b9071ee731cf",
-    "name": "TD Bank Account Basic Accounts Subscriptions API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/apps/v2"
     }
-  }
+  ]
 }

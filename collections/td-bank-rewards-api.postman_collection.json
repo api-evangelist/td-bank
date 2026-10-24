@@ -1,181 +1,177 @@
 {
+  "info": {
+    "_postman_id": "0780c1f8-8b94-486c-a8a6-f3e831307ea1",
+    "name": "TD Bank Account Basic Accounts Rewards API",
+    "description": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:36:55.000Z",
+    "updatedAt": "2026-10-22T01:36:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0780c1f8-8b94-486c-a8a6-f3e831307ea1"
+  },
   "item": [
     {
-      "id": "1e95c988-9a4c-4a38-986a-07bc45bcaced",
-      "name": "Rewards",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "rewards-programs",
       "item": [
         {
-          "id": "01b04ff6-002f-4c0f-a990-ff5d6cc1b827",
+          "name": "{programId}",
+          "item": [
+            {
+              "name": "Get Rewards Program",
+              "id": "52a053d0-a58a-4383-aeac-9127883b1335",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/rewards-programs/:programId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rewards-programs",
+                    ":programId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1e3ea2ed-ff16-4a46-8175-87d68ba4d186",
+                      "key": "programId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "59130f58-abbf-44ea-a236-b8f0ae6c3c0a",
+                  "name": "Reward program detail",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rewards-programs/:programId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rewards-programs",
+                        ":programId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "programId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:36:56.000Z",
+                  "updatedAt": "2026-10-22T01:36:56.000Z",
+                  "uid": "35240-59130f58-abbf-44ea-a236-b8f0ae6c3c0a"
+                }
+              ],
+              "createdAt": "2026-10-22T01:36:56.000Z",
+              "updatedAt": "2026-10-22T01:36:56.000Z",
+              "uid": "35240-52a053d0-a58a-4383-aeac-9127883b1335"
+            }
+          ],
+          "id": "35f52e08-d559-477f-a582-70834919f051",
+          "createdAt": "2026-10-22T01:36:56.000Z",
+          "updatedAt": "2026-10-22T01:36:56.000Z",
+          "uid": "35240-35f52e08-d559-477f-a582-70834919f051"
+        },
+        {
           "name": "List Rewards Programs",
+          "id": "4fba5055-3a8b-4bf0-993e-e16fa51ddb54",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List Rewards Programs",
-            "description": {},
-            "url": {
-              "path": [
-                "rewards-programs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/rewards-programs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "rewards-programs"
+              ]
+            }
           },
           "response": [
             {
-              "id": "3b754e34-0eea-4e36-b296-3ee8996c00c0",
+              "id": "b79457ee-970f-4edb-9677-2559bf44bf35",
               "name": "Reward programs",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "rewards-programs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/rewards-programs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rewards-programs"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"programs\": [\n    {\n      \"programId\": \"string\",\n      \"name\": \"string\",\n      \"sponsor\": \"string\",\n      \"currency\": \"string\",\n      \"currentBalance\": 9057.82288221151,\n      \"category\": \"string\",\n      \"memberSince\": \"1988-06-15\"\n    },\n    {\n      \"programId\": \"string\",\n      \"name\": \"string\",\n      \"sponsor\": \"string\",\n      \"currency\": \"string\",\n      \"currentBalance\": 1864.5922087633137,\n      \"category\": \"string\",\n      \"memberSince\": \"2026-01-29\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"programs\": [\n    {\n      \"programId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"sponsor\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"currentBalance\": \"<number>\",\n      \"category\": \"<string>\",\n      \"memberSince\": \"<date>\"\n    },\n    {\n      \"programId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"sponsor\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"currentBalance\": \"<number>\",\n      \"category\": \"<string>\",\n      \"memberSince\": \"<date>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:36:56.000Z",
+              "updatedAt": "2026-10-22T01:36:56.000Z",
+              "uid": "35240-b79457ee-970f-4edb-9677-2559bf44bf35"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6e27716c-229b-4778-89de-1907a4cc9cdc",
-          "name": "Get Rewards Program",
-          "request": {
-            "name": "Get Rewards Program",
-            "description": {},
-            "url": {
-              "path": [
-                "rewards-programs",
-                ":programId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "programId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a6a5ebb5-4756-43a6-a4e0-5368d248ecec",
-              "name": "Reward program detail",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "rewards-programs",
-                    ":programId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "programId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:36:56.000Z",
+          "updatedAt": "2026-10-22T01:36:56.000Z",
+          "uid": "35240-4fba5055-3a8b-4bf0-993e-e16fa51ddb54"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "897d2547-34d7-40c6-93ab-f5a8d11e4c54",
+      "createdAt": "2026-10-22T01:36:56.000Z",
+      "updatedAt": "2026-10-22T01:36:56.000Z",
+      "uid": "35240-897d2547-34d7-40c6-93ab-f5a8d11e4c54"
     }
   ],
   "auth": {
@@ -183,29 +179,30 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "accounts_basic_read"
+        "value": "accounts_basic_read",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+        "type": "string"
       },
       {
         "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "authorization_code"
+        "value": "authorization_code",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "fba7deba-1b3f-4733-b952-8b1776fd809f",
-    "name": "TD Bank Account Basic Accounts Rewards API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6"
     }
-  }
+  ]
 }

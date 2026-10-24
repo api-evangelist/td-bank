@@ -1,138 +1,150 @@
 {
+  "info": {
+    "_postman_id": "506e9bd2-e3b1-4443-b8ec-bc758e854209",
+    "name": "TD Bank Bill Payment Bill Payments API",
+    "description": "FDX v6.2 Bill Payment endpoint. Retrieves a consented customer's bill payment activity and payees, enabling fintechs to review payment history, payee metadata, and recurring billing rules.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:37:18.000Z",
+    "updatedAt": "2026-10-22T01:37:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-506e9bd2-e3b1-4443-b8ec-bc758e854209"
+  },
   "item": [
     {
-      "id": "e3f6976e-63cb-4bb9-aae1-1786980e3900",
-      "name": "Bill Payments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "accounts",
       "item": [
         {
-          "id": "f6c4424e-86fc-4b32-8549-7af75679cc61",
-          "name": "List Bill Payments",
-          "request": {
-            "name": "List Bill Payments",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "bill-payments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "startTime",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "endTime",
-                  "value": "<dateTime>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{accountId}",
+          "item": [
             {
-              "id": "8cb5fa4f-c589-46bd-96d0-fee0491ad5e5",
-              "name": "Bill payments list",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "bill-payments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "startTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "endTime",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "bill-payments",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "List Bill Payments",
+                  "id": "28b7b954-30f3-43b9-8301-fa61d588eaff",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:accountId/bill-payments?startTime=<dateTime>&endTime=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":accountId",
+                        "bill-payments"
+                      ],
+                      "query": [
+                        {
+                          "key": "startTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "endTime",
+                          "value": "<dateTime>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "f98822aa-c8de-4d1c-8a6f-24a9f8c72cfc",
+                          "key": "accountId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "89114deb-9ca7-4bb6-bc88-b060afc7e6df",
+                      "name": "Bill payments list",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:accountId/bill-payments?startTime=<dateTime>&endTime=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":accountId",
+                            "bill-payments"
+                          ],
+                          "query": [
+                            {
+                              "key": "startTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "endTime",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"billPayments\": [\n    {\n      \"paymentId\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"currency\": \"<string>\",\n      \"payeeId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"scheduledDate\": \"<date>\",\n      \"postedDate\": \"<date>\",\n      \"recurring\": \"<boolean>\"\n    },\n    {\n      \"paymentId\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"currency\": \"<string>\",\n      \"payeeId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"scheduledDate\": \"<date>\",\n      \"postedDate\": \"<date>\",\n      \"recurring\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:37:19.000Z",
+                      "updatedAt": "2026-10-22T01:37:19.000Z",
+                      "uid": "35240-89114deb-9ca7-4bb6-bc88-b060afc7e6df"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:37:19.000Z",
+                  "updatedAt": "2026-10-22T01:37:19.000Z",
+                  "uid": "35240-28b7b954-30f3-43b9-8301-fa61d588eaff"
                 }
               ],
-              "body": "{\n  \"billPayments\": [\n    {\n      \"paymentId\": \"string\",\n      \"amount\": 7451.023894107776,\n      \"currency\": \"string\",\n      \"payeeId\": \"string\",\n      \"status\": \"string\",\n      \"scheduledDate\": \"2000-03-25\",\n      \"postedDate\": \"1957-08-12\",\n      \"recurring\": true\n    },\n    {\n      \"paymentId\": \"string\",\n      \"amount\": 8677.47181518445,\n      \"currency\": \"string\",\n      \"payeeId\": \"string\",\n      \"status\": \"string\",\n      \"scheduledDate\": \"1958-06-18\",\n      \"postedDate\": \"1949-06-10\",\n      \"recurring\": true\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "db85f805-859b-4d65-a78d-5e343dc0b29e",
+              "createdAt": "2026-10-22T01:37:19.000Z",
+              "updatedAt": "2026-10-22T01:37:19.000Z",
+              "uid": "35240-db85f805-859b-4d65-a78d-5e343dc0b29e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "be54dded-7e31-43c2-8885-afc81f4b1a69",
+          "createdAt": "2026-10-22T01:37:19.000Z",
+          "updatedAt": "2026-10-22T01:37:19.000Z",
+          "uid": "35240-be54dded-7e31-43c2-8885-afc81f4b1a69"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "25ab10ac-5b6e-41dc-8682-367d99600316",
+      "createdAt": "2026-10-22T01:37:19.000Z",
+      "updatedAt": "2026-10-22T01:37:19.000Z",
+      "uid": "35240-25ab10ac-5b6e-41dc-8682-367d99600316"
     }
   ],
   "auth": {
@@ -140,29 +152,30 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "accounts_basic_read"
+        "value": "bill_payments_read",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+        "type": "string"
       },
       {
         "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "authorization_code"
+        "value": "authorization_code",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5c6061a7-e909-4741-9fdb-79771b08abc0",
-    "name": "TD Bank Account Basic Accounts Bill Payments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6"
     }
-  }
+  ]
 }

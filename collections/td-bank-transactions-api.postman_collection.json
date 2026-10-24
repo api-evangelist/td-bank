@@ -1,361 +1,364 @@
 {
+  "info": {
+    "_postman_id": "d8682a43-bf1a-4ebe-abf8-840cace54715",
+    "name": "TD Bank Account Basic Accounts Transactions API",
+    "description": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:36:36.000Z",
+    "updatedAt": "2026-10-22T01:36:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d8682a43-bf1a-4ebe-abf8-840cace54715"
+  },
   "item": [
     {
-      "id": "bc169268-87b3-4221-aa34-69638226eb0f",
-      "name": "Transactions",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "accounts",
       "item": [
         {
-          "id": "a73f74f0-a68b-4a9c-be8f-ad66f3b9ef8b",
-          "name": "List Transactions",
-          "request": {
-            "name": "List Transactions",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "transactions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "startTime",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "endTime",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{accountId}",
+          "item": [
             {
-              "id": "b3340e8f-8132-401f-84b2-2b0867ecb297",
-              "name": "Transactions list",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "transactions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "{transactionId}",
+                  "item": [
                     {
-                      "key": "startTime",
-                      "value": "<dateTime>"
+                      "name": "image",
+                      "item": [
+                        {
+                          "name": "Get Transaction Image",
+                          "id": "71403744-fa8a-4d67-94c3-63497231f84c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:accountId/transactions/:transactionId/image",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":accountId",
+                                "transactions",
+                                ":transactionId",
+                                "image"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "50d130bc-4e85-4b9d-a88b-74625c45ffbb",
+                                  "key": "accountId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "0ebf71a9-b18c-491b-95fc-c0f985d2706b",
+                                  "key": "transactionId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "3debf055-f2fa-4332-b6fa-a03af6870ae2",
+                              "name": "Transaction image",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/accounts/:accountId/transactions/:transactionId/image",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "accounts",
+                                    ":accountId",
+                                    "transactions",
+                                    ":transactionId",
+                                    "image"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "accountId"
+                                    },
+                                    {
+                                      "key": "transactionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:36:37.000Z",
+                              "updatedAt": "2026-10-22T01:36:37.000Z",
+                              "uid": "35240-3debf055-f2fa-4332-b6fa-a03af6870ae2"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:36:37.000Z",
+                          "updatedAt": "2026-10-22T01:36:37.000Z",
+                          "uid": "35240-71403744-fa8a-4d67-94c3-63497231f84c"
+                        }
+                      ],
+                      "id": "a669b18d-06da-4545-8b68-356368a63790",
+                      "createdAt": "2026-10-22T01:36:37.000Z",
+                      "updatedAt": "2026-10-22T01:36:37.000Z",
+                      "uid": "35240-a669b18d-06da-4545-8b68-356368a63790"
                     },
                     {
-                      "key": "endTime",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "<integer>"
+                      "name": "Get Transaction",
+                      "id": "d1efd7fe-c64f-418f-8f17-a925a65143f1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:accountId/transactions/:transactionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":accountId",
+                            "transactions",
+                            ":transactionId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "08e1a941-af3c-41c8-a62c-f7316e090944",
+                              "key": "accountId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "c51263e1-2e15-4abe-b462-99afd8d30eda",
+                              "key": "transactionId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ed15c63e-9fe6-4e97-8e37-569000e6e220",
+                          "name": "Transaction detail",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:accountId/transactions/:transactionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":accountId",
+                                "transactions",
+                                ":transactionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "accountId"
+                                },
+                                {
+                                  "key": "transactionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"transactionId\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"debitCreditMemo\": \"CREDIT\",\n  \"description\": \"<string>\",\n  \"memo\": \"<string>\",\n  \"status\": \"<string>\",\n  \"transactionTimestamp\": \"<dateTime>\",\n  \"postedTimestamp\": \"<dateTime>\",\n  \"merchant\": {\n    \"name\": \"<string>\",\n    \"categoryCode\": \"<string>\",\n    \"address\": {}\n  },\n  \"category\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T01:36:37.000Z",
+                          "updatedAt": "2026-10-22T01:36:37.000Z",
+                          "uid": "35240-ed15c63e-9fe6-4e97-8e37-569000e6e220"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:36:37.000Z",
+                      "updatedAt": "2026-10-22T01:36:37.000Z",
+                      "uid": "35240-d1efd7fe-c64f-418f-8f17-a925a65143f1"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
+                  "id": "2614d82c-8a4c-493b-b862-0d7a76f1e964",
+                  "createdAt": "2026-10-22T01:36:37.000Z",
+                  "updatedAt": "2026-10-22T01:36:37.000Z",
+                  "uid": "35240-2614d82c-8a4c-493b-b862-0d7a76f1e964"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+                {
+                  "name": "List Transactions",
+                  "id": "49a901e1-a972-4453-a72e-3cd3f57eeb6a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"transactions\": [\n    {\n      \"transactionId\": \"string\",\n      \"amount\": 8899.002244298767,\n      \"debitCreditMemo\": \"MEMO\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"status\": \"string\",\n      \"transactionTimestamp\": \"2000-05-15T06:49:47.286Z\",\n      \"postedTimestamp\": \"2022-07-19T11:48:10.565Z\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"categoryCode\": \"string\",\n        \"address\": {}\n      },\n      \"category\": \"string\"\n    },\n    {\n      \"transactionId\": \"string\",\n      \"amount\": 9215.793240871197,\n      \"debitCreditMemo\": \"CREDIT\",\n      \"description\": \"string\",\n      \"memo\": \"string\",\n      \"status\": \"string\",\n      \"transactionTimestamp\": \"1995-01-03T21:12:02.633Z\",\n      \"postedTimestamp\": \"1954-05-06T18:42:49.380Z\",\n      \"merchant\": {\n        \"name\": \"string\",\n        \"categoryCode\": \"string\",\n        \"address\": {}\n      },\n      \"category\": \"string\"\n    }\n  ],\n  \"page\": {\n    \"nextOffset\": \"string\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "24c0e32b-16cf-434c-a557-86fd1e48d2ba",
-          "name": "Get Transaction",
-          "request": {
-            "name": "Get Transaction",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "transactions",
-                ":transactionId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "transactionId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "55dc850c-7654-4c5a-a6ad-aefe5c3e1650",
-              "name": "Transaction detail",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "transactions",
-                    ":transactionId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "transactionId",
-                      "description": "(Required) "
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:accountId/transactions?startTime=<dateTime>&endTime=<dateTime>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":accountId",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "key": "startTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "endTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "3015d209-5eff-4574-8faf-64a9770a0e89",
+                          "key": "accountId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"transactionId\": \"string\",\n  \"amount\": 3095.894425237965,\n  \"debitCreditMemo\": \"MEMO\",\n  \"description\": \"string\",\n  \"memo\": \"string\",\n  \"status\": \"string\",\n  \"transactionTimestamp\": \"1965-09-29T19:44:10.322Z\",\n  \"postedTimestamp\": \"1952-10-27T11:29:35.445Z\",\n  \"merchant\": {\n    \"name\": \"string\",\n    \"categoryCode\": \"string\",\n    \"address\": {}\n  },\n  \"category\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e67843ee-05e1-4ae7-a91d-1e032a00c3fd",
-          "name": "Get Transaction Image",
-          "request": {
-            "name": "Get Transaction Image",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "transactions",
-                ":transactionId",
-                "image"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "transactionId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "84d8b570-cec9-4508-b955-f1400415e121",
-              "name": "Transaction image",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "transactions",
-                    ":transactionId",
-                    "image"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "transactionId",
-                      "description": "(Required) "
+                      "id": "ee15bff6-2335-4f82-ad85-b5ff5768f591",
+                      "name": "Transactions list",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:accountId/transactions?startTime=<dateTime>&endTime=<dateTime>&limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":accountId",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "key": "startTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "endTime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"transactions\": [\n    {\n      \"transactionId\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"debitCreditMemo\": \"CREDIT\",\n      \"description\": \"<string>\",\n      \"memo\": \"<string>\",\n      \"status\": \"<string>\",\n      \"transactionTimestamp\": \"<dateTime>\",\n      \"postedTimestamp\": \"<dateTime>\",\n      \"merchant\": {\n        \"name\": \"<string>\",\n        \"categoryCode\": \"<string>\",\n        \"address\": {}\n      },\n      \"category\": \"<string>\"\n    },\n    {\n      \"transactionId\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"debitCreditMemo\": \"CREDIT\",\n      \"description\": \"<string>\",\n      \"memo\": \"<string>\",\n      \"status\": \"<string>\",\n      \"transactionTimestamp\": \"<dateTime>\",\n      \"postedTimestamp\": \"<dateTime>\",\n      \"merchant\": {\n        \"name\": \"<string>\",\n        \"categoryCode\": \"<string>\",\n        \"address\": {}\n      },\n      \"category\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"nextOffset\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:36:37.000Z",
+                      "updatedAt": "2026-10-22T01:36:37.000Z",
+                      "uid": "35240-ee15bff6-2335-4f82-ad85-b5ff5768f591"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  ],
+                  "createdAt": "2026-10-22T01:36:37.000Z",
+                  "updatedAt": "2026-10-22T01:36:37.000Z",
+                  "uid": "35240-49a901e1-a972-4453-a72e-3cd3f57eeb6a"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "45f94f5c-026e-4cd2-88b2-9b16e49fb1a2",
+              "createdAt": "2026-10-22T01:36:37.000Z",
+              "updatedAt": "2026-10-22T01:36:37.000Z",
+              "uid": "35240-45f94f5c-026e-4cd2-88b2-9b16e49fb1a2"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "156114c1-54e3-44a7-8c7c-45e5fb0cb43e",
+          "createdAt": "2026-10-22T01:36:37.000Z",
+          "updatedAt": "2026-10-22T01:36:37.000Z",
+          "uid": "35240-156114c1-54e3-44a7-8c7c-45e5fb0cb43e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "47249f3c-1266-4e00-aa3f-582fd55c6958",
+      "createdAt": "2026-10-22T01:36:37.000Z",
+      "updatedAt": "2026-10-22T01:36:37.000Z",
+      "uid": "35240-47249f3c-1266-4e00-aa3f-582fd55c6958"
     }
   ],
   "auth": {
@@ -363,29 +366,30 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "accounts_basic_read"
+        "value": "accounts_basic_read",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+        "type": "string"
       },
       {
         "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "authorization_code"
+        "value": "authorization_code",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "ed927ffd-7d65-44fe-b7ff-8fe5d84dd56a",
-    "name": "TD Bank Account Basic Accounts Transactions API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6"
     }
-  }
+  ]
 }

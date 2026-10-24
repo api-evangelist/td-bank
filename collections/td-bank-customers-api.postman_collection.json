@@ -1,195 +1,222 @@
 {
+  "info": {
+    "_postman_id": "adca4116-519f-41f6-978e-40802d649908",
+    "name": "TD Bank Customer Customers API",
+    "description": "FDX v6.2 Customer endpoint. Returns the customer contact record (name, address, email, telephone, account holders) tied to a permissioned TD accountId. Used by aggregators to confirm account ownership and to support KYC / identity flows.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:39:07.000Z",
+    "updatedAt": "2026-10-22T01:39:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-adca4116-519f-41f6-978e-40802d649908"
+  },
   "item": [
     {
-      "id": "0784a003-29af-45d7-b2e5-87764b74ad7a",
-      "name": "Customers",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "accounts",
       "item": [
         {
-          "id": "8f8ae420-2eb7-4f53-a277-cc03dff5e997",
-          "name": "List Account Holders",
-          "request": {
-            "name": "List Account Holders",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "customers"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{accountId}",
+          "item": [
             {
-              "id": "31ebea38-7a21-4379-929a-2963a7b6723d",
-              "name": "Account holders",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "customers"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
+              "name": "customers",
+              "item": [
+                {
+                  "name": "List Account Holders",
+                  "id": "c3807fdc-7c77-4849-901e-2f4748bef4dc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:accountId/customers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":accountId",
+                        "customers"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f6b5a535-cdc6-4d1e-a426-ef9b1ec69730",
+                          "key": "accountId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "43715f8e-4d70-43bb-8dce-2e09c3a3fb4f",
+                      "name": "Account holders",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:accountId/customers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":accountId",
+                            "customers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"holders\": [\n    {\n      \"customerId\": \"<string>\",\n      \"name\": {\n        \"first\": \"<string>\",\n        \"last\": \"<string>\"\n      },\n      \"addresses\": [\n        {\n          \"line1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        },\n        {\n          \"line1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        }\n      ],\n      \"telephones\": [\n        {\n          \"number\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"number\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"email\": [\n        {\n          \"email\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"email\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"customerId\": \"<string>\",\n      \"name\": {\n        \"first\": \"<string>\",\n        \"last\": \"<string>\"\n      },\n      \"addresses\": [\n        {\n          \"line1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        },\n        {\n          \"line1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        }\n      ],\n      \"telephones\": [\n        {\n          \"number\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"number\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"email\": [\n        {\n          \"email\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"email\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:39:07.000Z",
+                      "updatedAt": "2026-10-22T01:39:07.000Z",
+                      "uid": "35240-43715f8e-4d70-43bb-8dce-2e09c3a3fb4f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:39:07.000Z",
+                  "updatedAt": "2026-10-22T01:39:07.000Z",
+                  "uid": "35240-c3807fdc-7c77-4849-901e-2f4748bef4dc"
+                }
+              ],
+              "id": "aef72931-22fd-40af-a6d6-b582d9139ef0",
+              "createdAt": "2026-10-22T01:39:07.000Z",
+              "updatedAt": "2026-10-22T01:39:07.000Z",
+              "uid": "35240-aef72931-22fd-40af-a6d6-b582d9139ef0"
+            }
+          ],
+          "id": "9a2d2fe4-fea4-426c-bc2b-22ea3960f9b4",
+          "createdAt": "2026-10-22T01:39:07.000Z",
+          "updatedAt": "2026-10-22T01:39:07.000Z",
+          "uid": "35240-9a2d2fe4-fea4-426c-bc2b-22ea3960f9b4"
+        }
+      ],
+      "id": "13adc19f-6b63-4292-89fa-226b11086b9b",
+      "createdAt": "2026-10-22T01:39:07.000Z",
+      "updatedAt": "2026-10-22T01:39:07.000Z",
+      "uid": "35240-13adc19f-6b63-4292-89fa-226b11086b9b"
+    },
+    {
+      "name": "customers",
+      "item": [
+        {
+          "name": "current",
+          "item": [
+            {
+              "name": "Get Current Customer",
+              "id": "5b4f8a5d-51e3-4abe-b0ec-025078bd71b4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"holders\": [\n    {\n      \"customerId\": \"string\",\n      \"name\": {\n        \"first\": \"string\",\n        \"last\": \"string\"\n      },\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"telephones\": [\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"email\": [\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        }\n      ]\n    },\n    {\n      \"customerId\": \"string\",\n      \"name\": {\n        \"first\": \"string\",\n        \"last\": \"string\"\n      },\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"city\": \"string\",\n          \"region\": \"string\",\n          \"postalCode\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"telephones\": [\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"number\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"email\": [\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"email\": \"string\",\n          \"type\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7d70f9e0-2e57-43e9-b9ea-7d12a8d2c902",
-          "name": "Get Current Customer",
-          "request": {
-            "name": "Get Current Customer",
-            "description": {},
-            "url": {
-              "path": [
-                "customers",
-                "current"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ca9f9223-00a6-455e-b8ad-16cccb7f7ae7",
-              "name": "Current customer",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/customers/current",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "customers",
                     "current"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "4f181e58-3cc9-44ad-8c4b-2e60dddf3db8",
+                  "name": "Current customer",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/current",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        "current"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"customerId\": \"<string>\",\n  \"name\": {\n    \"first\": \"<string>\",\n    \"last\": \"<string>\"\n  },\n  \"addresses\": [\n    {\n      \"line1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"line1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"telephones\": [\n    {\n      \"number\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"number\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"email\": [\n    {\n      \"email\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T01:39:07.000Z",
+                  "updatedAt": "2026-10-22T01:39:07.000Z",
+                  "uid": "35240-4f181e58-3cc9-44ad-8c4b-2e60dddf3db8"
                 }
               ],
-              "body": "{\n  \"customerId\": \"string\",\n  \"name\": {\n    \"first\": \"string\",\n    \"last\": \"string\"\n  },\n  \"addresses\": [\n    {\n      \"line1\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"line1\": \"string\",\n      \"city\": \"string\",\n      \"region\": \"string\",\n      \"postalCode\": \"string\",\n      \"country\": \"string\"\n    }\n  ],\n  \"telephones\": [\n    {\n      \"number\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"number\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"email\": [\n    {\n      \"email\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"email\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T01:39:07.000Z",
+              "updatedAt": "2026-10-22T01:39:07.000Z",
+              "uid": "35240-5b4f8a5d-51e3-4abe-b0ec-025078bd71b4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "34fb3b27-8274-41ff-afa9-e02caeda219d",
+          "createdAt": "2026-10-22T01:39:07.000Z",
+          "updatedAt": "2026-10-22T01:39:07.000Z",
+          "uid": "35240-34fb3b27-8274-41ff-afa9-e02caeda219d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "816c2d14-9e4b-4871-bcf4-c0053145bc61",
+      "createdAt": "2026-10-22T01:39:07.000Z",
+      "updatedAt": "2026-10-22T01:39:07.000Z",
+      "uid": "35240-816c2d14-9e4b-4871-bcf4-c0053145bc61"
     }
   ],
   "auth": {
@@ -197,29 +224,30 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "accounts_basic_read"
+        "value": "customer_contact_read",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+        "type": "string"
       },
       {
         "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "authorization_code"
+        "value": "authorization_code",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f9d7e551-0d2b-48f3-975c-67330ad38bee",
-    "name": "TD Bank Account Basic Accounts Customers API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6"
     }
-  }
+  ]
 }

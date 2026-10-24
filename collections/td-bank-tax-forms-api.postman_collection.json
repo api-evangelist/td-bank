@@ -1,240 +1,251 @@
 {
+  "info": {
+    "_postman_id": "e5383988-fb79-4ae5-ab0b-0c3efcf06e92",
+    "name": "TD Bank Account Basic Accounts Tax Forms API",
+    "description": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:36:50.000Z",
+    "updatedAt": "2026-10-22T01:36:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e5383988-fb79-4ae5-ab0b-0c3efcf06e92"
+  },
   "item": [
     {
-      "id": "f94a04d3-3975-4bd8-b127-538ada31cbf8",
-      "name": "Tax Forms",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "accounts",
       "item": [
         {
-          "id": "46dc2d0a-d6c4-4e53-b03d-773109b79160",
-          "name": "List Tax Forms",
-          "request": {
-            "name": "List Tax Forms",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "tax-forms"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "taxYear",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{accountId}",
+          "item": [
             {
-              "id": "df37889c-26b7-4900-808c-c089e5df34b5",
-              "name": "Tax forms list",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "tax-forms"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "taxYear",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "tax-forms",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "{taxFormId}",
+                  "item": [
+                    {
+                      "name": "Get Tax Form",
+                      "id": "6d050dcb-4c88-4264-ba31-a52371890a85",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/pdf"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:accountId/tax-forms/:taxFormId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":accountId",
+                            "tax-forms",
+                            ":taxFormId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8c84a679-8f93-4aa6-8d93-d2351365098a",
+                              "key": "accountId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "46ea1558-7a09-40f8-9740-88d098dcb775",
+                              "key": "taxFormId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "46690a76-9ec0-4b31-8f3e-cfd4822b3ba7",
+                          "name": "Tax form PDF",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/pdf"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:accountId/tax-forms/:taxFormId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":accountId",
+                                "tax-forms",
+                                ":taxFormId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "accountId"
+                                },
+                                {
+                                  "key": "taxFormId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/pdf"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<binary>",
+                          "createdAt": "2026-10-22T01:36:51.000Z",
+                          "updatedAt": "2026-10-22T01:36:51.000Z",
+                          "uid": "35240-46690a76-9ec0-4b31-8f3e-cfd4822b3ba7"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:36:51.000Z",
+                      "updatedAt": "2026-10-22T01:36:51.000Z",
+                      "uid": "35240-6d050dcb-4c88-4264-ba31-a52371890a85"
+                    }
+                  ],
+                  "id": "187489a4-60cd-40e8-a5a4-440b2cb1057a",
+                  "createdAt": "2026-10-22T01:36:51.000Z",
+                  "updatedAt": "2026-10-22T01:36:51.000Z",
+                  "uid": "35240-187489a4-60cd-40e8-a5a4-440b2cb1057a"
+                },
+                {
+                  "name": "List Tax Forms",
+                  "id": "b1247dec-5de0-46ee-9a86-b581669d4797",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:accountId/tax-forms?taxYear=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":accountId",
+                        "tax-forms"
+                      ],
+                      "query": [
+                        {
+                          "key": "taxYear",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a242fbc1-f57d-4ee3-a4be-b92659c02515",
+                          "key": "accountId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "378f72f7-0710-47c7-85bc-d028f8537499",
+                      "name": "Tax forms list",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:accountId/tax-forms?taxYear=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":accountId",
+                            "tax-forms"
+                          ],
+                          "query": [
+                            {
+                              "key": "taxYear",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"taxForms\": [\n    {\n      \"taxFormId\": \"<string>\",\n      \"taxYear\": \"<integer>\",\n      \"taxFormType\": \"<string>\",\n      \"taxFormDate\": \"<date>\"\n    },\n    {\n      \"taxFormId\": \"<string>\",\n      \"taxYear\": \"<integer>\",\n      \"taxFormType\": \"<string>\",\n      \"taxFormDate\": \"<date>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:36:51.000Z",
+                      "updatedAt": "2026-10-22T01:36:51.000Z",
+                      "uid": "35240-378f72f7-0710-47c7-85bc-d028f8537499"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:36:51.000Z",
+                  "updatedAt": "2026-10-22T01:36:51.000Z",
+                  "uid": "35240-b1247dec-5de0-46ee-9a86-b581669d4797"
                 }
               ],
-              "body": "{\n  \"taxForms\": [\n    {\n      \"taxFormId\": \"string\",\n      \"taxYear\": 1820,\n      \"taxFormType\": \"string\",\n      \"taxFormDate\": \"1958-03-22\"\n    },\n    {\n      \"taxFormId\": \"string\",\n      \"taxYear\": 6155,\n      \"taxFormType\": \"string\",\n      \"taxFormDate\": \"1965-06-03\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "a318d77a-6408-4273-b7cb-a60953bb4c25",
+              "createdAt": "2026-10-22T01:36:51.000Z",
+              "updatedAt": "2026-10-22T01:36:51.000Z",
+              "uid": "35240-a318d77a-6408-4273-b7cb-a60953bb4c25"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bf1f1671-6981-4d46-a453-3f1cdc796bc9",
-          "name": "Get Tax Form",
-          "request": {
-            "name": "Get Tax Form",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "tax-forms",
-                ":taxFormId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "taxFormId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/pdf"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6f519233-1ed6-4494-841e-7bb7ac03684a",
-              "name": "Tax form PDF",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "tax-forms",
-                    ":taxFormId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "taxFormId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/pdf"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/pdf"
-                }
-              ],
-              "body": "string",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c4fdcc19-197c-4d3a-a243-82137b32d5ee",
+          "createdAt": "2026-10-22T01:36:51.000Z",
+          "updatedAt": "2026-10-22T01:36:51.000Z",
+          "uid": "35240-c4fdcc19-197c-4d3a-a243-82137b32d5ee"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "1ce32afd-7bbc-4c59-ab32-4a3cbe7b05d0",
+      "createdAt": "2026-10-22T01:36:51.000Z",
+      "updatedAt": "2026-10-22T01:36:51.000Z",
+      "uid": "35240-1ce32afd-7bbc-4c59-ab32-4a3cbe7b05d0"
     }
   ],
   "auth": {
@@ -242,29 +253,30 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "accounts_basic_read"
+        "value": "accounts_basic_read",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+        "type": "string"
       },
       {
         "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "authorization_code"
+        "value": "authorization_code",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d3635d5e-64c0-460a-ba7e-6666e8037316",
-    "name": "TD Bank Account Basic Accounts Tax Forms API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6"
     }
-  }
+  ]
 }

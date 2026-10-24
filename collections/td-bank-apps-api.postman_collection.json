@@ -1,405 +1,382 @@
 {
+  "info": {
+    "_postman_id": "80c3adc2-2f2c-4e7d-b022-a5ce50d82079",
+    "name": "TD Bank Management Apps API",
+    "description": "Apps Management API v2.0. Lets data recipients create and update fintech apps on the TD/Akoya network, list purchased FDX data clusters, manage subscriptions, and look up which entities support specific FDX clusters.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:37:13.000Z",
+    "updatedAt": "2026-10-22T01:37:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-80c3adc2-2f2c-4e7d-b022-a5ce50d82079"
+  },
   "item": [
     {
-      "id": "681c4b88-8f58-4e88-8cdf-ab76537e8b9f",
-      "name": "Apps",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "apps",
       "item": [
         {
-          "id": "84b1cc2c-4977-49c1-8a07-f9866b2ab7f4",
-          "name": "List Apps",
-          "request": {
-            "name": "List Apps",
-            "description": {},
-            "url": {
-              "path": [
-                "apps"
+          "name": "{appId}",
+          "item": [
+            {
+              "name": "Get App",
+              "id": "93fcb007-6481-428f-a558-24c9cec9b4ea",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/apps/:appId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps",
+                    ":appId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "abde57ee-b0df-493c-8372-f61616298138",
+                      "key": "appId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c712b36d-04f9-45eb-830a-f91eb0b3fb51",
+                  "name": "App detail",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:appId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":appId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "appId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:37:14.000Z",
+                  "updatedAt": "2026-10-22T01:37:14.000Z",
+                  "uid": "35240-c712b36d-04f9-45eb-830a-f91eb0b3fb51"
+                }
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
+              "createdAt": "2026-10-22T01:37:14.000Z",
+              "updatedAt": "2026-10-22T01:37:14.000Z",
+              "uid": "35240-93fcb007-6481-428f-a558-24c9cec9b4ea"
             },
+            {
+              "name": "Update App",
+              "id": "be5195c1-f9c9-4f36-a447-0d40608dfd04",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apps/:appId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps",
+                    ":appId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3d9748b0-7cdc-400f-9a1b-7b63ae8c5715",
+                      "key": "appId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f9029933-e562-4818-bea6-63d1ea76204d",
+                  "name": "Updated",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:appId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":appId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "appId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:37:14.000Z",
+                  "updatedAt": "2026-10-22T01:37:14.000Z",
+                  "uid": "35240-f9029933-e562-4818-bea6-63d1ea76204d"
+                }
+              ],
+              "createdAt": "2026-10-22T01:37:14.000Z",
+              "updatedAt": "2026-10-22T01:37:14.000Z",
+              "uid": "35240-be5195c1-f9c9-4f36-a447-0d40608dfd04"
+            }
+          ],
+          "id": "aa99cb1c-27ef-45bf-aa74-421ae102ebb7",
+          "createdAt": "2026-10-22T01:37:14.000Z",
+          "updatedAt": "2026-10-22T01:37:14.000Z",
+          "uid": "35240-aa99cb1c-27ef-45bf-aa74-421ae102ebb7"
+        },
+        {
+          "name": "List Apps",
+          "id": "49114dee-97c3-4f19-bb75-bb0d9a21171d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/apps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "apps"
+              ]
+            }
           },
           "response": [
             {
-              "id": "43aadff2-c9a0-4860-b3ee-94a97f27eb77",
+              "id": "5d33eb37-e64d-4b7f-b6a3-a788e55efc9b",
               "name": "Apps",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "apps"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/apps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"apps\": [\n    {\n      \"name\": \"string\",\n      \"appId\": \"string\",\n      \"description\": \"string\",\n      \"redirectUris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"appId\": \"string\",\n      \"description\": \"string\",\n      \"redirectUris\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"apps\": [\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"redirectUris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"status\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"appId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"redirectUris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:37:14.000Z",
+              "updatedAt": "2026-10-22T01:37:14.000Z",
+              "uid": "35240-5d33eb37-e64d-4b7f-b6a3-a788e55efc9b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:37:14.000Z",
+          "updatedAt": "2026-10-22T01:37:14.000Z",
+          "uid": "35240-49114dee-97c3-4f19-bb75-bb0d9a21171d"
         },
         {
-          "id": "365904a5-0f58-49c0-a287-401fb8bc50e9",
           "name": "Create App",
+          "id": "ea856849-9fb3-46f7-aaca-7ac8981d7018",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Create App",
-            "description": {},
-            "url": {
-              "path": [
-                "apps"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/apps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "apps"
+              ]
             }
           },
           "response": [
             {
-              "id": "5c96bf68-0983-433e-80aa-1ed5096e0483",
+              "id": "97bcc71d-56f9-4ae9-b6c0-9951e8db5d86",
               "name": "App created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "apps"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
-                    "value": "<token>"
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:37:14.000Z",
+              "updatedAt": "2026-10-22T01:37:14.000Z",
+              "uid": "35240-97bcc71d-56f9-4ae9-b6c0-9951e8db5d86"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dbf7ae7b-b350-4b98-b8fd-fe9fb3ecc2c0",
-          "name": "Get App",
-          "request": {
-            "name": "Get App",
-            "description": {},
-            "url": {
-              "path": [
-                "apps",
-                ":appId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "appId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c780fd8a-072b-4f66-975d-cdcef08f463f",
-              "name": "App detail",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "apps",
-                    ":appId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "appId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d8304391-cb95-411e-b86a-3df722bb4169",
-          "name": "Update App",
-          "request": {
-            "name": "Update App",
-            "description": {},
-            "url": {
-              "path": [
-                "apps",
-                ":appId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "appId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "6e60625a-fa40-466d-b125-3ca4ccf59e5d",
-              "name": "Updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "apps",
-                    ":appId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "appId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:37:14.000Z",
+          "updatedAt": "2026-10-22T01:37:14.000Z",
+          "uid": "35240-ea856849-9fb3-46f7-aaca-7ac8981d7018"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "617e2f6e-a9a1-471d-8623-5381b81094d7",
+      "createdAt": "2026-10-22T01:37:14.000Z",
+      "updatedAt": "2026-10-22T01:37:14.000Z",
+      "uid": "35240-617e2f6e-a9a1-471d-8623-5381b81094d7"
     }
   ],
   "auth": {
-    "type": "oauth2",
-    "oauth2": [
+    "type": "bearer",
+    "bearer": [
       {
-        "key": "scope",
-        "value": "accounts_basic_read"
-      },
-      {
-        "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
-      },
-      {
-        "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
-      },
-      {
-        "key": "grant_type",
-        "value": "authorization_code"
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "dc20583d-6ac8-479d-9cee-b0ec8bc8bdaa",
-    "name": "TD Bank Account Basic Accounts Apps API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/apps/v2"
     }
-  }
+  ]
 }

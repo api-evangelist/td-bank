@@ -1,60 +1,256 @@
 {
+  "info": {
+    "_postman_id": "589ae392-020d-441b-8cf7-c1a6997c2b57",
+    "name": "Td Bank Accounts API",
+    "description": "Operations tagged Accounts across 2 of this provider's published API definitions: td-bank-account-basic-api-openapi.yml, td-bank-account-detailed-api-openapi.yml. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:37:07.000Z",
+    "updatedAt": "2026-10-22T01:37:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-589ae392-020d-441b-8cf7-c1a6997c2b57"
+  },
   "item": [
     {
-      "id": "1a0af014-0b5b-4c23-a5b6-5bd2ade6fbb5",
-      "name": "Accounts",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "accounts",
       "item": [
         {
-          "id": "e37900b4-01c7-4c85-b9c8-b38988d6414e",
-          "name": "List Consented Accounts",
-          "request": {
-            "name": "List Consented Accounts",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{accountId}",
+          "item": [
+            {
+              "name": "contact",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>"
+                  "name": "Get Account Contact",
+                  "id": "024f2100-c182-41bd-84ff-f4c0152a2c8f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:accountId/contact",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":accountId",
+                        "contact"
+                      ],
+                      "variable": [
+                        {
+                          "id": "913bf4be-6fff-49a5-abc6-6a55e3f9e084",
+                          "key": "accountId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ea3a49b5-0441-4d16-b5a7-6d358f789a19",
+                      "name": "Account contact",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:accountId/contact",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":accountId",
+                            "contact"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:37:07.000Z",
+                      "updatedAt": "2026-10-22T01:37:07.000Z",
+                      "uid": "35240-ea3a49b5-0441-4d16-b5a7-6d358f789a19"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:37:07.000Z",
+                  "updatedAt": "2026-10-22T01:37:07.000Z",
+                  "uid": "35240-024f2100-c182-41bd-84ff-f4c0152a2c8f"
                 }
               ],
-              "variable": []
+              "id": "97e11e61-098a-4404-ae43-7445bf142ffd",
+              "createdAt": "2026-10-22T01:37:07.000Z",
+              "updatedAt": "2026-10-22T01:37:07.000Z",
+              "uid": "35240-97e11e61-098a-4404-ae43-7445bf142ffd"
             },
+            {
+              "name": "Get Account Detail",
+              "id": "57aec614-5fca-4556-8ff0-7d5110cf498e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/:accountId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    ":accountId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2736ba11-ab6a-4027-b9dd-00b496af9093",
+                      "key": "accountId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f76a425b-3e70-43d1-895e-0f6cdc22f1d6",
+                  "name": "Account detail",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:accountId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":accountId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "accountId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accountId\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"accountCategory\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"accountNumberDisplay\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"currentBalance\": \"<number>\",\n  \"availableBalance\": \"<number>\",\n  \"openingDayBalance\": \"<number>\",\n  \"interestRate\": \"<number>\",\n  \"status\": \"<string>\",\n  \"depositAccount\": {\n    \"interestType\": \"<string>\",\n    \"interestYtd\": \"<number>\"\n  },\n  \"loanAccount\": {\n    \"originalLoanAmount\": \"<number>\",\n    \"principalBalance\": \"<number>\",\n    \"interestRate\": \"<number>\"\n  },\n  \"investmentAccount\": {}\n}",
+                  "createdAt": "2026-10-22T01:37:07.000Z",
+                  "updatedAt": "2026-10-22T01:37:07.000Z",
+                  "uid": "35240-f76a425b-3e70-43d1-895e-0f6cdc22f1d6"
+                }
+              ],
+              "createdAt": "2026-10-22T01:37:07.000Z",
+              "updatedAt": "2026-10-22T01:37:07.000Z",
+              "uid": "35240-57aec614-5fca-4556-8ff0-7d5110cf498e"
+            }
+          ],
+          "id": "6af4fee7-5a54-4c0f-b729-33c53783c0b2",
+          "createdAt": "2026-10-22T01:37:07.000Z",
+          "updatedAt": "2026-10-22T01:37:07.000Z",
+          "uid": "35240-6af4fee7-5a54-4c0f-b729-33c53783c0b2"
+        },
+        {
+          "name": "List Consented Accounts",
+          "id": "004621c6-aba6-4fda-b25c-b98dd3b9f153",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/accounts?page=<integer>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "e62da5ab-c1ec-4e47-b5d3-3575a73101cb",
+              "id": "d719d185-c703-4a72-9c1e-da5b18d3bc8c",
               "name": "Accounts list",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "accounts"
-                  ],
+                  "raw": "{{baseUrl}}/accounts?page=<integer>&limit=<integer>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
                   ],
                   "query": [
                     {
@@ -65,232 +261,35 @@
                       "key": "limit",
                       "value": "<integer>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"accounts\": [\n    {\n      \"accountId\": \"string\",\n      \"accountType\": \"string\",\n      \"accountCategory\": \"string\",\n      \"displayName\": \"string\",\n      \"accountNumberDisplay\": \"string\",\n      \"currency\": \"string\",\n      \"status\": \"string\"\n    },\n    {\n      \"accountId\": \"string\",\n      \"accountType\": \"string\",\n      \"accountCategory\": \"string\",\n      \"displayName\": \"string\",\n      \"accountNumberDisplay\": \"string\",\n      \"currency\": \"string\",\n      \"status\": \"string\"\n    }\n  ],\n  \"page\": {\n    \"nextOffset\": \"string\"\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"accounts\": [\n    {\n      \"accountId\": \"<string>\",\n      \"accountType\": \"<string>\",\n      \"accountCategory\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"accountNumberDisplay\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"accountId\": \"<string>\",\n      \"accountType\": \"<string>\",\n      \"accountCategory\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"accountNumberDisplay\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ],\n  \"page\": {\n    \"nextOffset\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:37:07.000Z",
+              "updatedAt": "2026-10-22T01:37:07.000Z",
+              "uid": "35240-d719d185-c703-4a72-9c1e-da5b18d3bc8c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "05713a4a-cb93-4d2d-9d92-6fe9d0a09f87",
-          "name": "Get Account Detail",
-          "request": {
-            "name": "Get Account Detail",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "306f76fb-f64c-4abd-80e2-e7e3aaf2f51f",
-              "name": "Account detail",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"accountId\": \"string\",\n  \"accountType\": \"string\",\n  \"accountCategory\": \"string\",\n  \"displayName\": \"string\",\n  \"accountNumberDisplay\": \"string\",\n  \"currency\": \"string\",\n  \"currentBalance\": 8337.864589240866,\n  \"availableBalance\": 43.2186440377913,\n  \"openingDayBalance\": 5805.661787436189,\n  \"interestRate\": 8835.865081077205,\n  \"status\": \"string\",\n  \"depositAccount\": {\n    \"interestType\": \"string\",\n    \"interestYtd\": 534.400902322335\n  },\n  \"loanAccount\": {\n    \"originalLoanAmount\": 4931.856064720463,\n    \"principalBalance\": 489.21481868213215,\n    \"interestRate\": 5886.513469154284\n  },\n  \"investmentAccount\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "06c2d4f5-5c9a-49ca-bf1d-34bbcf4abe55",
-          "name": "Get Account Contact",
-          "request": {
-            "name": "Get Account Contact",
-            "description": {},
-            "url": {
-              "path": [
-                "accounts",
-                ":accountId",
-                "contact"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "accountId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5d275b78-6900-4ccd-8b04-bf7f8c1a49b8",
-              "name": "Account contact",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "accounts",
-                    ":accountId",
-                    "contact"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "accountId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:37:07.000Z",
+          "updatedAt": "2026-10-22T01:37:07.000Z",
+          "uid": "35240-004621c6-aba6-4fda-b25c-b98dd3b9f153"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "d26de854-49c9-4364-8b20-511b884577fa",
+      "createdAt": "2026-10-22T01:37:07.000Z",
+      "updatedAt": "2026-10-22T01:37:07.000Z",
+      "uid": "35240-d26de854-49c9-4364-8b20-511b884577fa"
     }
   ],
   "auth": {
@@ -298,29 +297,30 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "accounts_basic_read"
+        "value": "accounts_basic_read",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+        "type": "string"
       },
       {
         "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "authorization_code"
+        "value": "authorization_code",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "1ff276fd-f76a-4052-acab-d01e313608d7",
-    "name": "TD Bank Account Basic Accounts API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6"
     }
-  }
+  ]
 }

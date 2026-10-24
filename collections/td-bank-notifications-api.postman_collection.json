@@ -1,201 +1,197 @@
 {
+  "info": {
+    "_postman_id": "636e32e9-e46b-404e-b151-65be38455278",
+    "name": "TD Bank Account Basic Accounts Notifications API",
+    "description": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:37:01.000Z",
+    "updatedAt": "2026-10-22T01:37:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-636e32e9-e46b-404e-b151-65be38455278"
+  },
   "item": [
     {
-      "id": "f98072d8-bb16-489e-a03b-582a4bdf7113",
-      "name": "Notifications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "notifications",
       "item": [
         {
-          "id": "9a00263e-4ba0-4c7a-afb6-60504590ff7b",
-          "name": "List Notifications",
-          "request": {
-            "name": "List Notifications",
-            "description": {},
-            "url": {
-              "path": [
-                "notifications"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{notificationId}",
+          "item": [
+            {
+              "name": "Get Notification",
+              "id": "627cb8a5-eac6-418e-83f7-63950c1cc81f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/notifications/:notificationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications",
+                    ":notificationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bbe34b4d-32a6-4b33-820a-cee826b40d00",
+                      "key": "notificationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
                 {
-                  "disabled": false,
-                  "key": "category",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "since",
-                  "value": "<dateTime>"
+                  "id": "77f13df7-0bd8-4147-9448-97ab01852877",
+                  "name": "Notification detail",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/notifications/:notificationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "notifications",
+                        ":notificationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "notificationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:37:01.000Z",
+                  "updatedAt": "2026-10-22T01:37:01.000Z",
+                  "uid": "35240-77f13df7-0bd8-4147-9448-97ab01852877"
                 }
               ],
-              "variable": []
-            },
+              "createdAt": "2026-10-22T01:37:01.000Z",
+              "updatedAt": "2026-10-22T01:37:01.000Z",
+              "uid": "35240-627cb8a5-eac6-418e-83f7-63950c1cc81f"
+            }
+          ],
+          "id": "cec3c025-d9c8-4e66-8aee-a3d0b7a6c269",
+          "createdAt": "2026-10-22T01:37:01.000Z",
+          "updatedAt": "2026-10-22T01:37:01.000Z",
+          "uid": "35240-cec3c025-d9c8-4e66-8aee-a3d0b7a6c269"
+        },
+        {
+          "name": "List Notifications",
+          "id": "12412c0e-5618-416a-bb00-82497443ddb5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/notifications?category=maintenance&since=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notifications"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "maintenance"
+                },
+                {
+                  "key": "since",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "7b5a5cbf-83ef-4c17-adac-cd08f1fdd899",
+              "id": "ff846f2e-4bb9-42a8-8683-b4a63e452ccb",
               "name": "Notifications",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "notifications"
-                  ],
+                  "raw": "{{baseUrl}}/notifications?category=maintenance&since=<dateTime>",
                   "host": [
                     "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications"
                   ],
                   "query": [
                     {
                       "key": "category",
-                      "value": "<string>"
+                      "value": "maintenance"
                     },
                     {
                       "key": "since",
                       "value": "<dateTime>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"notifications\": [\n    {\n      \"notificationId\": \"string\",\n      \"category\": \"string\",\n      \"severity\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"affectedResources\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consentId\": \"string\",\n      \"createdAt\": \"2020-07-06T06:26:43.443Z\"\n    },\n    {\n      \"notificationId\": \"string\",\n      \"category\": \"string\",\n      \"severity\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"affectedResources\": [\n        \"string\",\n        \"string\"\n      ],\n      \"consentId\": \"string\",\n      \"createdAt\": \"1969-11-18T08:56:52.765Z\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"notifications\": [\n    {\n      \"notificationId\": \"<string>\",\n      \"category\": \"<string>\",\n      \"severity\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"affectedResources\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"consentId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"notificationId\": \"<string>\",\n      \"category\": \"<string>\",\n      \"severity\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"affectedResources\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"consentId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:37:01.000Z",
+              "updatedAt": "2026-10-22T01:37:01.000Z",
+              "uid": "35240-ff846f2e-4bb9-42a8-8683-b4a63e452ccb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "653f955f-7265-4743-b0aa-824d44b7f55f",
-          "name": "Get Notification",
-          "request": {
-            "name": "Get Notification",
-            "description": {},
-            "url": {
-              "path": [
-                "notifications",
-                ":notificationId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "notificationId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c07e1b0b-3011-4349-be9b-0b49116d70d0",
-              "name": "Notification detail",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "notifications",
-                    ":notificationId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "notificationId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:37:01.000Z",
+          "updatedAt": "2026-10-22T01:37:01.000Z",
+          "uid": "35240-12412c0e-5618-416a-bb00-82497443ddb5"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "id": "28d7da8c-091c-416f-97f0-7686a933ff45",
+      "createdAt": "2026-10-22T01:37:01.000Z",
+      "updatedAt": "2026-10-22T01:37:01.000Z",
+      "uid": "35240-28d7da8c-091c-416f-97f0-7686a933ff45"
     }
   ],
   "auth": {
@@ -203,29 +199,30 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "accounts_basic_read"
+        "value": "accounts_basic_read",
+        "type": "string"
       },
       {
         "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token",
+        "type": "string"
       },
       {
         "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
+        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "authorization_code"
+        "value": "authorization_code",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "2420f239-bfa0-4e88-ae20-fd213c8023cc",
-    "name": "TD Bank Account Basic Accounts Notifications API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6"
     }
-  }
+  ]
 }

@@ -1,223 +1,234 @@
 {
+  "info": {
+    "_postman_id": "77377bff-e5a6-4eeb-9a38-d38fbf3f4735",
+    "name": "TD Bank Apps Management Clusters API",
+    "description": "Apps Management API v2.0. Lets data recipients create and update fintech apps on the TD/Akoya network, list purchased FDX data clusters, manage subscriptions, and look up which entities support specific FDX clusters.\n\nContact Support:\n Name: TD Open Banking Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:38:57.000Z",
+    "updatedAt": "2026-10-22T01:38:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-77377bff-e5a6-4eeb-9a38-d38fbf3f4735"
+  },
   "item": [
     {
-      "id": "e9f89e62-2edf-45e5-9789-d46dadef13f9",
-      "name": "Clusters",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "apps",
       "item": [
         {
-          "id": "90fbfc09-3dad-48f4-b5b8-5045527f553e",
-          "name": "List Purchased FDX Clusters",
-          "request": {
-            "name": "List Purchased FDX Clusters",
-            "description": {},
-            "url": {
-              "path": [
-                "apps",
-                ":appId",
-                "clusters"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "appId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{appId}",
+          "item": [
             {
-              "id": "391b8d95-d2a6-44f8-9599-f166090abb29",
-              "name": "FDX clusters list",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "apps",
-                    ":appId",
-                    "clusters"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "appId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "clusters",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "List Purchased FDX Clusters",
+                  "id": "17d85d5e-b9da-4bf3-8763-540004da1d95",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:appId/clusters",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":appId",
+                        "clusters"
+                      ],
+                      "variable": [
+                        {
+                          "id": "59331a2f-c397-4207-94f6-436db0ea4ca4",
+                          "key": "appId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0c3e81f3-b3ec-4fa9-8837-153b73910b36",
+                      "name": "FDX clusters list",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:appId/clusters",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":appId",
+                            "clusters"
+                          ],
+                          "variable": [
+                            {
+                              "key": "appId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:38:57.000Z",
+                      "updatedAt": "2026-10-22T01:38:57.000Z",
+                      "uid": "35240-0c3e81f3-b3ec-4fa9-8837-153b73910b36"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:38:57.000Z",
+                  "updatedAt": "2026-10-22T01:38:57.000Z",
+                  "uid": "35240-17d85d5e-b9da-4bf3-8763-540004da1d95"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "78170711-1b72-4b21-b78d-9dc37a5fb316",
+              "createdAt": "2026-10-22T01:38:57.000Z",
+              "updatedAt": "2026-10-22T01:38:57.000Z",
+              "uid": "35240-78170711-1b72-4b21-b78d-9dc37a5fb316"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "edd6bd25-ebf3-4c95-8435-b535a2569b1d",
-          "name": "List Entities Supporting Cluster",
-          "request": {
-            "name": "List Entities Supporting Cluster",
-            "description": {},
-            "url": {
-              "path": [
-                "clusters",
-                ":clusterId",
-                "entities"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "clusterId",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "36a74b1f-5f53-48db-a34f-b034a1ce203d",
-              "name": "Entities",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "clusters",
-                    ":clusterId",
-                    "entities"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "clusterId",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f882568b-7213-440e-9886-1c2db03373cd",
+          "createdAt": "2026-10-22T01:38:57.000Z",
+          "updatedAt": "2026-10-22T01:38:57.000Z",
+          "uid": "35240-f882568b-7213-440e-9886-1c2db03373cd"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
+      "id": "86e29a4b-2a43-4af3-8144-14bc02681e76",
+      "createdAt": "2026-10-22T01:38:57.000Z",
+      "updatedAt": "2026-10-22T01:38:57.000Z",
+      "uid": "35240-86e29a4b-2a43-4af3-8144-14bc02681e76"
+    },
     {
-      "type": "string",
-      "value": "https://api.openbanking.amcb.developer.td.com/fdx/v6",
-      "key": "baseUrl"
+      "name": "clusters",
+      "item": [
+        {
+          "name": "{clusterId}",
+          "item": [
+            {
+              "name": "entities",
+              "item": [
+                {
+                  "name": "List Entities Supporting Cluster",
+                  "id": "ca0080a1-fa96-428f-a4c0-9a8f8e0f4db2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/clusters/:clusterId/entities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "clusters",
+                        ":clusterId",
+                        "entities"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7393b2eb-af80-49a5-969c-e20d7a795030",
+                          "key": "clusterId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d6b6a2f1-c2f2-41b0-b810-61ce2273e50e",
+                      "name": "Entities",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/clusters/:clusterId/entities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "clusters",
+                            ":clusterId",
+                            "entities"
+                          ],
+                          "variable": [
+                            {
+                              "key": "clusterId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:38:57.000Z",
+                      "updatedAt": "2026-10-22T01:38:57.000Z",
+                      "uid": "35240-d6b6a2f1-c2f2-41b0-b810-61ce2273e50e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:38:57.000Z",
+                  "updatedAt": "2026-10-22T01:38:57.000Z",
+                  "uid": "35240-ca0080a1-fa96-428f-a4c0-9a8f8e0f4db2"
+                }
+              ],
+              "id": "f92a98e2-bef5-40e1-a1ef-c90b0c35d751",
+              "createdAt": "2026-10-22T01:38:57.000Z",
+              "updatedAt": "2026-10-22T01:38:57.000Z",
+              "uid": "35240-f92a98e2-bef5-40e1-a1ef-c90b0c35d751"
+            }
+          ],
+          "id": "21a006bd-28c2-42ad-b32a-f0c3773d70c5",
+          "createdAt": "2026-10-22T01:38:57.000Z",
+          "updatedAt": "2026-10-22T01:38:57.000Z",
+          "uid": "35240-21a006bd-28c2-42ad-b32a-f0c3773d70c5"
+        }
+      ],
+      "id": "c57aa982-2059-4a27-9be7-0d09db0bcb6d",
+      "createdAt": "2026-10-22T01:38:57.000Z",
+      "updatedAt": "2026-10-22T01:38:57.000Z",
+      "uid": "35240-c57aa982-2059-4a27-9be7-0d09db0bcb6d"
     }
   ],
   "auth": {
-    "type": "oauth2",
-    "oauth2": [
+    "type": "bearer",
+    "bearer": [
       {
-        "key": "scope",
-        "value": "accounts_basic_read"
-      },
-      {
-        "key": "accessTokenUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/token"
-      },
-      {
-        "key": "authUrl",
-        "value": "https://api.openbanking.amcb.developer.td.com/oauth/v1/authorize"
-      },
-      {
-        "key": "grant_type",
-        "value": "authorization_code"
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "840c4a73-17b0-49ad-9bc2-90d028b003e3",
-    "name": "TD Bank Account Basic Accounts Clusters API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "FDX v6.2 Account Basic endpoint. Returns lightweight account information (accountId, type, displayName, masked number) for every consented TD account so aggregators can enumerate accounts without retrieving full detail.\n\nContact Support:\n Name: TD Open Banking Developer Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.openbanking.amcb.developer.td.com/apps/v2"
     }
-  }
+  ]
 }
