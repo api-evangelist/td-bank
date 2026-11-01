@@ -1,4 +1,4 @@
-# TD Bank (td-bank)
+# TD Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,384 +66,202 @@
 
 TD Bank, N.A. (America's Most Convenient Bank) is the U.S. retail and commercial subsidiary of Toronto-Dominion Bank, serving more than 10 million customers from Maine to Florida through roughly 1,100 branches. TD's Open Banking developer portal (hosted at developer.td.com / openbanking.amcb.developer.td.com) exposes an FDX-aligned API suite — Account Basic, Account Detailed, Customer, Transactions, Statements, Tax Forms, Bill Payment, Rewards — plus Consent, Token, Service Token, Apps Management, and Notifications utility APIs that are operated for vetted fintechs and data aggregators via the Akoya Data Access Network. TD also exposes TD Online Mart Recurring Payment APIs through its US/Canadian Merchant Solutions (Worldline-backed).
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/td-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/td-bank/refs/heads/main/apis.yml)
+**Areas:** Account Aggregation · AML · Akoya · Banking · Bank Secrecy Act · Bill Payments · Consent · Consumer Banking · FDX · Financial Services · Merchant Solutions · Notification
 
-## Scope
+## TD Bank on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for TD Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/td-bank/](https://apis.io/providers/td-bank/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (16)
 
-- Account Aggregation
-- AML
-- Akoya
-- Banking
-- Bank Secrecy Act
-- Bill Payment
-- Consent
-- Consumer Banking
-- FDX
-- Financial Services
-- Merchant Solutions
-- Notifications
-- Open Banking
-- Payments
-- Rewards
-- Tax Forms
-- Token Management
-- Transactions
+- [TD Bank Transactions API](https://apis.io/apis/td-bank/transactions-api/) — FDX v6.2 Transactions endpoint that returns posted and pending transaction data for a consented account — amounts, dates, descriptions, merchant fields,…
+- [TD Bank Statements API](https://apis.io/apis/td-bank/statements-api/) — FDX v6.2 Statements endpoint that lists available statement periods for a consented account and lets consumers retrieve the statement PDF. Supports the…
+- [TD Bank Tax Forms API](https://apis.io/apis/td-bank/tax-forms-api/) — FDX v6.2 Tax Forms endpoint that lists tax forms (e.g. 1099-INT, 1099-DIV) issued for a consented TD account in a given year and lets consumers retrieve the…
+- [TD Bank Rewards API](https://apis.io/apis/td-bank/rewards-api/) — TD Open Banking Rewards API v1.0.0 returns reward program and membership information for the currently authenticated user — designed to track rewards…
+- [TD Bank Notifications API](https://apis.io/apis/td-bank/notifications-api/) — Notifications API — retrieves alerts about significant changes on the TD/Akoya network, including planned/unplanned maintenance outages and consent events…
+- [TD Online Mart Recurring Payment API](https://apis.io/apis/td-bank/td-online-mart-recurring-payment-api/) — TD Merchant Solutions Recurring Payment API (Worldline-backed gateway) — lets merchants schedule and process recurring membership / subscription card…
+- [TD Bank Accounts API](https://apis.io/apis/td-bank/td-bank-accounts-api/) — The Accounts API from TD Bank — 3 operation(s) for accounts.
+- [TD Bank Apps API](https://apis.io/apis/td-bank/td-bank-apps-api/) — The Apps API from TD Bank — 2 operation(s) for apps.
+- [TD Bank Bill Payments API](https://apis.io/apis/td-bank/td-bank-bill-payments-api/) — The Bill Payments API from TD Bank — 1 operation(s) for bill payments.
+- [TD Bank Clusters API](https://apis.io/apis/td-bank/td-bank-clusters-api/) — The Clusters API from TD Bank — 2 operation(s) for clusters.
+- [TD Bank Consents API](https://apis.io/apis/td-bank/td-bank-consents-api/) — The Consents API from TD Bank — 2 operation(s) for consents.
+- [TD Bank Customers API](https://apis.io/apis/td-bank/td-bank-customers-api/) — The Customers API from TD Bank — 2 operation(s) for customers.
+- [TD Bank Payees API](https://apis.io/apis/td-bank/td-bank-payees-api/) — The Payees API from TD Bank — 1 operation(s) for payees.
+- [TD Bank Service Tokens API](https://apis.io/apis/td-bank/td-bank-service-tokens-api/) — The Service Tokens API from TD Bank — 1 operation(s) for service tokens.
+- [TD Bank Subscriptions API](https://apis.io/apis/td-bank/td-bank-subscriptions-api/) — The Subscriptions API from TD Bank — 1 operation(s) for subscriptions.
+- [TD Bank Tokens API](https://apis.io/apis/td-bank/td-bank-tokens-api/) — The Tokens API from TD Bank — 3 operation(s) for tokens.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-05-03
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### TD Bank Account Basic API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-FDX v6.2 lightweight accounts endpoint that returns minimal descriptive information and the accountId for each of a consumer's consented TD accounts. The accountId is then used by the Account Detailed API to retrieve full structure, terms, balances, and identifiers.
+- [Td Bank Agentic Access](https://apis.io/agentic-access/td-bank/td-bank-agentic-access/)
 
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
+#### JSON Schema (4)
 
-#### Tags
+The data models the API reads and writes.
 
-- Account Aggregation
-- FDX
-- Open Banking
+- [TD Bank FDX Account](https://apis.io/schemas/td-bank/td-bank-account/)
+- [TD Bank FDX Consent](https://apis.io/schemas/td-bank/td-bank-consent/)
+- [TD Bank FDX Customer](https://apis.io/schemas/td-bank/td-bank-customer/)
+- [TD Bank FDX Transaction](https://apis.io/schemas/td-bank/td-bank-transaction/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-account-basic-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-account-basic-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-account-basic-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### TD Bank Account Detailed API
+- [Td Bank Account Structure](https://apis.io/json-structure/td-bank/td-bank-account-structure/)
 
-FDX v6.2 OpenAPI 3.1.0 specification that returns comprehensive information for a specific account — structure, terms, current/available balances, identifiers, and account-type-specific fields (deposit, loan, investment) — for any account previously surfaced through the Account Basic API.
+#### JSON-LD (1)
 
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/account-detailed-v1-0-0-api-spec-ofs](https://docs.pat.openbanking.amcb.developer.td.com/guides/account-detailed-v1-0-0-api-spec-ofs)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Td Bank Context](https://apis.io/jsonld/td-bank/td-bank-context/)
 
-- Account Aggregation
-- FDX
-- Open Banking
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/account-detailed-v1-0-0-api-spec-ofs)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-account-detailed-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-account-detailed-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-account-detailed-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [TD Bank Domain Vocabulary](https://apis.io/vocabularies/td-bank/td-bank-vocabulary/)
 
-### TD Bank Customer API
+#### Examples (6)
 
-FDX v6.2 Customer endpoint that returns the customer contact record (name, address, email, telephone, account holders) tied to a permissioned accountId. Used by aggregators to confirm account ownership and to power KYC / identity verification flows.
+Example requests and responses.
 
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
+- [Td Bank Account Example](https://apis.io/examples/td-bank/td-bank-account-example/)
+- [Td Bank Consent Example](https://apis.io/examples/td-bank/td-bank-consent-example/)
+- [Td Bank Customer Example](https://apis.io/examples/td-bank/td-bank-customer-example/)
+- [Td Bank Notification Example](https://apis.io/examples/td-bank/td-bank-notification-example/)
+- [Td Bank Token Example](https://apis.io/examples/td-bank/td-bank-token-example/)
+- [Td Bank Transaction Example](https://apis.io/examples/td-bank/td-bank-transaction-example/)
 
-#### Tags
+#### Collections (23)
 
-- Customer
-- FDX
-- Open Banking
+Postman and Open Collection request collections.
 
-#### Properties
+- [TD Bank Account Basic API](https://apis.io/collections/td-bank/open-td-bank-account-basic-api/)
+- [TD Bank Account Detailed API](https://apis.io/collections/td-bank/open-td-bank-account-detailed-api/)
+- [TD Bank Account Basic Accounts API](https://apis.io/collections/td-bank/open-td-bank-accounts-api/)
+- [TD Bank Account Basic Accounts Apps API](https://apis.io/collections/td-bank/open-td-bank-apps-api/)
+- [TD Bank Apps Management API](https://apis.io/collections/td-bank/open-td-bank-apps-management-api/)
+- [TD Bank Bill Payment API](https://apis.io/collections/td-bank/open-td-bank-bill-payment-api/)
+- [TD Bank Account Basic Accounts Bill Payments API](https://apis.io/collections/td-bank/open-td-bank-bill-payments-api/)
+- [TD Bank Account Basic Accounts Clusters API](https://apis.io/collections/td-bank/open-td-bank-clusters-api/)
+- [TD Bank Consent API](https://apis.io/collections/td-bank/open-td-bank-consent-api/)
+- [TD Bank Account Basic Accounts Consents API](https://apis.io/collections/td-bank/open-td-bank-consents-api/)
+- [TD Bank Customer API](https://apis.io/collections/td-bank/open-td-bank-customer-api/)
+- [TD Bank Account Basic Accounts Customers API](https://apis.io/collections/td-bank/open-td-bank-customers-api/)
+- [TD Bank Account Basic Accounts Notifications API](https://apis.io/collections/td-bank/open-td-bank-notifications-api/)
+- [TD Bank Account Basic Accounts Payees API](https://apis.io/collections/td-bank/open-td-bank-payees-api/)
+- [TD Bank Account Basic Accounts Rewards API](https://apis.io/collections/td-bank/open-td-bank-rewards-api/)
+- [TD Bank Service Token API](https://apis.io/collections/td-bank/open-td-bank-service-token-api/)
+- [TD Bank Account Basic Accounts Service Tokens API](https://apis.io/collections/td-bank/open-td-bank-service-tokens-api/)
+- [TD Bank Account Basic Accounts Statements API](https://apis.io/collections/td-bank/open-td-bank-statements-api/)
+- [TD Bank Account Basic Accounts Subscriptions API](https://apis.io/collections/td-bank/open-td-bank-subscriptions-api/)
+- [TD Bank Account Basic Accounts Tax Forms API](https://apis.io/collections/td-bank/open-td-bank-tax-forms-api/)
+- [TD Bank Token API](https://apis.io/collections/td-bank/open-td-bank-token-api/)
+- [TD Bank Account Basic Accounts Tokens API](https://apis.io/collections/td-bank/open-td-bank-tokens-api/)
+- [TD Bank Account Basic Accounts Transactions API](https://apis.io/collections/td-bank/open-td-bank-transactions-api/)
 
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-customer-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-customer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-customer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### TD Bank Transactions API
+Spectral rulesets for the provider's contracts.
 
-FDX v6.2 Transactions endpoint that returns posted and pending transaction data for a consented account — amounts, dates, descriptions, merchant fields, status — with support for pagination, date-range filtering, and transaction image retrieval.
+- [TD Bank — jsonschema rules](https://apis.io/rules/td-bank/td-bank-jsonschema-spectral-rules/)
+- [TD Bank API Rules](https://apis.io/rules/td-bank/td-bank-rules/)
 
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Transactions
-- FDX
-- Open Banking
+- [Td Bank Authentication](https://apis.io/security/td-bank/td-bank-authentication/)
+- [Td Bank Domain Security](https://apis.io/security/td-bank/td-bank-domain-security/)
 
-#### Properties
+#### OAuth scopes (1)
 
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-transactions-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-transactions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-transactions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The permissions the API asks for.
 
-### TD Bank Statements API
+- [Td Bank Scopes](https://apis.io/scopes/td-bank/td-bank-scopes/)
 
-FDX v6.2 Statements endpoint that lists available statement periods for a consented account and lets consumers retrieve the statement PDF. Supports the standard FDX statement metadata model.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/statements-v1-0-0-api-spec-ofs](https://docs.pat.openbanking.amcb.developer.td.com/guides/statements-v1-0-0-api-spec-ofs)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
+Published plans, tiers and prices.
 
-#### Tags
+- [Td Bank Plans Pricing](https://apis.io/plans/td-bank/td-bank-plans-pricing/)
 
-- Statements
-- FDX
-- Open Banking
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/statements-v1-0-0-api-spec-ofs)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-statements-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-statements-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-statements-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Td Bank Rate Limits](https://apis.io/rate-limits/td-bank/td-bank-rate-limits/)
 
-### TD Bank Tax Forms API
+#### FinOps (1)
 
-FDX v6.2 Tax Forms endpoint that lists tax forms (e.g. 1099-INT, 1099-DIV) issued for a consented TD account in a given year and lets consumers retrieve the form PDF.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
+- [Td Bank Finops](https://apis.io/finops/td-bank/td-bank-finops/)
 
-#### Tags
+## Where to find this API
 
-- Tax Forms
-- FDX
-- Open Banking
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-tax-forms-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-tax-forms-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-tax-forms-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Bank Bill Payment API
-
-FDX v6.2 Bill Payment endpoint that retrieves information about a consented customer's bill payment activity and payees, enabling fintechs to review payment history, payee metadata, and recurring billing rules.
-
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
-
-#### Tags
-
-- Bill Payment
-- FDX
-- Open Banking
-
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-bill-payment-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-bill-payment-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-bill-payment-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Bank Rewards API
-
-TD Open Banking Rewards API v1.0.0 returns reward program and membership information for the currently authenticated user — designed to track rewards participation across travel, retail, and merchant programs tied to TD credit card and loyalty accounts.
-
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/rewards-api-spec-hdi](https://docs.pat.openbanking.amcb.developer.td.com/guides/rewards-api-spec-hdi)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/fdx/v6`
-
-#### Tags
-
-- Rewards
-- Open Banking
-
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/rewards-api-spec-hdi)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/fdx/v6)
-- [OpenAPI](openapi/td-bank-rewards-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-rewards-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-rewards-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Bank Consent API
-
-TD Open Banking Consent API implements the FDX consent model — fetching consent details for a consumer, revoking consents, and retrieving consent revocation records. Explicit consumer consent is the gating mechanism for every Data API call.
-
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow](https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/consent/v1`
-
-#### Tags
-
-- Consent
-- FDX
-- Open Banking
-
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/consent/v1)
-- [OpenAPI](openapi/td-bank-consent-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-consent-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-consent-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Bank Token API
-
-OAuth 2.0 Token API with Pushed Authorization Request (PAR) — issues access tokens for the FDX Data APIs and the Consent API. Flow begins with POST PAR, returns a request URI used to build the consent URL, and exchanges the resulting authorization code for an access token via POST /token.
-
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/advanced-token-scenarios](https://docs.pat.openbanking.amcb.developer.td.com/guides/advanced-token-scenarios)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/oauth/v1`
-
-#### Tags
-
-- Token Management
-- OAuth
-- Open Banking
-
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/advanced-token-scenarios)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox/oauth/v1)
-- [OpenAPI](openapi/td-bank-token-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-token-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-token-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Bank Service Token API
-
-OAuth 2.0 Service Token API (Akoya v1.0.1) — generates client-credentials tokens for the utility APIs (Apps Management, Notifications). Separate from the user-context Token API so partner backend systems can authenticate without a user session.
-
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/reference/service-token-akoya-v1-0-1](https://docs.pat.openbanking.amcb.developer.td.com/reference/service-token-akoya-v1-0-1)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/oauth/v1`
-
-#### Tags
-
-- Token Management
-- OAuth
-- Akoya
-
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/reference/service-token-akoya-v1-0-1)
-- [OpenAPI](openapi/td-bank-service-token-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-service-token-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-service-token-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Bank Apps Management API
-
-Apps Management API v2.0 — lets data recipients create and update fintech apps on the TD/Akoya network, list purchased FDX data clusters, manage subscriptions, and look up which entities support specific FDX clusters.
-
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide](https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/apps/v2`
-
-#### Tags
-
-- Apps Management
-- Akoya
-- Open Banking
-
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/reference/management-api-v20-guide)
-- [OpenAPI](openapi/td-bank-apps-management-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-apps-management-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-apps-management-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Bank Notifications API
-
-Notifications API — retrieves alerts about significant changes on the TD/Akoya network, including planned/unplanned maintenance outages and consent events (revoked or modified consumer consents). Lets data recipients react to consent revocations and platform incidents in near real time.
-
-- **Human URL:** [https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- **Base URL:** `https://api.openbanking.amcb.developer.td.com/notifications/v1`
-
-#### Tags
-
-- Notifications
-- Akoya
-- Open Banking
-
-#### Properties
-
-- [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/guides/about-our-apis-hdi)
-- [OpenAPI](openapi/td-bank-notifications-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/td-bank-notifications-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-notifications-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### TD Online Mart Recurring Payment API
-
-TD Merchant Solutions Recurring Payment API (Worldline-backed gateway) — lets merchants schedule and process recurring membership / subscription card payments. Supports API Passcode, Username/Password, and Hash Key authentication models for shopping-cart integrations.
-
-- **Human URL:** [https://www.td.com/ca/en/business-banking/merchant-solutions/online-mart-ecommerce](https://www.td.com/ca/en/business-banking/merchant-solutions/online-mart-ecommerce)
-- **Base URL:** `https://gateway.tdmerchantservices.com`
-
-#### Tags
-
-- Merchant Solutions
-- Payments
-- Recurring Payments
-
-#### Properties
-
-- [Documentation](https://www.td.com/ca/en/business-banking/merchant-solutions/ecommerce-platforms)
-- [Postman Collection](collections/td-bank-account-basic-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-account-basic-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-account-detailed-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-account-detailed-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-apps-management-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-apps-management-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-bill-payment-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-bill-payment-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-consent-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-consent-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-customer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-customer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-notifications-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-notifications-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-rewards-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-rewards-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-service-token-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-service-token-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-statements-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-statements-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-tax-forms-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-tax-forms-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-token-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-token-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/td-bank-transactions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/td-bank-transactions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://developer.td.com)
+- [Website](https://www.td.com/)
 - [Documentation](https://docs.pat.openbanking.amcb.developer.td.com/)
-- [Authentication](https://docs.pat.openbanking.amcb.developer.td.com/guides/portal-manual-authentication)
-- [Consent Flow](https://docs.pat.openbanking.amcb.developer.td.com/guides/consent-flow)
-- [Open A P I Specs](https://docs.pat.openbanking.amcb.developer.td.com/guides/openapi-specs)
-- [Error Reference](https://docs.pat.openbanking.amcb.developer.td.com/guides/api-error-reference)
-- [Sandbox U R L](https://api.openbanking.amcb.developer.td.com/sandbox)
-- [Production U R L](https://api.openbanking.amcb.developer.td.com)
-- [Standards](https://financialdataexchange.org/)
-- [Aggregator Network](https://akoya.com/)
-- [Partner Aggregator](https://plaid.com/institutions/td-bank/)
-- [Company U R L](https://www.td.com/us/en/)
-- [Parent Company U R L](https://www.td.com/)
-- [News Room](https://td.mediaroom.com/)
-- [Stories](https://stories.td.com/us/en)
-- [Investor Relations](https://www.td.com/ca/en/investor-relations)
-- [Git Hub](https://github.com/TD-Bank)
-- [Terms of Service](https://www.td.com/us/en/personal-banking/privacy)
-- [Security Policy](https://www.td.com/us/en/personal-banking/security)
-- [Vocabulary](vocabulary/td-bank-vocabulary.yml)
-- [JSON-LD](json-ld/td-bank-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/td-bank-plans-pricing.yml)
-- [Rate Limits](rate-limits/td-bank-rate-limits.yml)
-- [Fin Ops](finops/td-bank-finops.yml)
-- [Spectral Ruleset](rules/td-bank-rules.yml)
+- [Terms of service](https://www.td.com/us/en/personal-banking/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 35.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 45.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 18.4 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 29.9** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/td-bank/](https://apis.io/providers/td-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for TD Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/td-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
